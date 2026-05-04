@@ -35,6 +35,11 @@ The platform includes:
 - Supabase PostgreSQL
 - Prisma ORM
 
+### Auth
+
+- Supabase Auth
+- @supabase/ssr
+
 ### State / Forms / Validation
 
 - Zustand
@@ -157,6 +162,77 @@ Step 2 database foundation has been completed.
 
 ---
 
+## Authentication & Admin Authorization Completed
+
+Step 3 admin authentication and authorization has been completed.
+
+### Auth Provider Chosen
+
+Supabase Auth is the selected authentication provider.
+
+### Why Supabase Auth Was Selected
+
+- The project already uses Supabase PostgreSQL, so Supabase Auth keeps authentication close to the database platform.
+- Supabase Auth user IDs are UUIDs, which map cleanly to the existing `User.id` primary key.
+- The architecture can later expand into customer auth, Row Level Security, storage policies, and gateway callbacks without replacing the auth provider.
+- Server-side Supabase session helpers work well with the Next.js App Router and middleware.
+
+### Added Dependencies
+
+- `@supabase/ssr`
+- `@supabase/supabase-js`
+
+### Added Files / Structure
+
+- `middleware.ts`
+- `src/lib/auth.ts`
+- `src/lib/supabase/server.ts`
+- `src/lib/supabase/middleware.ts`
+- `src/server/services/auth.service.ts`
+- `src/features/auth/actions/admin-login.action.ts`
+- `src/features/auth/actions/admin-logout.action.ts`
+- `src/features/auth/components/admin-login-form.tsx`
+- `src/features/auth/components/admin-logout-button.tsx`
+- `src/features/auth/components/admin-shell.tsx`
+- `src/features/auth/schemas/auth.schema.ts`
+- `src/app/admin/login/page.tsx`
+- `src/app/admin/(protected)/layout.tsx`
+- `src/app/admin/(protected)/page.tsx`
+- `src/components/ui/input.tsx`
+- `src/components/ui/label.tsx`
+- `src/components/ui/card.tsx`
+
+### Route Protection Strategy
+
+- `middleware.ts` protects `/admin/*`.
+- Unauthenticated admin requests are redirected to `/admin/login?next=<requested-path>`.
+- Middleware refreshes Supabase sessions using `@supabase/ssr`.
+- Middleware rejects users who explicitly have non-admin Supabase `app_metadata.role` / `app_metadata.roles`.
+- Final admin authorization is server-side in `src/server/services/auth.service.ts` against the Prisma `User` and `Admin` tables.
+- The protected admin route group uses `src/app/admin/(protected)/layout.tsx`, which calls `requireAdminSession()` before rendering the admin shell.
+
+### Admin Auth Flow
+
+- Admins sign in at `/admin/login`.
+- Login form uses React Hook Form, Zod validation, and shadcn/ui primitives.
+- Login uses Supabase Auth email/password.
+- After Supabase authentication, `auth.service.ts` syncs the Supabase auth user into the local `User` table.
+- Admin access requires:
+  - active local `User`
+  - local `User.role` of `ADMIN` or `SUPER_ADMIN`
+  - active linked `Admin` profile
+- Unauthorized accounts are signed out and shown an admin authorization error.
+- Logout uses a server action and clears the Supabase session.
+
+### Important Auth Notes
+
+- This step intentionally implements admin auth only, not customer-facing auth.
+- New Supabase auth users are synced into `User` as `USER` by default. Admin access must be granted deliberately in the database by setting `User.role` and creating an active `Admin` profile.
+- Add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` to `.env` for runtime auth.
+- Supabase `app_metadata` can be used as a fast middleware hint, but the database remains the source of truth for admin authorization.
+
+---
+
 ## Folder Structure
 
 ```txt
@@ -165,11 +241,14 @@ src/
 ├── components/
 │   └── ui/
 ├── features/
+│   └── auth/
 ├── lib/
+│   └── supabase/
 ├── server/
-│   └── db/
-│       ├── queries/
-│       └── repositories/
+│   ├── db/
+│   │   ├── queries/
+│   │   └── repositories/
+│   └── services/
 ├── hooks/
 ├── providers/
 ├── store/
@@ -238,11 +317,15 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - Initial Prisma schema and migration
 - Prisma Client generation
 - Database type exports and server DB folder placeholders
+- Step 3 admin authentication and authorization
+- Supabase Auth integration
+- Protected admin route shell
+- Admin login/logout flow
 
 ### Pending
 
 - Apply migration to Supabase database
-- Auth system
+- Customer-facing auth
 - Storefront
 - Admin dashboard
 - Payments integration
