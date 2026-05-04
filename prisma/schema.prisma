@@ -20,6 +20,11 @@ enum UserStatus {
   SUSPENDED
 }
 
+enum AuthProvider {
+  SUPABASE
+  CUSTOM_JWT
+}
+
 enum AdminRole {
   MANAGER
   EDITOR
@@ -73,17 +78,21 @@ enum HomepageContentStatus {
 }
 
 model User {
-  id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  email        String     @unique
-  name         String?
-  phone        String?
-  role         UserRole   @default(USER)
-  status       UserStatus @default(ACTIVE)
-  adminProfile Admin?
-  orders       Order[]
-  createdAt    DateTime   @default(now())
-  updatedAt    DateTime   @updatedAt
+  id             String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email          String       @unique
+  name           String?
+  phone          String?
+  authProvider   AuthProvider @default(SUPABASE)
+  authProviderId String
+  role           UserRole     @default(USER)
+  status         UserStatus   @default(ACTIVE)
+  adminProfile   Admin?
+  orders         Order[]
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
 
+  @@unique([authProvider, authProviderId])
+  @@index([authProvider])
   @@index([role])
   @@index([status])
   @@map("users")

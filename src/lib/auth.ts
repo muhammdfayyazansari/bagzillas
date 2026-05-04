@@ -1,4 +1,4 @@
-import type { User as SupabaseUser } from "@supabase/supabase-js";
+import type { AuthIdentity } from "@/server/auth/providers/auth-provider.interface";
 
 export const authRoutes = {
   adminLogin: "/admin/login",
@@ -20,13 +20,13 @@ export function getSafeAdminRedirect(redirectTo?: string | null) {
   return authRoutes.adminDashboard;
 }
 
-export function isAdminMetadataUser(user: SupabaseUser | null) {
-  if (!user) {
+export function isAdminMetadataIdentity(identity: AuthIdentity | null) {
+  if (!identity) {
     return false;
   }
 
-  const role = user.app_metadata?.role;
-  const roles = user.app_metadata?.roles;
+  const role = identity.metadata?.role;
+  const roles = identity.metadata?.roles;
 
   if (typeof role === "string" && adminRoles.has(role)) {
     return true;
@@ -41,13 +41,13 @@ export function isAdminMetadataUser(user: SupabaseUser | null) {
   return false;
 }
 
-export function hasExplicitNonAdminMetadata(user: SupabaseUser | null) {
-  if (!user) {
+export function hasExplicitNonAdminMetadata(identity: AuthIdentity | null) {
+  if (!identity) {
     return false;
   }
 
-  const role = user.app_metadata?.role;
-  const roles = user.app_metadata?.roles;
+  const role = identity.metadata?.role;
+  const roles = identity.metadata?.roles;
 
   if (typeof role === "string") {
     return !adminRoles.has(role);

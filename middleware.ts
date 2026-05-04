@@ -1,11 +1,13 @@
 import { type NextRequest, NextResponse } from "next/server";
 
 import { authRoutes, hasExplicitNonAdminMetadata } from "@/lib/auth";
-import { updateSupabaseSession } from "@/lib/supabase/middleware";
+import { createMiddlewareAuthProvider } from "@/server/auth/providers/auth-provider.factory";
 
 export async function middleware(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
-  const { response, user } = await updateSupabaseSession(request);
+  const authProvider = createMiddlewareAuthProvider();
+  const { response, identity } =
+    await authProvider.getMiddlewareIdentity(request);
 
   if (
     !pathname.startsWith("/admin") ||
@@ -14,7 +16,7 @@ export async function middleware(request: NextRequest) {
     return response;
   }
 
-  if (!user) {
+  if (!identity) {
     const loginUrl = request.nextUrl.clone();
     loginUrl.pathname = authRoutes.adminLogin;
     loginUrl.searchParams.set("next", `${pathname}${search}`);
@@ -22,7 +24,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(loginUrl);
   }
 
-  if (hasExplicitNonAdminMetadata(user)) {
+  if (hasExplicitNonAdminMetadata(identity)) {
     const loginUrl = request.nextUrl.clone();
     loginUrl.pathname = authRoutes.adminLogin;
     loginUrl.searchParams.set("error", "unauthorized");

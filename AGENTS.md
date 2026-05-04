@@ -173,7 +173,7 @@ Supabase Auth is the selected authentication provider.
 ### Why Supabase Auth Was Selected
 
 - The project already uses Supabase PostgreSQL, so Supabase Auth keeps authentication close to the database platform.
-- Supabase Auth user IDs are UUIDs, which map cleanly to the existing `User.id` primary key.
+- Supabase Auth user IDs are UUIDs and are stored as provider identity values, while Bagzillas keeps its own internal `User.id`.
 - The architecture can later expand into customer auth, Row Level Security, storage policies, and gateway callbacks without replacing the auth provider.
 - Server-side Supabase session helpers work well with the Next.js App Router and middleware.
 
@@ -216,7 +216,7 @@ Supabase Auth is the selected authentication provider.
 - Admins sign in at `/admin/login`.
 - Login form uses React Hook Form, Zod validation, and shadcn/ui primitives.
 - Login uses Supabase Auth email/password.
-- After Supabase authentication, `auth.service.ts` syncs the Supabase auth user into the local `User` table.
+- After Supabase authentication, `auth.service.ts` syncs the provider identity into the local `User` table.
 - Admin access requires:
   - active local `User`
   - local `User.role` of `ADMIN` or `SUPER_ADMIN`
@@ -227,9 +227,50 @@ Supabase Auth is the selected authentication provider.
 ### Important Auth Notes
 
 - This step intentionally implements admin auth only, not customer-facing auth.
-- New Supabase auth users are synced into `User` as `USER` by default. Admin access must be granted deliberately in the database by setting `User.role` and creating an active `Admin` profile.
+- New Supabase auth users are synced into `User` as `USER` by default with `authProvider=SUPABASE` and `authProviderId=<supabase-user-id>`. Admin access must be granted deliberately in the database by setting `User.role` and creating an active `Admin` profile.
 - Add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` to `.env` for runtime auth.
 - Supabase `app_metadata` can be used as a fast middleware hint, but the database remains the source of truth for admin authorization.
+
+---
+
+## Auth Abstraction Refactor Completed
+
+Step 3.5 future-proof auth architecture refactor has been completed.
+
+### New Auth Abstraction Architecture
+
+- Added `src/server/auth/providers/auth-provider.interface.ts` as the stable provider contract.
+- Added `src/server/auth/providers/supabase-auth.provider.ts` as the current Supabase Auth adapter.
+- Added `src/server/auth/providers/auth-provider.factory.ts` as the single provider binding point.
+- Refactored `src/server/services/auth.service.ts` to consume `AuthProviderAdapter` behavior through the factory rather than calling Supabase APIs directly.
+- Refactored `middleware.ts` to consume `MiddlewareAuthProviderAdapter` through the same provider factory.
+- Removed `src/lib/supabase/server.ts` and `src/lib/supabase/middleware.ts`; provider-specific session handling now lives inside the Supabase adapter.
+
+### User Identity Decoupling
+
+- Added Prisma enum `AuthProvider` with `SUPABASE` and `CUSTOM_JWT`.
+- Added `User.authProvider` and `User.authProviderId`.
+- Added a compound unique constraint on `[authProvider, authProviderId]`.
+- `User.id` is now treated as Bagzillas' internal user ID, not a provider-owned ID.
+- A migration backfills existing users by using the prior UUID `id` value as the initial `authProviderId`.
+
+### Coupling Rules
+
+- UI components must never import Supabase directly.
+- Feature actions must call internal app services/actions and avoid provider SDK usage.
+- Supabase SDK usage belongs only in `src/server/auth/providers/supabase-auth.provider.ts` unless the provider factory is intentionally changed.
+- Database admin authorization remains centralized in `src/server/services/auth.service.ts`.
+
+### Future JWT / NestJS Migration Strategy
+
+- Add `src/server/auth/providers/jwt-auth.provider.ts` implementing `AuthProviderAdapter` and `MiddlewareAuthProviderAdapter`.
+- Switch `src/server/auth/providers/auth-provider.factory.ts` from Supabase to JWT.
+- Keep `src/features/auth/*`, admin pages, and admin shell unchanged.
+- Portability maps cleanly to NestJS:
+  - provider interface -> Nest provider contract
+  - `auth.service.ts` -> Nest auth service
+  - middleware provider -> Nest guard/session strategy
+  - Prisma user/admin checks -> Nest authorization guard/service
 
 ---
 
@@ -243,8 +284,9 @@ src/
 ├── features/
 │   └── auth/
 ├── lib/
-│   └── supabase/
 ├── server/
+│   ├── auth/
+│   │   └── providers/
 │   ├── db/
 │   │   ├── queries/
 │   │   └── repositories/
@@ -321,6 +363,9 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - Supabase Auth integration
 - Protected admin route shell
 - Admin login/logout flow
+- Step 3.5 auth provider abstraction refactor
+- Internal user ID decoupled from provider IDs
+- JWT/NestJS-ready auth provider structure
 
 ### Pending
 

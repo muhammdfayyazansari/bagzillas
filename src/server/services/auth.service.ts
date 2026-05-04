@@ -1,14 +1,17 @@
 import type { Admin, User } from "@prisma/client";
 import { UserRole, UserStatus } from "@prisma/client";
-import type { User as SupabaseUser } from "@supabase/supabase-js";
 import { redirect } from "next/navigation";
 
-import { authRoutes } from "@/lib/auth";
+import { authRoutes, getSafeAdminRedirect } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { createAuthProvider } from "@/server/auth/providers/auth-provider.factory";
+import type {
+  AuthIdentity,
+  PasswordSignInInput,
+} from "@/server/auth/providers/auth-provider.interface";
 
 export type AdminSession = {
-  authUser: SupabaseUser;
+  identity: AuthIdentity;
   user: User;
   admin: Admin;
 };
@@ -25,32 +28,23 @@ function isAuthorizedAdmin(user: UserWithAdmin) {
   );
 }
 
-async function syncAuthUser(authUser: SupabaseUser) {
-  const email = authUser.email?.toLowerCase();
-
-  if (!email) {
-    return null;
-  }
-
-  const fullName =
-    typeof authUser.user_metadata?.name === "string"
-      ? authUser.user_metadata.name
-      : typeof authUser.user_metadata?.full_name === "string"
-        ? authUser.user_metadata.full_name
-        : null;
-
+async function syncAuthUser(identity: AuthIdentity) {
   return prisma.user.upsert({
     where: {
-      id: authUser.id,
+      authProvider_authProviderId: {
+        authProvider: identity.provider,
+        authProviderId: identity.providerId,
+      },
     },
     update: {
-      email,
-      name: fullName,
+      email: identity.email,
+      name: identity.name,
     },
     create: {
-      id: authUser.id,
-      email,
-      name: fullName,
+      email: identity.email,
+      name: identity.name,
+      authProvider: identity.provider,
+      authProviderId: identity.providerId,
       role: UserRole.USER,
       status: UserStatus.ACTIVE,
     },
@@ -61,43 +55,34 @@ async function syncAuthUser(authUser: SupabaseUser) {
 }
 
 export async function getCurrentAuthUser() {
-  const supabase = await createSupabaseServerClient();
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser();
-
-  if (error || !user) {
-    return null;
-  }
-
-  return user;
+  const authProvider = createAuthProvider();
+  return authProvider.getCurrentIdentity();
 }
 
 export async function getAdminSessionForUser(
-  authUser: SupabaseUser
+  identity: AuthIdentity
 ): Promise<AdminSession | null> {
-  const user = await syncAuthUser(authUser);
+  const user = await syncAuthUser(identity);
 
   if (!user || !isAuthorizedAdmin(user) || !user.adminProfile) {
     return null;
   }
 
   return {
-    authUser,
+    identity,
     user,
     admin: user.adminProfile,
   };
 }
 
 export async function getAdminSession(): Promise<AdminSession | null> {
-  const authUser = await getCurrentAuthUser();
+  const identity = await getCurrentAuthUser();
 
-  if (!authUser) {
+  if (!identity) {
     return null;
   }
 
-  return getAdminSessionForUser(authUser);
+  return getAdminSessionForUser(identity);
 }
 
 export async function requireAdminSession() {
@@ -111,6 +96,34 @@ export async function requireAdminSession() {
 }
 
 export async function signOutAdmin() {
-  const supabase = await createSupabaseServerClient();
-  await supabase.auth.signOut();
+  const authProvider = createAuthProvider();
+  await authProvider.signOut();
+}
+
+export async function signInAdmin(
+  input: PasswordSignInInput & { redirectTo?: string }
+) {
+  const authProvider = createAuthProvider();
+  const result = await authProvider.signInWithPassword(input);
+
+  if (result.error) {
+    return {
+      error:
+        result.error.code === "INVALID_CREDENTIALS"
+          ? "Invalid email or password."
+          : "Unable to sign in. Please try again.",
+    };
+  }
+
+  const adminSession = await getAdminSessionForUser(result.identity);
+
+  if (!adminSession) {
+    await authProvider.signOut();
+
+    return {
+      error: "This account is not authorized for admin access.",
+    };
+  }
+
+  redirect(getSafeAdminRedirect(input.redirectTo));
 }

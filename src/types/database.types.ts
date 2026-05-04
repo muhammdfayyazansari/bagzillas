@@ -1,5 +1,6 @@
 import type {
   AdminRole,
+  AuthProvider,
   HomepageContentStatus,
   OrderStatus,
   PaymentMethod,
@@ -12,6 +13,7 @@ import type {
 
 export type {
   AdminRole,
+  AuthProvider,
   HomepageContentStatus,
   OrderStatus,
   PaymentMethod,
