@@ -96,6 +96,67 @@ Step 1 foundation setup has been completed.
 
 ---
 
+## Database & Prisma Setup Completed
+
+Step 2 database foundation has been completed.
+
+### Added Files / Structure
+
+- `prisma/schema.prisma`
+- `prisma/migrations/20260504000000_init/migration.sql`
+- `prisma/migrations/migration_lock.toml`
+- `prisma/seed.ts`
+- `.env.example`
+- `src/types/database.types.ts`
+- `src/server/db/queries/`
+- `src/server/db/repositories/`
+
+### Database Models
+
+- `User`: customer identity foundation with email, phone, role, status, and orders.
+- `Admin`: admin profile linked one-to-one with `User`, with admin role, active flag, and permissions JSON for future granular access.
+- `Category`: normalized product categories with slug uniqueness, hierarchy support, active flag, and sort order.
+- `Product`: catalog item with SKU/slug uniqueness, status lifecycle, pricing fields, inventory quantity, category relation, metadata JSON, and featured flag.
+- `ProductImage`: multiple image support per product with primary image and sort order.
+- `HomepageContent`: CMS content blocks keyed by unique section keys, JSON content, publish status, versioning, publish timestamp, and optional admin editor relation.
+- `Order`: ecommerce order aggregate with guest/user support, order lifecycle, customer snapshot fields, address JSON snapshots, totals, and currency.
+- `OrderItem`: line-item records with product relation plus product snapshot fields to preserve historical order accuracy.
+- `Payment`: payment lifecycle records with provider, method, status, amount, transaction ID, gateway response JSON, and paid timestamp.
+
+### Enums
+
+- `UserRole`
+- `UserStatus`
+- `AdminRole`
+- `ProductStatus`
+- `OrderStatus`
+- `PaymentStatus`
+- `PaymentMethod`
+- `PaymentProvider`
+- `HomepageContentStatus`
+
+### Architectural Decisions
+
+- Supabase PostgreSQL is configured through Prisma with `DATABASE_URL` and `DIRECT_URL`.
+- UUID primary keys use PostgreSQL `gen_random_uuid()` via `pgcrypto` in the initial migration.
+- Prisma model names stay PascalCase while database table names are mapped to snake_case plural tables with `@@map`.
+- Monetary values use `Decimal @db.Decimal(12, 2)`.
+- Product deletion preserves order history by setting `OrderItem.productId` to null while retaining product snapshot fields.
+- User deletion preserves order history by setting `Order.userId` to null.
+- Product image deletion cascades with product deletion.
+- Admin deletion does not delete CMS records; homepage editor references are set null.
+- Query and repository folders are prepared under `src/server/db`, but no business logic has been added yet.
+- `src/lib/prisma.ts` remains the singleton Prisma Client entrypoint for Next.js hot reload safety.
+
+### Future DB Notes
+
+- Apply the initial migration to Supabase when ready with Prisma migration tooling using `DIRECT_URL`.
+- Add auth-provider identifiers after the auth system is selected.
+- Add product variants, coupons, shipping zones, reviews, inventory ledgers, audit logs, and payment gateway-specific metadata when those features are scoped.
+- Add Row Level Security and Supabase policies deliberately after the app access patterns are defined.
+
+---
+
 ## Folder Structure
 
 ```txt
@@ -106,6 +167,9 @@ src/
 ├── features/
 ├── lib/
 ├── server/
+│   └── db/
+│       ├── queries/
+│       └── repositories/
 ├── hooks/
 ├── providers/
 ├── store/
@@ -170,12 +234,14 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - Shared utility files
 - Prettier and ESLint formatting setup
 - Starter/demo Next.js boilerplate cleanup
+- Step 2 database and Prisma setup
+- Initial Prisma schema and migration
+- Prisma Client generation
+- Database type exports and server DB folder placeholders
 
 ### Pending
 
-- Prisma schema setup
-- Database schema design
-- Supabase connection
+- Apply migration to Supabase database
 - Auth system
 - Storefront
 - Admin dashboard
