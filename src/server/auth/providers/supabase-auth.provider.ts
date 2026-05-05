@@ -1,4 +1,4 @@
-import { AuthProvider } from "@prisma/client";
+import type { AuthProvider } from "@prisma/client";
 import { createServerClient } from "@supabase/ssr";
 import { AuthApiError, type User as SupabaseUser } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
@@ -44,7 +44,7 @@ function toIdentity(user: SupabaseUser): AuthIdentity | null {
         : null;
 
   return {
-    provider: AuthProvider.SUPABASE,
+    provider: "SUPABASE" as AuthProvider,
     providerId: user.id,
     email: user.email.toLowerCase(),
     name,
