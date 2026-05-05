@@ -378,10 +378,17 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - Framer Motion animations for hover, entrance, and mobile menu transitions
 - Public route grouping under `(storefront)`
 
+- Step 5 admin dashboard UI foundation
+- Responsive AdminShell with mobile drawer and sidebar
+- Dashboard Overview with `recharts` sales chart and metrics
+- Products management UI (tables, forms, image upload zone placeholder)
+- CMS management UI (Hero editor, Featured products selector)
+- Orders management UI (Slide-out details drawer, status badges)
+- Settings UI placeholders
+
 ### Pending
 
 - Apply migration to Supabase database
 - Customer-facing auth
-- Admin dashboard
 - Payments integration
 - Connect UI to Prisma database for dynamic rendering

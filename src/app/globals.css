@@ -46,6 +46,11 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+/* custom css of mine  */
+  --max-width-8xl: 90rem;   /* 1440px */
+  --max-width-9xl: 100rem;  /* 1600px */
+  --max-width-10xl: 110rem; /* 1760px */
 }
 
 :root {
