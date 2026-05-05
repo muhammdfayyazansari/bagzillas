@@ -347,6 +347,8 @@ This file must always stay updated so future AI/dev agents can continue seamless
 
 ### Completed
 
+### Completed
+
 - Initial Next.js project scaffolded
 - Step 1 foundation setup
 - Dependency installation
@@ -366,11 +368,20 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - Step 3.5 auth provider abstraction refactor
 - Internal user ID decoupled from provider IDs
 - JWT/NestJS-ready auth provider structure
+- Step 4 shared design system & public storefront UI foundation
+- Global layout components (`StorefrontLayout`, `Navbar`, `Footer`, `SectionContainer`)
+- Shared components (`ProductCard`, `TrustBadge`, `EmptyState`)
+- Reusable page sections inside `src/features/storefront/components`
+- Homepage UI with Hero, Featured Products, Categories, Trust, Testimonials, and Newsletter sections
+- Product Listing Page (PLP) UI with responsive grid and filter placeholders
+- Product Detail Page (PDP) UI with image gallery, product info, and related products
+- Framer Motion animations for hover, entrance, and mobile menu transitions
+- Public route grouping under `(storefront)`
 
 ### Pending
 
 - Apply migration to Supabase database
 - Customer-facing auth
-- Storefront
 - Admin dashboard
 - Payments integration
+- Connect UI to Prisma database for dynamic rendering
