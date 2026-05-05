@@ -57,7 +57,7 @@ The platform includes:
 
 ### Media / Storage
 
-- Cloudinary or Supabase Storage (TBD)
+- Cloudinary or Supabase Storage (see Step 6 — `MEDIA_STORAGE_PROVIDER` + `src/server/storage/*`)
 
 ### Deployment
 
@@ -281,8 +281,12 @@ src/
 ├── app/
 ├── components/
 │   └── ui/
+├── constants/
 ├── features/
-│   └── auth/
+│   ├── admin/
+│   ├── auth/
+│   ├── products/
+│   └── storefront/
 ├── lib/
 ├── server/
 │   ├── auth/
@@ -290,13 +294,78 @@ src/
 │   ├── db/
 │   │   ├── queries/
 │   │   └── repositories/
-│   └── services/
+│   ├── services/
+│   └── storage/
 ├── hooks/
 ├── providers/
 ├── store/
-├── types/
-└── constants/
+└── types/
 ```
+
+---
+
+## Step 6 Admin Product CRUD Backend Integration Completed
+
+Step 6 connects the admin Products UI to real database and upload infrastructure using a Nest-portable layering model.
+
+### New Dependency
+
+- `cloudinary` (optional path when `MEDIA_STORAGE_PROVIDER=cloudinary`)
+
+### Product Domain & CRUD
+
+- **Repositories (data access only):**
+  - `src/server/db/repositories/product.repository.ts` — pagination with lean `select`, detail `include`, create with nested images, transactional image replacement on update, delete.
+  - `src/server/db/repositories/category.repository.ts` — category picklist for admin forms.
+- **Query layer:**
+  - `src/server/db/queries/product-list.query.ts` — builds `Prisma.ProductWhereInput` for search/status/category filters (portable predicate builder).
+- **Service (domain orchestration, no Prisma in UI):**
+  - `src/server/services/product.service.ts` — slug allocation, SKU/slug conflict handling (Prisma `P2002` mapped to user-facing errors), category existence checks, image row normalization (single primary), Decimal mapping.
+- **Server actions (Next entrypoints; Nest would become controllers):**
+  - `src/features/products/actions/create-product.action.ts`
+  - `src/features/products/actions/update-product.action.ts`
+  - `src/features/products/actions/delete-product.action.ts`
+  - `src/features/products/actions/upload-product-image.action.ts`
+- **Validation & DTOs:**
+  - `src/features/products/schemas/product.schema.ts` — Zod for create/update payloads and list query (`page`, `pageSize`, `q`, `status`, `categoryId`).
+  - `src/features/products/types/product.types.ts` — serializable admin list shapes and form value types.
+- **Serialization:**
+  - `src/features/products/lib/serialize-admin-product.ts` — `Decimal`/Date → JSON-safe payloads for Client Components.
+
+### Admin UI Wiring
+
+- `src/app/admin/(protected)/products/page.tsx` — server-rendered paginated list via `productService.listPaginated` + URL search params; no Prisma in the route file besides calling the service.
+- `src/app/admin/(protected)/products/new/page.tsx` — category picklist + create form.
+- `src/app/admin/(protected)/products/[productId]/edit/page.tsx` — load by id (`notFound` if missing) + edit form.
+- `src/features/admin/components/products/products-table.tsx` — client interactions (delete mutation, GET search form, pagination via links).
+- `src/features/admin/components/products/product-form.tsx` — React Hook Form + server actions, success/error banners, redirect to edit after create.
+- `src/features/admin/components/products/image-upload-zone.tsx` — `FormData` upload through `uploadProductImageAction`; controlled image list including primary selection.
+
+### Security
+
+- **`requireAdminSession()`** continues to gate the `/admin/(protected)` layout (SSR).
+- **`requireAdminActionSession()`** (`src/server/services/auth.service.ts`) re-validates admin on **every mutating/action** boundary so UI-only checks are insufficient.
+- Actions: `createProduct`, `updateProduct`, `deleteProduct`, `uploadProductImage` all enforce admin before persistence or upload.
+
+### Media / Storage Strategy
+
+- **`MediaStorageAdapter`** (`src/server/storage/media-storage.interface.ts`) — small port: `uploadImage({ buffer, filename, mimeType }) → { url }`.
+- **`getMediaStorageAdapter()`** (`src/server/storage/media-storage.factory.ts`) — chooses implementation from `MEDIA_STORAGE_PROVIDER`:
+  - `cloudinary` → `CloudinaryMediaStorage` (`src/server/storage/cloudinary.media-storage.ts`)
+  - `supabase` → `SupabaseBucketMediaStorage` (`src/server/storage/supabase.media-storage.ts`) using `SUPABASE_SERVICE_ROLE_KEY` and public URL output.
+- **Environment** (`src/lib/env.ts`, `.env.example`): provider + Cloudinary/Supabase keys documented. Uploads fail fast with a clear message if the provider is unset or misconfigured.
+
+### Performance
+
+- Product list uses `findMany` + `count` in a transaction with **narrow `select`**, indexed filters, and deterministic `orderBy` (`updatedAt desc`).
+- Pagination is URL-driven (`?page=&pageSize=&q=`) so list pages remain cache-friendly and shareable.
+
+### NestJS Migration Notes
+
+- Move `MediaStorageAdapter` + factory into a Nest dynamic module; bind Cloudinary or Supabase as providers.
+- `productRepository` ↔ Nest `@Injectable()` repository using injected `PrismaService`.
+- `productService` ↔ domain service invoked by guarded controllers.
+- Server actions ↔ HTTP PATCH/POST/DELETE controllers with identical Zod/DTO contracts.
 
 ---
 
@@ -347,8 +416,6 @@ This file must always stay updated so future AI/dev agents can continue seamless
 
 ### Completed
 
-### Completed
-
 - Initial Next.js project scaffolded
 - Step 1 foundation setup
 - Dependency installation
@@ -385,10 +452,16 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - CMS management UI (Hero editor, Featured products selector)
 - Orders management UI (Slide-out details drawer, status badges)
 - Settings UI placeholders
+- Step 6 admin product CRUD integrated with Prisma (create, read, update, delete, paginated list)
+- Product repository + query builder + `productService` orchestration
+- Zod-validated product server actions and admin upload pipeline
+- Swappable media storage (Cloudinary / Supabase) via `MediaStorageAdapter` + factory
+- Server-side admin checks on all product mutations and uploads (`requireAdminActionSession`)
+- Admin routes: `/admin/products`, `/admin/products/new`, `/admin/products/[productId]/edit`
 
 ### Pending
 
 - Apply migration to Supabase database
 - Customer-facing auth
 - Payments integration
-- Connect UI to Prisma database for dynamic rendering
+- Connect storefront catalog pages to Prisma-backed product reads (admin path is wired)

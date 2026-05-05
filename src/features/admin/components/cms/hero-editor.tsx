@@ -4,9 +4,14 @@ import * as React from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { ImageUploadZone } from "@/features/admin/components/products/image-upload-zone";
+import {
+  ImageUploadZone,
+  type ImageUploadItem,
+} from "@/features/admin/components/products/image-upload-zone";
 
 export function HeroEditor() {
+  const [heroImages, setHeroImages] = React.useState<ImageUploadItem[]>([]);
+
   return (
     <div className="rounded-xl border bg-card p-6 shadow-sm space-y-6">
       <div className="flex items-center justify-between border-b pb-4">
@@ -47,7 +52,10 @@ export function HeroEditor() {
 
         <div className="space-y-4">
           <Label>Hero Background Image</Label>
-          <ImageUploadZone />
+          <ImageUploadZone
+            images={heroImages}
+            onImagesChange={setHeroImages}
+          />
         </div>
       </div>
 

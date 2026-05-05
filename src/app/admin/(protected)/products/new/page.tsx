@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+
 import { ProductForm } from "@/features/admin/components/products/product-form";
+import { categoryRepository } from "@/server/db/repositories/category.repository";
 
 export const metadata: Metadata = {
   title: "Add Product | Admin Dashboard",
 };
 
-export default function NewProductPage() {
+export default async function NewProductPage() {
+  const categories = await categoryRepository.findSelectList();
+
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-4">
-        <Link 
+        <Link
           href="/admin/products"
           className="flex h-9 w-9 items-center justify-center rounded-md border bg-background hover:bg-muted"
         >
@@ -26,7 +30,7 @@ export default function NewProductPage() {
         </div>
       </div>
 
-      <ProductForm />
+      <ProductForm mode="create" categories={categories} />
     </div>
   );
 }

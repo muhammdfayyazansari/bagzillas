@@ -95,6 +95,17 @@ export async function requireAdminSession() {
   return adminSession;
 }
 
+/** Server actions: return a message instead of redirecting (UI shows error). */
+export async function requireAdminActionSession(): Promise<
+  { ok: true; session: AdminSession } | { ok: false; error: string }
+> {
+  const adminSession = await getAdminSession();
+  if (!adminSession) {
+    return { ok: false, error: "You must be signed in as an admin." };
+  }
+  return { ok: true, session: adminSession };
+}
+
 export async function signOutAdmin() {
   const authProvider = createAuthProvider();
   await authProvider.signOut();
