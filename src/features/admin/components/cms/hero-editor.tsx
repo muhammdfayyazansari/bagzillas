@@ -93,7 +93,7 @@ export function HeroEditor({ initialData }: HeroEditorProps) {
             <ImageUploadZone
               images={
                 form.watch("backgroundImageUrl")
-                  ? [{ url: form.watch("backgroundImageUrl")!, isPrimary: true, sortOrder: 0 }]
+                  ? [{ url: form.watch("backgroundImageUrl")!, isPrimary: true, altText: "" }]
                   : []
               }
               onImagesChange={(images) => {

@@ -26,7 +26,7 @@ export const testimonialSchema = z.object({
   name: z.string().min(1, "Name is required").max(100),
   role: z.string().max(100).optional(),
   content: z.string().min(1, "Testimonial content is required").max(500),
-  rating: z.number().min(1).max(5).default(5),
+  rating: z.number().min(1).max(5),
   avatarUrl: z.string().url().optional().or(z.literal("")),
 });
 

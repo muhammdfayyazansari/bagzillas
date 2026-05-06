@@ -12,7 +12,7 @@ export async function saveFeaturedProductsAction(formData: unknown) {
 
     const parsed = featuredProductsSchema.safeParse(formData);
     if (!parsed.success) {
-      return { success: false, error: parsed.error.errors[0].message };
+      return { success: false, error: parsed.error.issues[0].message };
     }
 
     await homepageService.saveFeaturedProducts(parsed.data, auth.session.admin.id);

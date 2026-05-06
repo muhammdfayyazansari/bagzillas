@@ -12,7 +12,7 @@ export async function saveTestimonialsAction(formData: unknown) {
 
     const parsed = testimonialsSectionSchema.safeParse(formData);
     if (!parsed.success) {
-      return { success: false, error: parsed.error.errors[0].message };
+      return { success: false, error: parsed.error.issues[0].message };
     }
 
     await homepageService.saveTestimonialsSection(parsed.data, auth.session.admin.id);

@@ -1,10 +1,10 @@
 import * as React from "react";
-import { Truck, ShieldCheck, RefreshCw, HeadphonesIcon, HelpCircle } from "lucide-react";
+import { Truck, ShieldCheck, RefreshCw, HeadphonesIcon, HelpCircle, type LucideIcon } from "lucide-react";
 import { SectionContainer } from "@/components/layout/section-container";
 import { TrustBadge } from "@/components/shared/trust-badge";
 import type { TrustSectionContent } from "@/features/homepage/types/cms.types";
 
-const iconMap: Record<string, React.ElementType> = {
+const iconMap: Record<string, LucideIcon> = {
   truck: Truck,
   "shield-check": ShieldCheck,
   "refresh-cw": RefreshCw,

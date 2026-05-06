@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useForm as useRHForm } from "react-hook-form";
+import { useForm as useRHForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { testimonialsSectionSchema } from "@/features/homepage/schemas/cms.schema";
 import type { TestimonialsSectionContent } from "@/features/homepage/types/cms.types";
@@ -27,7 +27,7 @@ export function TestimonialsEditor({ initialData }: TestimonialsEditorProps) {
     }
   });
 
-  const { fields, append, remove } = require("react-hook-form").useFieldArray({
+  const { fields, append, remove } = useFieldArray({
     control: form.control,
     name: "testimonials"
   });
