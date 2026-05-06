@@ -6,7 +6,7 @@ import { ProductCard } from "@/components/shared/product-card";
 import { Button } from "@/components/ui/button";
 
 // Mock Data
-const featuredProducts = [
+const mockFeaturedProducts = [
   {
     id: "1",
     slug: "classic-leather-backpack",
@@ -44,7 +44,27 @@ const featuredProducts = [
   },
 ];
 
-export function FeaturedProductsSection() {
+interface FeaturedProductsSectionProps {
+  products?: any[]; // Prisma Product model array
+}
+
+export function FeaturedProductsSection({ products }: FeaturedProductsSectionProps) {
+  // If we have actual products from DB, map them. Otherwise fallback to mock.
+  const displayProducts = products && products.length > 0
+    ? products.map(p => ({
+        id: p.id,
+        slug: p.slug,
+        title: p.name,
+        price: Number(p.price),
+        compareAtPrice: p.compareAtPrice ? Number(p.compareAtPrice) : undefined,
+        // Since images are separate, we might just have a placeholder or need to fetch them.
+        // In this step, we'll use a placeholder if no image is included.
+        imageUrl: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1000&auto=format&fit=crop", 
+        category: p.categoryId || "Bags", // We could join category in the service layer later
+        isFeatured: p.isFeatured,
+      }))
+    : mockFeaturedProducts;
+
   return (
     <section className="py-20 md:py-28">
       <SectionContainer>
@@ -64,7 +84,7 @@ export function FeaturedProductsSection() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {featuredProducts.map((product) => (
+          {displayProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

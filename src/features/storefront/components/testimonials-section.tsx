@@ -5,32 +5,34 @@ import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { SectionContainer } from "@/components/layout/section-container";
 import { cn } from "@/lib/utils";
+import type { TestimonialsSectionContent } from "@/features/homepage/types/cms.types";
 
-const testimonials = [
-  {
-    id: 1,
-    name: "Ahmed Raza",
-    role: "University Student",
-    content: "The quality is simply unmatched. I've been using my Bagzillas backpack for a year now and it still looks brand new despite heavy daily use.",
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: "Fatima Ali",
-    role: "Medical Student",
-    content: "Finally found a bag that fits all my heavy books without hurting my shoulders. The ergonomic design is a lifesaver!",
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: "Usman Tariq",
-    role: "Freelancer",
-    content: "Great minimalist design and the laptop compartment is perfectly padded. Shipping was surprisingly fast too.",
-    rating: 4,
-  },
-];
+interface TestimonialsSectionProps {
+  data?: TestimonialsSectionContent;
+}
 
-export function TestimonialsSection() {
+export function TestimonialsSection({ data }: TestimonialsSectionProps) {
+  const testimonials = data?.testimonials?.length ? data.testimonials : [
+    {
+      name: "Ahmed Raza",
+      role: "University Student",
+      content: "The quality is simply unmatched. I've been using my Bagzillas backpack for a year now and it still looks brand new despite heavy daily use.",
+      rating: 5,
+    },
+    {
+      name: "Fatima Ali",
+      role: "Medical Student",
+      content: "Finally found a bag that fits all my heavy books without hurting my shoulders. The ergonomic design is a lifesaver!",
+      rating: 5,
+    },
+    {
+      name: "Usman Tariq",
+      role: "Freelancer",
+      content: "Great minimalist design and the laptop compartment is perfectly padded. Shipping was surprisingly fast too.",
+      rating: 4,
+    },
+  ];
+
   return (
     <section className="py-20 md:py-28 bg-primary/5">
       <SectionContainer>
@@ -44,7 +46,7 @@ export function TestimonialsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
-              key={testimonial.id}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

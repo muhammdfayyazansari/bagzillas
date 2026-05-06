@@ -1,9 +1,28 @@
 import * as React from "react";
-import { Truck, ShieldCheck, RefreshCw, HeadphonesIcon } from "lucide-react";
+import { Truck, ShieldCheck, RefreshCw, HeadphonesIcon, HelpCircle } from "lucide-react";
 import { SectionContainer } from "@/components/layout/section-container";
 import { TrustBadge } from "@/components/shared/trust-badge";
+import type { TrustSectionContent } from "@/features/homepage/types/cms.types";
 
-export function TrustSection() {
+const iconMap: Record<string, React.ElementType> = {
+  truck: Truck,
+  "shield-check": ShieldCheck,
+  "refresh-cw": RefreshCw,
+  "headphones-icon": HeadphonesIcon,
+};
+
+interface TrustSectionProps {
+  data?: TrustSectionContent;
+}
+
+export function TrustSection({ data }: TrustSectionProps) {
+  const badges = data?.badges || [
+    { icon: "truck", title: "Fast Nationwide Delivery", description: "Quick and reliable delivery across all major cities in Pakistan." },
+    { icon: "shield-check", title: "Premium Quality", description: "Durable materials and excellent craftsmanship on every product." },
+    { icon: "refresh-cw", title: "Easy Returns", description: "7-day hassle-free return policy for your peace of mind." },
+    { icon: "headphones-icon", title: "Dedicated Support", description: "Our customer service team is always here to help you." },
+  ];
+
   return (
     <section className="py-20 md:py-28 bg-background">
       <SectionContainer>
@@ -15,26 +34,17 @@ export function TrustSection() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          <TrustBadge
-            icon={Truck}
-            title="Fast Nationwide Delivery"
-            description="Quick and reliable delivery across all major cities in Pakistan."
-          />
-          <TrustBadge
-            icon={ShieldCheck}
-            title="Premium Quality"
-            description="Durable materials and excellent craftsmanship on every product."
-          />
-          <TrustBadge
-            icon={RefreshCw}
-            title="Easy Returns"
-            description="7-day hassle-free return policy for your peace of mind."
-          />
-          <TrustBadge
-            icon={HeadphonesIcon}
-            title="Dedicated Support"
-            description="Our customer service team is always here to help you."
-          />
+          {badges.map((badge, idx) => {
+            const IconComponent = iconMap[badge.icon] || HelpCircle;
+            return (
+              <TrustBadge
+                key={idx}
+                icon={IconComponent}
+                title={badge.title}
+                description={badge.description || ""}
+              />
+            );
+          })}
         </div>
       </SectionContainer>
     </section>

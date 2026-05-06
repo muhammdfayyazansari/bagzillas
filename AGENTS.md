@@ -458,6 +458,13 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - Swappable media storage (Cloudinary / Supabase) via `MediaStorageAdapter` + factory
 - Server-side admin checks on all product mutations and uploads (`requireAdminActionSession`)
 - Admin routes: `/admin/products`, `/admin/products/new`, `/admin/products/[productId]/edit`
+- Step 7 Homepage CMS Backend Integration
+- `homepageRepository` and `homepageService` established for CRUD operations on `HomepageContent` model
+- Zod schemas define the shape of JSON content for Hero, Featured Products, Trust Badges, and Testimonials
+- Server actions with admin-only protection handle UI mutations (`saveHeroSectionAction`, etc.)
+- Admin CMS UI (`HeroEditor`, `FeaturedSelector`, `TrustEditor`, `TestimonialsEditor`) wired to real backend with `react-hook-form`
+- Storefront homepage (`/src/app/(storefront)/page.tsx`) converted to SSR to fetch live CMS content via `homepageService`
+- Storefront components gracefully fallback to default mock data if no CMS record is published
 
 ### Pending
 
