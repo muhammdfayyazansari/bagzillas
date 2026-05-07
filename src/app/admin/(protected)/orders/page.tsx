@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { OrdersTable } from "@/features/admin/components/orders/orders-table";
+import { orderService } from "@/server/services/order.service";
 
 export const metadata: Metadata = {
   title: "Orders | Admin Dashboard",
 };
 
-export default function OrdersPage() {
+export default async function OrdersPage() {
+  const result = await orderService.findManyPaginated({ page: 1, pageSize: 20 });
+
   return (
     <div className="space-y-6">
       <div>
@@ -15,7 +18,7 @@ export default function OrdersPage() {
         </p>
       </div>
 
-      <OrdersTable />
+      <OrdersTable orders={result.items} />
     </div>
   );
 }

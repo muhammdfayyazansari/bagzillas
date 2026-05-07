@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { SectionContainer } from "./section-container";
-import { Badge } from "@/components/ui/badge";
+import { CartDrawer } from "@/features/storefront/components/cart-drawer";
 
 const navLinks = [
   { name: "Backpacks", href: "/products?category=backpacks" },
@@ -18,7 +18,6 @@ const navLinks = [
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-  const [cartCount, setCartCount] = React.useState(2); // Mock count
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
@@ -65,17 +64,7 @@ export function Navbar() {
             <Button variant="ghost" size="icon" className="hidden sm:inline-flex" aria-label="Account">
               <User className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="relative" aria-label="Cart">
-              <ShoppingCart className="h-5 w-5" />
-              {cartCount > 0 && (
-                <Badge
-                  variant="default"
-                  className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full p-0 text-[10px]"
-                >
-                  {cartCount}
-                </Badge>
-              )}
-            </Button>
+            <CartDrawer />
           </div>
         </div>
       </SectionContainer>

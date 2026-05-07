@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
+import { useCartStore } from "@/store/cart.store";
+
 interface ProductInfoProps {
   product: {
     id: string;
@@ -16,12 +18,28 @@ interface ProductInfoProps {
     category: string;
     isNew?: boolean;
     sku: string;
+    slug: string;
     inStock: boolean;
+    imageUrl?: string;
   };
 }
 
 export function ProductInfo({ product }: ProductInfoProps) {
   const [quantity, setQuantity] = React.useState(1);
+  const addItem = useCartStore((state) => state.addItem);
+  const setIsOpen = useCartStore((state) => state.setIsOpen);
+
+  const handleAddToCart = () => {
+    addItem({
+      productId: product.id,
+      name: product.title,
+      slug: product.slug,
+      price: product.price,
+      quantity,
+      imageUrl: product.imageUrl || "",
+    });
+    setIsOpen(true);
+  };
 
   return (
     <div className="flex flex-col gap-6">
@@ -79,7 +97,12 @@ export function ProductInfo({ product }: ProductInfoProps) {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3">
-          <Button size="lg" className="flex-1 text-base h-12" disabled={!product.inStock}>
+          <Button 
+            size="lg" 
+            className="flex-1 text-base h-12" 
+            disabled={!product.inStock}
+            onClick={handleAddToCart}
+          >
             <ShoppingBag className="mr-2 h-5 w-5" />
             Add to Cart
           </Button>

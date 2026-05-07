@@ -465,6 +465,15 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - Admin CMS UI (`HeroEditor`, `FeaturedSelector`, `TrustEditor`, `TestimonialsEditor`) wired to real backend with `react-hook-form`
 - Storefront homepage (`/src/app/(storefront)/page.tsx`) converted to SSR to fetch live CMS content via `homepageService`
 - Storefront components gracefully fallback to default mock data if no CMS record is published
+- Step 8 Cart + Checkout + Order Creation System
+- Implemented Zustand store (`src/store/cart.store.ts`) with `localStorage` persistence for client-side cart management.
+- Built sliding `CartDrawer` integrated into the global `Navbar`.
+- Built Zod schema and React Hook Form-powered checkout page with Pakistani context (COD default, phone, city, address).
+- Built secure backend order domain: `order.repository.ts` and `order.service.ts`.
+- Server action `createOrderAction` validates cart prices strictly against DB, recalculates totals, and wraps creation in a Prisma transaction.
+- Admin dashboard orders page updated to fetch real DB orders via `orderService.findManyPaginated`.
+- Admin order details drawer connected to `getOrderDetailsAction` to fetch real order items and shipping data dynamically.
+- `updateOrderStatusAction` implemented to allow admins to transition orders (PENDING -> PROCESSING -> SHIPPED -> DELIVERED).
 
 ### Pending
 

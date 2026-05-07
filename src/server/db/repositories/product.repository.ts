@@ -85,6 +85,13 @@ export const productRepository = {
     });
   },
 
+  async findManyByIds(ids: string[]) {
+    return prisma.product.findMany({
+      where: { id: { in: ids } },
+      include: detailInclude,
+    });
+  },
+
   async findManyPaginated(options: {
     page: number;
     pageSize: number;
