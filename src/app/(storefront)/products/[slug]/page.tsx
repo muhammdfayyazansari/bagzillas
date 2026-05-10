@@ -23,14 +23,14 @@ const mockProduct = {
   images: [
     "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1000&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1491845112529-650a23274cb7?q=80&w=1000&auto=format&fit=crop"
+    "https://res.cloudinary.com/dzimxrsfd/image/upload/v1778175281/bagzillas/products/file_qswnzw.webp"
   ]
 };
 
 export default function ProductDetailPage({ params }: { params: { slug: string } }) {
   // In a real app, we would fetch the product by slug here.
   // For now, we just use the mock product.
-  
+
   return (
     <>
       <SectionContainer className="py-12 md:py-20">

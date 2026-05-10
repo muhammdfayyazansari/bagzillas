@@ -41,7 +41,7 @@ const allProducts = [
     slug: "student-essential-pack",
     title: "Student Essential Pack",
     price: 2500,
-    imageUrl: "https://images.unsplash.com/photo-1491845112529-650a23274cb7?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "https://res.cloudinary.com/dzimxrsfd/image/upload/v1778175281/bagzillas/products/file_qswnzw.webp",
     category: "Backpacks",
   },
   {
@@ -66,15 +66,15 @@ const allProducts = [
 export default function ProductsPage() {
   return (
     <>
-      <PageHeader 
-        title="All Products" 
+      <PageHeader
+        title="All Products"
         description="Find the perfect companion for your daily journey. From durable backpacks to stylish totes."
       />
-      
+
       <SectionContainer className="py-12 md:py-20">
         <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
           <DesktopFilterSidebar />
-          
+
           <div className="flex-1">
             <ProductFilters />
             <ProductGrid products={allProducts} />

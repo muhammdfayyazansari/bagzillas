@@ -39,7 +39,7 @@ const mockFeaturedProducts = [
     slug: "student-essential-pack",
     title: "Student Essential Pack",
     price: 2500,
-    imageUrl: "https://images.unsplash.com/photo-1491845112529-650a23274cb7?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "https://res.cloudinary.com/dzimxrsfd/image/upload/v1778175281/bagzillas/products/file_qswnzw.webp",
     category: "Backpacks",
   },
 ];
@@ -52,17 +52,17 @@ export function FeaturedProductsSection({ products }: FeaturedProductsSectionPro
   // If we have actual products from DB, map them. Otherwise fallback to mock.
   const displayProducts = products && products.length > 0
     ? products.map(p => ({
-        id: p.id,
-        slug: p.slug,
-        title: p.name,
-        price: Number(p.price),
-        compareAtPrice: p.compareAtPrice ? Number(p.compareAtPrice) : undefined,
-        // Since images are separate, we might just have a placeholder or need to fetch them.
-        // In this step, we'll use a placeholder if no image is included.
-        imageUrl: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1000&auto=format&fit=crop", 
-        category: p.categoryId || "Bags", // We could join category in the service layer later
-        isFeatured: p.isFeatured,
-      }))
+      id: p.id,
+      slug: p.slug,
+      title: p.name,
+      price: Number(p.price),
+      compareAtPrice: p.compareAtPrice ? Number(p.compareAtPrice) : undefined,
+      // Since images are separate, we might just have a placeholder or need to fetch them.
+      // In this step, we'll use a placeholder if no image is included.
+      imageUrl: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1000&auto=format&fit=crop",
+      category: p.categoryId || "Bags", // We could join category in the service layer later
+      isFeatured: p.isFeatured,
+    }))
     : mockFeaturedProducts;
 
   return (

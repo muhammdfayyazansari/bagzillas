@@ -51,6 +51,10 @@
   --max-width-8xl: 90rem;   /* 1440px */
   --max-width-9xl: 100rem;  /* 1600px */
   --max-width-10xl: 110rem; /* 1760px */
+  --max-width-11xl: 120rem; /* 1760px */
+  --max-width-12xl: 130rem; /* 1760px */
+  --max-width-13xl: 140rem; /* 1760px */
+  --max-width-14xl: 150rem; /* 1760px */
 }
 
 :root {
