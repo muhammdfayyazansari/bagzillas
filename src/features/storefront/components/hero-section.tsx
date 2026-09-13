@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { SectionContainer } from "@/components/layout/section-container";
 
 import type { HeroSectionContent } from "@/features/homepage/types/cms.types";
+import { useState } from "react";
 
 interface HeroSectionProps {
   data?: HeroSectionContent;
@@ -17,6 +18,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ data }: HeroSectionProps) {
   const heading = data?.heading || "DELSEY PARIS";
+  const [isHovered, setIsHovered] = useState(false);
 
   const subheading =
     data?.subheading ||
@@ -34,17 +36,17 @@ export function HeroSection({ data }: HeroSectionProps) {
 
   return (
     <section className="relative w-full overflow-hidden">
-      <SectionContainer className="relative !max-w-none !px-0">
+      <SectionContainer className="relative max-w-none! px-0!">
         {/* HERO CONTAINER */}
         <div
           className="
             relative w-full
-            min-h-[550px]
+            min-h-137.5
             h-[40vh]
-            sm:h-[80vh]
-            md:h-[85vh]
-            lg:h-screen
-            2xl:h-[95vh]
+            sm:h-[65vh]
+          
+         
+ 
             3xl:h-[100vh]
           "
         >
@@ -82,7 +84,7 @@ export function HeroSection({ data }: HeroSectionProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7 }}
                 className="
-                 flex flex-col justify-around lg:h-[600px] h-96  md:h-[500px]  sm:h-[450px]  
+                 flex flex-col justify-around 
                   max-w-full
                   sm:max-w-xl
                   md:max-w-2xl
@@ -92,102 +94,35 @@ export function HeroSection({ data }: HeroSectionProps) {
                 "
               >
                 {/* STARS */}
-                {/* <div
-                  className="
-                    mb-5 flex flex-wrap items-center gap-2
-                    sm:mb-6
-                    xl:mb-8
-                  "
-                >
-                  {[1, 2, 3, 4, 5].map((item) => (
-                    <div
-                      key={item}
-                      className="
-                        flex items-center justify-center
-                        rounded-md bg-green-600
-                        h-7 w-7
-                        sm:h-8 sm:w-8
-                        lg:h-10 lg:w-10
-                        2xl:h-12 2xl:w-12
-                      "
-                    >
-                      <Star
-                        className="
-                          text-white fill-white
-                          h-3 w-3
-                          sm:h-4 sm:w-4
-                          lg:h-5 lg:w-5
-                          2xl:h-6 2xl:w-6
-                        "
-                      />
-                    </div>
-                  ))}
-                </div> */}
-
-                {/* <div
-                  className="
-    mb-4 flex flex-wrap items-center gap-1.5
-    sm:mb-5
-    xl:mb-6
-  "
-                >
-                  {[1, 2, 3, 4, 5].map((item) => (
-                    <div
-                      key={item}
-                      className="
-        flex items-center justify-center
-        rounded-md bg-green-600
-        h-6 w-6
-        sm:h-7 sm:w-7
-        lg:h-8 lg:w-8
-        2xl:h-10 2xl:w-10
-      "
-                    >
-                      <Star
-                        className="
-          text-white fill-white
-          h-2.5 w-2.5
-          sm:h-3 sm:w-3
-          lg:h-4 lg:w-4
-          2xl:h-5 2xl:w-5
-        "
-                      />
-                    </div>
-                  ))}
-                </div> */}
-
-
                 <div className="mb-3 flex flex-wrap items-center gap-1 sm:mb-4 text-white text-sm font-semibold">
                   {[1, 2, 3, 4, 5].map((item) => (
-                    <div key={item} className="flex items-center justify-center rounded bg-green-600 h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7">
-                      <Star className="text-white fill-white h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3" />
+                    <div key={item} className="flex items-center justify-center rounded bg-green-600 h-4 w-4">
+                      <Star className="text-white fill-white h-2 w-2" />
                     </div>
                   ))}
 
-                  <p>Excellent 4.9</p>
+                  <p className="pl-2"> Excellent 4.9</p>
                 </div>
 
                 {/* HEADING */}
                 <h1
                   className="
-                    font-extrabold uppercase tracking-tight text-white
+                    font-semibold uppercase tracking-tight text-white
                     leading-[1.05]
 
                     text-3xl
                     xs:text-4xl
                     sm:text-5xl
-                    md:text-6xl
-                    lg:text-7xl
-                    xl:text-8xl
-                    2xl:text-[110px]
-                    3xl:text-[140px]
+                   
+
+
                   "
                 >
                   {heading}
                 </h1>
 
                 {/* SUBHEADING */}
-                <p
+                <h6
                   className="
                     mt-4 text-gray-200 leading-relaxed
 
@@ -195,18 +130,12 @@ export function HeroSection({ data }: HeroSectionProps) {
                     sm:text-base
                     md:text-lg
                     lg:text-xl
-                    xl:text-2xl
-                    2xl:text-3xl
 
-                    max-w-full
-                    sm:max-w-lg
-                    md:max-w-2xl
-                    lg:max-w-3xl
-                    xl:max-w-4xl
+        
                   "
                 >
                   {subheading}
-                </p>
+                </h6>
 
                 {/* BUTTONS */}
                 <div
@@ -223,43 +152,49 @@ export function HeroSection({ data }: HeroSectionProps) {
                     className="
                       w-full sm:w-auto
                       bg-white text-black
-                      hover:bg-neutral-200
+                      
+[a]:hover:bg-bz-green
                       font-semibold
 
-                      h-11 px-6 text-sm
+                      h-11 px-6 text-lg
                       sm:h-12 sm:px-7 sm:text-base
-                      lg:h-14 lg:px-9 lg:text-lg
-                      2xl:h-16 2xl:px-12 2xl:text-xl
+                    rounded-full
                     "
+
                   >
                     <Link href={primaryButtonLink}>
                       {primaryButtonText}
-                      <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" />
+                      {/* <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" /> */}
                     </Link>
                   </Button>
-
-                  {/* <Button
-                    size="lg"
-                    variant="outline"
-                    asChild
-                    className="
-                      w-full sm:w-auto
-                      border-white bg-transparent text-white
-                      hover:bg-white hover:text-black
-
-                      h-11 px-6 text-sm
-                      sm:h-12 sm:px-7 sm:text-base
-                      lg:h-14 lg:px-9 lg:text-lg
-                      2xl:h-16 2xl:px-12 2xl:text-xl
-                    "
-                  >
-                    <Link href="/products?category=best-sellers">
-                      View Best Sellers
-                    </Link>
-                  </Button> */}
                 </div>
+
+
               </motion.div>
+
             </div>
+
+          </div>
+
+        </div>
+        <div className="w-full overflow-hidden whitespace-nowrap h-20 -mt-20">
+
+          {/* 2. The moving track that pauses smoothly on hover */}
+          <div className="flex text-white text-2xl tracking-wide  gap-20 w-max animate-[marquee_25s_linear_infinite] hover:[animation-play-state:paused]">
+
+            {/* 3. Original Text Block (Repeated to fill space) */}
+            {
+             [
+  "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
+  "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
+  "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
+ 
+].map((text, index) => (
+                <div className="flex  gap-20 select-none">
+                  <span>{text}</span>
+                </div>
+              ))
+            }
           </div>
         </div>
       </SectionContainer>
