@@ -474,6 +474,14 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - Admin dashboard orders page updated to fetch real DB orders via `orderService.findManyPaginated`.
 - Admin order details drawer connected to `getOrderDetailsAction` to fetch real order items and shipping data dynamically.
 - `updateOrderStatusAction` implemented to allow admins to transition orders (PENDING -> PROCESSING -> SHIPPED -> DELIVERED).
+- Step 8.5 Reference-Accurate Storefront Navbar & Cascading Flyout Menu
+- Built pixel-perfect Navbar in `src/components/layout/navbar.tsx` matching reference screenshot.
+- Added stylized `NavLogo` (`src/components/layout/nav-logo.tsx`) featuring shopping bag outline icon and brand typography.
+- Built multi-tier cascading flyout menu for `SHOP BY CATEGORY`: primary categories column + dynamic secondary subcategories panel (`Hard-shell Suitcase`, `Soft-Shell Luggages`, `Aluminum Suitcase`, `Kids Luggage`, `Small Carry-on`, `Medium`, `Large`).
+- Built `SHOP BY BRANDS` flyout menu for leading brands (Delsey Paris, Samsonite, American Tourister, etc.).
+- Enhanced `CartDrawer` to accept custom triggers, displaying `ShoppingBag` icon with live inline cart count.
+- Added interactive expandable search bar with direct routing to `/products?q=...`.
+- Implemented fully responsive mobile navigation drawer with expandable accordions for categories and brands.
 
 ### Pending
 
@@ -481,3 +489,4 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - Customer-facing auth
 - Payments integration
 - Connect storefront catalog pages to Prisma-backed product reads (admin path is wired)
+

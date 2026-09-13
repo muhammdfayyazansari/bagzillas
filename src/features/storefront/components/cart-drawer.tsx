@@ -15,7 +15,12 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-export function CartDrawer() {
+interface CartDrawerProps {
+  children?: React.ReactNode;
+  trigger?: React.ReactNode;
+}
+
+export function CartDrawer({ children, trigger }: CartDrawerProps = {}) {
   const [isMounted, setIsMounted] = React.useState(false);
   
   const isOpen = useCartStore((state) => state.isOpen);
@@ -35,15 +40,17 @@ export function CartDrawer() {
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="relative shrink-0">
-          <ShoppingCart className="h-5 w-5" />
-          {cartCount > 0 && (
-            <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
-              {cartCount}
-            </span>
-          )}
-          <span className="sr-only">Open cart</span>
-        </Button>
+        {trigger || children || (
+          <Button variant="ghost" size="icon" className="relative shrink-0">
+            <ShoppingCart className="h-5 w-5" />
+            {cartCount > 0 && (
+              <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
+                {cartCount}
+              </span>
+            )}
+            <span className="sr-only">Open cart</span>
+          </Button>
+        )}
       </SheetTrigger>
       <SheetContent className="flex w-full flex-col sm:max-w-md pr-0">
         <SheetHeader className="px-6">
