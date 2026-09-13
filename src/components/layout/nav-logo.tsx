@@ -14,7 +14,7 @@ export function NavLogo({ className, onClick }: NavLogoProps) {
       className={`inline-flex items-center gap-2.5 group select-none transition-transform active:scale-95 ${className ?? ""}`}
     >
       {/* Stylized Shopping / Luggage Bag Icon matching screenshot */}
-      <div className="relative flex items-center justify-center w-10 h-10 shrink-0">
+      <div className="relative flex items-center justify-center w-8 h-8 shrink-0">
         <svg
           viewBox="0 0 100 100"
           fill="none"
@@ -54,10 +54,11 @@ export function NavLogo({ className, onClick }: NavLogoProps) {
 
       {/* Brand Typography */}
       <div className="flex flex-col">
-        <span className="text-xl font-black tracking-tight text-gray-900 leading-none group-hover:text-[#22a86c] transition-colors">
+        {/* <span className="text-xl font-black tracking-tight text-gray-900 leading-none group-hover:text-[#22a86c] transition-colors"> */}
+        <span className="text-md font-black tracking-tight text-gray-900 leading-none group-hover:text-[#22a86c] transition-colors">
           BAGZILLAS
         </span>
-        <span className="text-[9px] font-bold tracking-[0.22em] text-[#0ea5e9] uppercase leading-tight mt-1">
+        <span className="text-[9px] font-bold tracking-[0.22em] text-[#0ea5e9] uppercase leading-tight mt">
           LUGGAGE & BAGS
         </span>
       </div>

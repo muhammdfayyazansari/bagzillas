@@ -60,37 +60,11 @@ export function ProductCard({ product, className }: ProductCardProps) {
           </div>
         </Link>
 
-        {/* Quick Add Button Overlay */}
-        <div 
-          className={cn(
-            "absolute bottom-0 left-0 right-0 p-4 translate-y-full opacity-0 transition-all duration-300 ease-in-out z-10",
-            isHovered && "translate-y-0 opacity-100"
-          )}
-        >
-          <Button 
-            className="w-full shadow-lg gap-2 bg-background text-foreground hover:bg-background/90" 
-            size="sm"
-            onClick={(e) => {
-              e.preventDefault();
-              useCartStore.getState().addItem({
-                productId: product.id,
-                name: product.title,
-                slug: product.slug,
-                price: product.price,
-                quantity: 1,
-                imageUrl: product.imageUrl,
-              });
-              useCartStore.getState().setIsOpen(true);
-            }}
-          >
-            <ShoppingCart className="h-4 w-4" />
-            Quick Add
-          </Button>
-        </div>
+
       </div>
 
       {/* Info */}
-      <div className="flex flex-col flex-1">
+      <div className="flex items-center flex-col flex-1">
         <div className="text-xs text-muted-foreground mb-1 uppercase tracking-wider font-medium">
           {product.category}
         </div>
@@ -110,6 +84,36 @@ export function ProductCard({ product, className }: ProductCardProps) {
           )}
         </div>
       </div>
+
+
+
+              {/* Quick Add Button Overlay */}
+        <div 
+          className={cn(
+            "absolute bottom-0 left-0 right-0 p-4 translate-y-full opacity-0 transition-all duration-300 ease-in-out z-10",
+            isHovered && "translate-y-16 opacity-100"
+          )}
+        >
+          <Button 
+            className="w-full shadow-lg gap-2 bg-primary text-background py-5 hover:bg-green-700" 
+            size="sm"
+            onClick={(e) => {
+              e.preventDefault();
+              useCartStore.getState().addItem({
+                productId: product.id,
+                name: product.title,
+                slug: product.slug,
+                price: product.price,
+                quantity: 1,
+                imageUrl: product.imageUrl,
+              });
+              useCartStore.getState().setIsOpen(true);
+            }}
+          >
+            <ShoppingCart className="h-4 w-4" />
+             Add to Cart
+          </Button>
+        </div>
     </motion.div>
   );
 }

@@ -5,6 +5,7 @@ import { TrustSection } from "@/features/storefront/components/trust-section";
 import { TestimonialsSection } from "@/features/storefront/components/testimonials-section";
 import { NewsletterSection } from "@/features/storefront/components/newsletter-section";
 import { homepageService } from "@/server/services/homepage.service";
+import { FeaturedLatestSection } from "@/features/storefront/components/featured-latest-section";
 
 export const metadata = {
   title: "Bagzillas - Premium School Bags in Pakistan",
@@ -23,7 +24,8 @@ export default async function HomePage() {
     <>
       <HeroSection data={hero || undefined} />
       <CategoriesSection />
-      <FeaturedProductsSection products={products} />
+      <FeaturedLatestSection products={products} />
+      {/* <FeaturedProductsSection products={products} /> */}
       <TrustSection data={trust || undefined} />
       <TestimonialsSection data={testimonials || undefined} />
       <NewsletterSection />

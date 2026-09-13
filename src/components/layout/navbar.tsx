@@ -201,26 +201,11 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200/80 shadow-[0_2px_10px_rgba(0,0,0,0.03)]">
 
-      <div className="w-full overflow-hidden whitespace-nowrap pt-3">
 
-        {/* 2. The moving track that pauses smoothly on hover */}
-        <div className="flex  gap-20 w-max animate-[marquee_25s_linear_infinite] hover:[animation-play-state:paused]">
-
-          {/* 3. Original Text Block (Repeated to fill space) */}
-          {
-            ["📦 FREE DELIVERY ON BACKPACK ORDERS ABOVE RS. 10,000!", "🔥 BACK TO SCHOOL SALE: FLAT 15% OFF ALL BACKPACKS!", "✨ DISCOUNT AUTOMATICALLY APPLIED AT CHECKOUT!", "📦 FREE DELIVERY ON BACKPACK ORDERS ABOVE RS. 10,000!", "🔥 BACK TO SCHOOL SALE: FLAT 15% OFF ALL BACKPACKS!", "✨ DISCOUNT AUTOMATICALLY APPLIED AT CHECKOUT!"].map((text, index) => (
-              <div className="flex  gap-20 select-none font-extrabold">
-                <span>/</span>
-                <span>{text}</span>
-              </div>
-            ))
-          }
-        </div>
-      </div>
 
       {/* Top Navbar Row */}
       {/* <div className="mx-auto flex h-[74px] max-w-9xl items-center justify-between px-4 sm:px-6 lg:px-10"> */}
-      <div className="mx-auto w-full max-w-9xl px-4 md:px-6 lg:px-8 flex h-[74px] items-center justify-between sm:px-6">
+      <div className="mx-auto w-full max-w-9xl px-4 md:px-6 lg:px-8 flex items-center justify-between sm:px-6">
         {/* Mobile Menu Toggle button */}
         <div className="flex items-center lg:hidden">
           <button

@@ -61,7 +61,7 @@ export function HeroSection({ data }: HeroSectionProps) {
           />
 
           {/* DARK OVERLAY */}
-          <div className="absolute inset-0 bg-black/55" />
+          <div className="absolute inset-0 bg-black/30" />
 
           {/* CONTENT */}
           <div className="relative z-10 flex h-full items-center">
@@ -190,7 +190,7 @@ export function HeroSection({ data }: HeroSectionProps) {
   "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
  
 ].map((text, index) => (
-                <div className="flex  gap-20 select-none">
+                <div key={text+index}  className="flex  gap-20 select-none">
                   <span>{text}</span>
                 </div>
               ))
