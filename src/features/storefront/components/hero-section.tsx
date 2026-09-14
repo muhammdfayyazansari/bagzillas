@@ -24,11 +24,9 @@ export function HeroSection({ data }: HeroSectionProps) {
     data?.subheading ||
     "Experience The World With Delsey Paris. Iconic Design Meets Ultimate Durability For Your Next Grand Adventure.";
 
-  const primaryButtonText =
-    data?.primaryButtonText || "Shop Collection";
+  const primaryButtonText = data?.primaryButtonText || "Shop Collection";
 
-  const primaryButtonLink =
-    data?.primaryButtonLink || "/products";
+  const primaryButtonLink = data?.primaryButtonLink || "/products";
 
   const backgroundImageUrl =
     data?.backgroundImageUrl ||
@@ -96,7 +94,10 @@ export function HeroSection({ data }: HeroSectionProps) {
                 {/* STARS */}
                 <div className="mb-3 flex flex-wrap items-center gap-1 sm:mb-4 text-white text-sm font-semibold">
                   {[1, 2, 3, 4, 5].map((item) => (
-                    <div key={item} className="flex items-center justify-center rounded bg-green-600 h-4 w-4">
+                    <div
+                      key={item}
+                      className="flex items-center justify-center rounded bg-green-600 h-4 w-4"
+                    >
                       <Star className="text-white fill-white h-2 w-2" />
                     </div>
                   ))}
@@ -160,51 +161,37 @@ export function HeroSection({ data }: HeroSectionProps) {
                       sm:h-12 sm:px-7 sm:text-base
                     rounded-full
                     "
-
                   >
+                    {/* shop now button */}
                     <Link href={primaryButtonLink}>
                       {primaryButtonText}
                       {/* <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" /> */}
                     </Link>
                   </Button>
                 </div>
-
-
               </motion.div>
-
             </div>
-
           </div>
-
         </div>
         <div className="w-full overflow-hidden whitespace-nowrap h-20 -mt-20">
-
           {/* 2. The moving track that pauses smoothly on hover */}
           <div className="flex text-white text-2xl tracking-wide  gap-20 w-max animate-[marquee_25s_linear_infinite] hover:[animation-play-state:paused]">
-
             {/* 3. Original Text Block (Repeated to fill space) */}
-            {
-             [
-  "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
-  "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
-  "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
- 
-].map((text, index) => (
-                <div key={text+index}  className="flex  gap-20 select-none">
-                  <span>{text}</span>
-                </div>
-              ))
-            }
+            {[
+              "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
+              "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
+              "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
+            ].map((text, index) => (
+              <div key={text + index} className="flex  gap-20 select-none">
+                <span>{text}</span>
+              </div>
+            ))}
           </div>
         </div>
       </SectionContainer>
     </section>
   );
 }
-
-
-
-
 
 // "use client";
 
@@ -274,7 +261,6 @@ export function HeroSection({ data }: HeroSectionProps) {
 //         </div>
 //         {/*
 //         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center bg-green-400">
-
 
 //            <motion.div
 //             initial={{ opacity: 0, x: -30 }}

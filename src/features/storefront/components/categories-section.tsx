@@ -76,8 +76,8 @@ const scrollSlider = (direction: "left" | "right") => {
 
 
   return (
-    <section className="py-10 bg-muted/10">
-      <SectionContainer className="pb-20">
+    <section className="pt-10 bg-muted/10">
+      <SectionContainer >
         <div className="text-center mb-12">
           {/* <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">BEST LUGGAGE STORE IN PAKISTAN</h2>
           <p className="font-semibold text-xl max-w-2xl mx-auto">
@@ -85,8 +85,6 @@ const scrollSlider = (direction: "left" | "right") => {
           </p> */}
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6"> SHOP BY CATEGORY</h2>
         </div>
-
-
 
 
 
@@ -115,6 +113,7 @@ const scrollSlider = (direction: "left" | "right") => {
        className="
          flex gap-3
          overflow-x-auto
+         overflow-y-hidden
          scroll-smooth
          snap-x snap-mandatory
          scrollbar-hide
@@ -253,22 +252,8 @@ const scrollSlider = (direction: "left" | "right") => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       </SectionContainer>
-      <SectionContainer>
+      {/* <SectionContainer>
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Shop by Category</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -303,178 +288,10 @@ const scrollSlider = (direction: "left" | "right") => {
             </motion.div>
           ))}
         </div>
-      </SectionContainer>
+      </SectionContainer> */}
     </section>
   );
 }
-
-
-
-// return (
-//   <div className="relative w-full">
-//     {/* LEFT BUTTON */}
-//     <button
-//       type="button"
-//       onClick={() => scrollSlider("left")}
-//       className="
-//         absolute left-0 top-1/2 z-20
-//         -translate-x-1/2 -translate-y-1/2
-//         flex h-11 w-11 items-center justify-center
-//         rounded-full bg-white shadow-lg
-//         transition-all duration-200
-//         hover:scale-110
-//         md:h-12 md:w-12
-//       "
-//       aria-label="Previous categories"
-//     >
-//       <ChevronLeft className="h-6 w-6 text-black" />
-//     </button>
-
-//     {/* SLIDER */}
-//     <div
-//       ref={sliderRef}
-//       className="
-//         flex gap-6 md:gap-8
-//         overflow-x-auto
-//         scroll-smooth
-//         snap-x snap-mandatory
-//         scrollbar-hide
-//         px-1
-//       "
-//       style={{
-//         scrollbarWidth: "none",
-//         msOverflowStyle: "none",
-//       }}
-//     >
-//       {categories.map((category, index) => (
-//         <motion.div
-//           key={category.id}
-//           initial={{ opacity: 0, y: 20 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           viewport={{ once: true, margin: "-50px" }}
-//           transition={{
-//             duration: 0.5,
-//             delay: index * 0.1,
-//           }}
-//           className="
-//             flex-none
-//             w-full
-//             md:w-[calc((100%-6rem)/4)]
-//             snap-start
-//           "
-//         >
-//           <Link
-//             href={category.href}
-//             className="
-//               group
-//               relative
-//               block
-//               overflow-hidden
-//               rounded-2xl
-//               aspect-[9/14]
-//             "
-//           >
-//             <Image
-//               src={category.imageUrl}
-//               alt={category.title}
-//               fill
-//               className="
-//                 object-cover
-//                 transition-transform
-//                 duration-700
-//                 ease-in-out
-//                 group-hover:scale-110
-//               "
-//               sizes="
-//                 (min-width: 768px) 25vw,
-//                 100vw
-//               "
-//             />
-
-//             {/* Overlay */}
-//             <div
-//               className="
-//                 absolute inset-0
-//                 bg-black/30
-//                 transition-colors
-//                 duration-300
-//                 group-hover:bg-black/40
-//               "
-//             />
-
-//             {/* Content */}
-//             <div
-//               className="
-//                 absolute inset-0
-//                 flex flex-col
-//                 items-center
-//                 justify-center
-//               "
-//             >
-//               <h3
-//                 className="
-//                   text-xl md:text-2xl
-//                   font-bold
-//                   tracking-wider
-//                   text-white
-//                   drop-shadow-md
-//                 "
-//               >
-//                 {category.title}
-//               </h3>
-
-//               {/* BUTTON */}
-//               <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-center">
-//                 <Button
-//                   size="sm"
-//                   asChild
-//                   className="
-//                     w-full sm:w-auto
-//                     rounded-full
-//                     bg-white
-//                     p-5
-//                     text-sm
-//                     font-semibold
-//                     text-black
-//                     hover:text-white
-//                     [a]:hover:bg-bz-green
-//                   "
-//                 >
-//                   <Link href="/">
-//                     SEE MORE
-//                   </Link>
-//                 </Button>
-//               </div>
-//             </div>
-//           </Link>
-//         </motion.div>
-//       ))}
-//     </div>
-
-//     {/* RIGHT BUTTON */}
-//     <button
-//       type="button"
-//       onClick={() => scrollSlider("right")}
-//       className="
-//         absolute right-0 top-1/2 z-20
-//         translate-x-1/2 -translate-y-1/2
-//         flex h-11 w-11 items-center justify-center
-//         rounded-full bg-white shadow-lg
-//         transition-all duration-200
-//         hover:scale-110
-//         md:h-12 md:w-12
-//       "
-//       aria-label="Next categories"
-//     >
-//       <ChevronRight className="h-6 w-6 text-black" />
-//     </button>
-//   </div>
-// );
-
-
-
-
-
 
 
 

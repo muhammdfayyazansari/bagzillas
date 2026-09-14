@@ -30,7 +30,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
 
   return (
     <motion.div
-      className={cn("group flex flex-col relative", className)}
+      className={cn("group flex flex-col relative mb-10", className)}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
       <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-muted/30 mb-4">
         {/* Badges */}
         <div className="absolute top-3 left-3 z-10 flex flex-col gap-2">
-          {product.isNew && <Badge className="bg-blue-600 hover:bg-blue-700">New</Badge>}
+          {product.isNew && <Badge className="bg-bz-green ">New</Badge>}
           {product.compareAtPrice && product.compareAtPrice > product.price && (
             <Badge variant="destructive">Sale</Badge>
           )}
