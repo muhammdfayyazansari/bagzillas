@@ -17,7 +17,7 @@ export function LimitedTimeOffer({ products }: LimitedTimeOfferProps) {
   return (
    <section className="py-8 sm:py-10 lg:py-16">
   <SectionContainer>
-    <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center lg:gap-12 xl:gap-16">
+    <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center">
       
       {/* LEFT CONTENT */}
       <div className="flex flex-col items-start gap-6 sm:gap-8">
@@ -25,11 +25,11 @@ export function LimitedTimeOffer({ products }: LimitedTimeOfferProps) {
           LIMITED TIME OFFER
         </h2>
 
-        <h1 className="text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl xl:text-6xl">
+        <h1 className="text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
           Ready for Your Next Adventure?
         </h1>
 
-        <p className="text-base font-semibold leading-7 sm:text-lg sm:leading-8 lg:text-xl xl:text-2xl">
+        <p className="text-base font-semibold leading-7 sm:text-lg sm:leading-8 lg:text-xl">
           Upgrade your travel style with Kashif Luggage & Bags. Enjoy GRAND
           LUGGAGE SALE 15% TO 30% OFF on premium luggage sets for a limited
           time! Whether you need durable hardshell suitcases or lightweight
@@ -61,12 +61,13 @@ export function LimitedTimeOffer({ products }: LimitedTimeOfferProps) {
 
       {/* RIGHT IMAGE */}
       <div className="w-full">
-        <div className="group relative h-125 w-full overflow-hidden bg-muted/30">
+        <div className="group relative h-150 w-full overflow-hidden bg-muted/30">
           <Image
             src="/images/luggage_sale_banner.webp"
             alt="Luggage Sale"
             fill
             priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           
             className="
             

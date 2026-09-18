@@ -7,10 +7,13 @@ import { NewsletterSection } from "@/features/storefront/components/newsletter-s
 import { homepageService } from "@/server/services/homepage.service";
 import { FeaturedLatestSection } from "@/features/storefront/components/featured-latest-section";
 import { LimitedTimeOffer } from "@/features/storefront/components/limited-time-offer";
+import { GrandLuggageSale } from "@/features/storefront/components/grand-luggage-sale";
+import { FeedHeroSection } from "@/features/storefront/components/feed-hero";
 
 export const metadata = {
   title: "Bagzillas - Premium School Bags in Pakistan",
-  description: "Shop the best quality backpacks, tote bags, and accessories for students in Pakistan.",
+  description:
+    "Shop the best quality backpacks, tote bags, and accessories for students in Pakistan.",
 };
 
 export default async function HomePage() {
@@ -27,7 +30,10 @@ export default async function HomePage() {
       <CategoriesSection />
       <FeaturedLatestSection products={products} />
       <LimitedTimeOffer products={products} />
+      <GrandLuggageSale products={products} />
       {/* <FeaturedProductsSection products={products} /> */}
+      <FeedHeroSection data={hero || undefined} />
+
       <TrustSection data={trust || undefined} />
       <TestimonialsSection data={testimonials || undefined} />
       <NewsletterSection />

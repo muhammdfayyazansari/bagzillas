@@ -179,13 +179,11 @@ const mockFeaturedProducts = [
   },
 ];
 
-interface FeaturedLatestSectionProps {
+interface GrandLuggageSaleProps {
   products?: any[]; // Prisma Product model array
 }
 
-export function FeaturedLatestSection({
-  products,
-}: FeaturedLatestSectionProps) {
+export function GrandLuggageSale({ products }: GrandLuggageSaleProps) {
   const [isActive, setIsActive] = React.useState("new-arrivals");
 
   // If we have actual products from DB, map them. Otherwise fallback to mock.
@@ -208,6 +206,8 @@ export function FeaturedLatestSection({
         }))
       : mockFeaturedProducts;
 
+  // return <Button variant="underline">Go to Dashboard</Button>;
+
   return (
     <section className="py-10">
       <SectionContainer>
@@ -218,19 +218,20 @@ export function FeaturedLatestSection({
               Discover our latest collection of premium bags designed for the modern student and traveler.
             </p> */}
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 mx-auto">
             {[
-              { id: "1", label: "NEW ARRIVALS", value: "new-arrivals" },
+              { id: "1", label: "GRAND LUGGAGE SALE", value: "new-arrivals" },
               // { id: "2", label: "FEATURED PRODUCTS", value: "featured-products" },
-              { id: "3", label: "luggage", value: "luggage" },
-              { id: "4", label: "hardtop suitcase", value: "hardtop-suitcase" },
-              { id: "5", label: "softside luggage", value: "softside-luggage" },
+              { id: "3", label: "DUFFEL TRAVEL BAGS", value: "luggage" },
+              { id: "4", label: "UNISEX BACKPACKS", value: "hardtop-suitcase" },
+              { id: "5", label: "KID SCHOOL BAGS", value: "softside-luggage" },
             ].map((tab) => (
               <Button
+                variant={isActive === tab.value ? "underline" : "outline"}
+                size="lg"
                 key={tab.id}
                 onClick={() => setIsActive(tab.value)}
-                variant="outline"
-                className={` p-6 text-md tracking-wide uppercase ${isActive === tab.value ? "text-background hover:bg-primary hover:text-background bg-primary" : ""}`}
+                className={` mx-3 text-lg tracking-wide uppercase font-bold hover:bg-transparent p-0  ${isActive === tab.value ? "border-b-3 " : " text-primary/60 border-0 rounded-none "}`}
               >
                 {tab?.label}
                 {/* <ArrowRight className="ml-2 h-4 w-4" /> */}
@@ -252,12 +253,12 @@ export function FeaturedLatestSection({
             size="lg"
             className="
             mt-2
-            rounded-lg
+            rounded-full
             bg-primary
             px-6
             py-5
             text-base
-            uppercase
+              
             tracking-wide
             text-background
             hover:bg-bz-green
@@ -267,7 +268,7 @@ export function FeaturedLatestSection({
             sm:text-lg
           "
           >
-            See More
+           Shop Now
           </Button>
         </div>
       </SectionContainer>
