@@ -1,14 +1,12 @@
 import * as React from "react";
-import { Truck, ShieldCheck, RefreshCw, HeadphonesIcon, HelpCircle, type LucideIcon } from "lucide-react";
+import { Truck, RotateCcw, Headphones, HelpCircle, type LucideIcon } from "lucide-react";
 import { SectionContainer } from "@/components/layout/section-container";
-import { TrustBadge } from "@/components/shared/trust-badge";
 import type { TrustSectionContent } from "@/features/homepage/types/cms.types";
 
 const iconMap: Record<string, LucideIcon> = {
   truck: Truck,
-  "shield-check": ShieldCheck,
-  "refresh-cw": RefreshCw,
-  "headphones-icon": HeadphonesIcon,
+  "refresh-cw": RotateCcw,
+  "headphones-icon": Headphones,
 };
 
 interface TrustSectionProps {
@@ -16,35 +14,45 @@ interface TrustSectionProps {
 }
 
 export function TrustSection({ data }: TrustSectionProps) {
-  const badges = data?.badges || [
-    { icon: "truck", title: "Free Shipping Across Pakistan", description: "Zero delivery charges on all orders nationwide with express tracking." },
-    { icon: "shield-check", title: "Cash On Delivery (COD)", description: "Convenient and safe cash payment right at your doorstep." },
-    { icon: "refresh-cw", title: "7-Day Easy Exchange", description: "Hassle-free replacement and return policy on any manufacturing defect." },
-    { icon: "headphones-icon", title: "Dedicated Support", description: "Prompt customer service assistance via WhatsApp and phone call." },
+  const badges = [
+    {
+      icon: Truck,
+      title: "Free Shipping",
+      description: "Enjoy Free Shipping All Across Pakistan.",
+    },
+    {
+      icon: RotateCcw,
+      title: "Exchange & Return Policy",
+      description: "We have 07 days exchange & Return Policy.",
+    },
+    {
+      icon: Headphones,
+      title: "Customer Support",
+      description: "We are available 24/7 for our valued customers.",
+    },
   ];
 
   return (
-    <section className="py-12 sm:py-20 md:py-24 bg-stone-50 border-b border-stone-200">
+    <section className="py-12 sm:py-16 bg-white border-b border-stone-100">
       <SectionContainer>
-        <div className="text-center mb-8 sm:mb-14">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900 mb-2 sm:mb-3">
-            Shop with Confidence
-          </h2>
-          <p className="text-stone-600 text-xs sm:text-base md:text-lg max-w-2xl mx-auto">
-            Engineered for reliability, backed by seamless Pakistani customer service.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-10">
           {badges.map((badge, idx) => {
-            const IconComponent = iconMap[badge.icon] || HelpCircle;
+            const Icon = badge.icon;
             return (
-              <TrustBadge
+              <div
                 key={idx}
-                icon={IconComponent}
-                title={badge.title}
-                description={badge.description || ""}
-              />
+                className="flex flex-col items-center text-center p-4 group"
+              >
+                <div className="w-14 h-14 rounded-full bg-stone-50 border border-stone-200/80 flex items-center justify-center text-[#8B5E3C] mb-3.5 group-hover:scale-110 transition-transform">
+                  <Icon className="w-7 h-7 stroke-[1.5]" />
+                </div>
+                <h3 className="font-sans text-base sm:text-lg font-bold text-stone-900 mb-1.5">
+                  {badge.title}
+                </h3>
+                <p className="font-sans text-xs sm:text-sm text-stone-600 max-w-xs">
+                  {badge.description}
+                </p>
+              </div>
             );
           })}
         </div>

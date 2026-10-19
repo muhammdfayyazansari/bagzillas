@@ -28,12 +28,10 @@ const ANNOUNCEMENTS = [
 
 const NAV_LINKS = [
   { name: "Home", href: "/" },
-  { name: "All Bags", href: "/products" },
-  { name: "Backpacks", href: "/products?category=backpacks" },
+  { name: "Backpack", href: "/products?category=backpacks" },
   { name: "Travel Bags", href: "/products?category=travel-bags" },
   { name: "Why ALBUS?", href: "/#why-albus" },
-  { name: "Our Story", href: "/#story" },
-  { name: "FAQs", href: "/#faq" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {

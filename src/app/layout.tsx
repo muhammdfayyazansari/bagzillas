@@ -1,21 +1,29 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Roboto } from "next/font/google";
-export const metadata: Metadata = {
-  title: {
-    default: "Bagzillas",
-    template: "%s | Bagzillas",
-  },
-  description:
-    "A production-grade ecommerce platform for school bags in Pakistan.",
-};
+import { Poppins, Cormorant_Garamond } from "next/font/google";
 
-const roboto = Roboto({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "900" ],
-  variable: "--font-roboto",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
 });
 
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: {
+    default: "ALBUS Pakistan | Premium Backpacks & Everyday Carry Bags",
+    template: "%s | ALBUS Pakistan",
+  },
+  description:
+    "Carry with confidence with ALBUS premium backpacks—crafted for style, durability, and daily comfort. Cash on Delivery across Pakistan.",
+};
 
 export default function RootLayout({
   children,
@@ -23,9 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      {/* <body className="flex min-h-full flex-col">{children}</body> */}
-      <body className={roboto.className} >{children}</body>
+    <html lang="en" className={`h-full antialiased ${poppins.variable} ${cormorant.variable}`}>
+      <body className={`${poppins.className} bg-white text-stone-900`}>{children}</body>
     </html>
   );
 }
