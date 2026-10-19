@@ -15,17 +15,19 @@ interface HeroSectionProps {
 const SLIDES = [
   {
     image: "https://www.albus.pk/cdn/shop/files/desktop_size.png?v=1784564918&width=1672",
+    mobileImage: "https://www.albus.pk/cdn/shop/files/1413451f-2d06-4a02-b274-5f5cbabfc777-ezremove.png?v=1776586314&width=480",
     title: "Carry with Confidence",
     buttonText: "Shop Now",
     buttonLink: "/products?category=backpacks",
   },
   {
-    image:
-      "https://www.albus.pk/cdn/shop/files/ChatGPT_Image_Jul_20_2026_09_58_03_PM.png?v=1784569384&width=1916",
+    image: "https://www.albus.pk/cdn/shop/files/ChatGPT_Image_Jul_20_2026_09_58_03_PM.png?v=1784569384&width=1916",
+    mobileImage: "https://www.albus.pk/cdn/shop/files/IMG_7127_JPG.jpg?v=1777891414&width=480",
     title: "Carry with Confidence",
     buttonText: "Shop Now",
     buttonLink: "/products?category=backpacks",
   },
+
 ];
 
 export function HeroSection({ data }: HeroSectionProps) {
@@ -43,7 +45,21 @@ export function HeroSection({ data }: HeroSectionProps) {
   return (
     <section className="relative w-full overflow-hidden bg-stone-900 select-none">
       {/* FULLY RESPONSIVE SLIDESHOW CONTAINER (Mobile, Tablet, Desktop) */}
-      <div className="relative w-full h-[52vh] sm:h-[60vh] md:h-[68vh] lg:h-[75vh] min-h-[350px] sm:min-h-[440px] md:min-h-[520px] max-h-[760px] 2xl:max-h-[850px] flex items-end justify-start">
+      {/* <div className="relative w-full h-[52vh] sm:h-[60vh] md:h-[68vh] lg:h-[75vh] min-h-[350px] sm:min-h-[440px] md:min-h-[520px] max-h-[760px] 2xl:max-h-[850px] flex items-end justify-start"> */}
+      {/* <div className="relative w-full h-[calc(100svh-105px)] flex items-end justify-start min-h-[350px] sm:min-h-[440px] md:min-h-[520px] max-h-[760px] 2xl:max-h-[850px]"> */}
+      <div className="
+  relative w-full
+  h-[calc(100svh-105px)]
+  min-h-[420px]
+  max-h-[480px]
+  sm:h-[calc(100svh-105px)]
+  sm:min-h-[480px]
+  sm:max-h-[760px]
+  lg:h-[calc(100svh-105px)]
+  lg:min-h-0
+  lg:max-h-none
+  flex items-end justify-start
+">
         {/* RESPONSIVE SLIDE IMAGE WITH CROSSFADE & KEN BURNS SCALE ANIMATION */}
         <AnimatePresence mode="wait">
           <motion.div
@@ -54,14 +70,29 @@ export function HeroSection({ data }: HeroSectionProps) {
             transition={{ duration: 0.75, ease: "easeOut" }}
             className="absolute inset-0"
           >
-            <Image
-              src={slide.image}
-              alt="ALBUS Pakistan - Carry with Confidence"
-              fill
-              priority
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 100vw"
-              className="object-cover object-[center_35%] sm:object-center"
-            />
+            {/* Desktop image: strictly hidden on mobile (< 768px), shown on desktop (md+) */}
+            <div className="hidden md:block absolute inset-0">
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                priority={currentSlide === 0}
+                sizes="(min-width: 768px) 100vw, 0px"
+                className="object-cover object-center"
+              />
+            </div>
+
+            {/* Mobile image: strictly shown on mobile (< 768px), hidden on desktop (md+) */}
+            <div className="block md:hidden absolute inset-0">
+              <Image
+                src={slide.mobileImage}
+                alt={slide.title}
+                fill
+                priority={currentSlide === 0}
+                sizes="(max-width: 767px) 100vw, 0px"
+                className="object-cover object-center"
+              />
+            </div>
           </motion.div>
         </AnimatePresence>
 
