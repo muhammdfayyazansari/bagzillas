@@ -3,187 +3,135 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, Star, Sparkles, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { SectionContainer } from "@/components/layout/section-container";
-
 import type { HeroSectionContent } from "@/features/homepage/types/cms.types";
-import { useState } from "react";
 
 interface HeroSectionProps {
   data?: HeroSectionContent;
 }
 
 export function HeroSection({ data }: HeroSectionProps) {
-  const heading = data?.heading || "DELSEY PARIS";
-  const [isHovered, setIsHovered] = useState(false);
-
+  const heading = data?.heading || "Modern bags. Premium details. Everyday confidence.";
   const subheading =
     data?.subheading ||
-    "Experience The World With Delsey Paris. Iconic Design Meets Ultimate Durability For Your Next Grand Adventure.";
-
+    "Premium leather bags made for style, comfort, and easy everyday use. Designed for workdays, weekend travel, and everywhere in between.";
   const primaryButtonText = data?.primaryButtonText || "Shop Collection";
-
   const primaryButtonLink = data?.primaryButtonLink || "/products";
-
   const backgroundImageUrl =
     data?.backgroundImageUrl ||
-    "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=2500&auto=format&fit=crop";
+    "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=2500&auto=format&fit=crop";
 
   return (
-    <section className="relative w-full overflow-hidden">
-      <SectionContainer className="relative max-w-none! px-0!">
+    <section className="relative w-full overflow-hidden bg-stone-900">
+      <SectionContainer className="relative max-w-none px-0">
         {/* HERO CONTAINER */}
-        <div
-          className="
-            relative w-full
-            min-h-137.5
-            h-[40vh]
-            sm:h-[65vh]
-          
-         
- 
-            3xl:h-[100vh]
-          "
-        >
+        <div className="relative w-full min-h-[500px] sm:min-h-[580px] h-[72vh] sm:h-[78vh] max-h-[850px] flex items-center">
           {/* BACKGROUND IMAGE */}
           <Image
             src={backgroundImageUrl}
-            alt="Hero Background"
+            alt="Albus Premium Bags"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-center brightness-75 scale-105"
           />
 
-          {/* DARK OVERLAY */}
-          <div className="absolute inset-0 bg-black/30" />
+          {/* GRADIENT OVERLAYS */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
 
-          {/* CONTENT */}
-          <div className="relative z-10 flex h-full items-center">
-            <div
-              className="
-              flex flex-col justify-center
-              h-full
-                w-full
-                px-4
-                sm:px-6
-                md:px-10
-                lg:px-16
-                xl:px-24
-                2xl:px-32
-                3xl:px-44
-              "
+          {/* HERO CONTENT */}
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="max-w-2xl text-left"
             >
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
-                className="
-                 flex flex-col justify-around 
-                  max-w-full
-                  sm:max-w-xl
-                  md:max-w-2xl
-                  lg:max-w-3xl
-                  xl:max-w-4xl
-                  2xl:max-w-5xl
-                "
-              >
-                {/* STARS */}
-                <div className="mb-3 flex flex-wrap items-center gap-1 sm:mb-4 text-white text-sm font-semibold">
-                  {[1, 2, 3, 4, 5].map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-center justify-center rounded bg-green-600 h-4 w-4"
-                    >
-                      <Star className="text-white fill-white h-2 w-2" />
-                    </div>
+              {/* SPECIAL PROMO BADGE */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-[10px] sm:text-xs font-semibold mb-3 sm:mb-5 backdrop-blur-xs">
+                <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+                <span>LIMITED: BUY 1 GET 1 FANNY BAG FREE</span>
+              </div>
+
+              {/* HEADING */}
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12] mb-3 sm:mb-5">
+                {heading}
+              </h1>
+
+              {/* SUBHEADING */}
+              <p className="text-stone-300 text-xs sm:text-base lg:text-xl font-normal leading-relaxed mb-5 sm:mb-8 max-w-xl line-clamp-3 sm:line-clamp-none">
+                {subheading}
+              </p>
+
+              {/* RATING & SOCIAL PROOF */}
+              <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8 flex-wrap">
+                <div className="flex items-center gap-0.5 sm:gap-1">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star key={i} className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-amber-400 text-amber-400" />
                   ))}
-
-                  <p className="pl-2"> Excellent 4.9</p>
                 </div>
+                <span className="text-white text-xs sm:text-sm font-semibold">
+                  4.9 / 5.0 Rating
+                </span>
+                <span className="text-stone-400 text-[11px] sm:text-sm hidden xs:inline">
+                  • 10,000+ Verified Buyers
+                </span>
+              </div>
 
-                {/* HEADING */}
-                <h1
-                  className="
-                    font-semibold uppercase tracking-tight text-white
-                    leading-[1.05]
-
-                    text-3xl
-                    xs:text-4xl
-                    sm:text-5xl
-                   
-
-
-                  "
+              {/* CTA BUTTONS */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+                <Button
+                  size="lg"
+                  asChild
+                  className="w-full sm:w-auto bg-[#8B5E3C] hover:bg-[#724b2f] text-white font-semibold text-xs sm:text-base px-7 py-5 sm:py-6 rounded-full shadow-lg transition-transform hover:scale-105"
                 >
-                  {heading}
-                </h1>
+                  <Link href={primaryButtonLink} className="flex items-center justify-center">
+                    {primaryButtonText}
+                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                  </Link>
+                </Button>
 
-                {/* SUBHEADING */}
-                <h6
-                  className="
-                    mt-4 text-gray-200 leading-relaxed
-
-                    text-sm
-                    sm:text-base
-                    md:text-lg
-                    lg:text-xl
-
-        
-                  "
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border-white/30 text-xs sm:text-base px-6 py-5 sm:py-6 rounded-full backdrop-blur-sm transition-colors text-center"
                 >
-                  {subheading}
-                </h6>
-
-                {/* BUTTONS */}
-                <div
-                  className="
-                    mt-8 flex flex-col gap-4
-                    sm:flex-row sm:items-center
-                    lg:mt-10
-                    xl:mt-12
-                  "
-                >
-                  <Button
-                    size="lg"
-                    asChild
-                    className="
-                      w-full sm:w-auto
-                      bg-white text-black
-                      
-[a]:hover:bg-bz-green
-                      font-semibold
-
-                      h-11 px-6 text-lg
-                      sm:h-12 sm:px-7 sm:text-base
-                    rounded-full
-                    "
-                  >
-                    {/* shop now button */}
-                    <Link href={primaryButtonLink}>
-                      {primaryButtonText}
-                      {/* <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" /> */}
-                    </Link>
-                  </Button>
-                </div>
-              </motion.div>
-            </div>
+                  <Link href="#why-albus" className="flex items-center justify-center">
+                    Why ALBUS?
+                  </Link>
+                </Button>
+              </div>
+            </motion.div>
           </div>
         </div>
-        <div className="w-full overflow-hidden whitespace-nowrap h-20 -mt-20">
-          {/* 2. The moving track that pauses smoothly on hover */}
-          <div className="flex text-white text-2xl tracking-wide  gap-20 w-max animate-[marquee_25s_linear_infinite] hover:[animation-play-state:paused]">
-            {/* 3. Original Text Block (Repeated to fill space) */}
-            {[
-              "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
-              "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
-              "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
-            ].map((text, index) => (
-              <div key={text + index} className="flex  gap-20 select-none">
-                <span>{text}</span>
+
+        {/* BOTTOM TICKER / MARQUEE */}
+        <div className="w-full bg-[#1c1917] border-t border-stone-800 py-2.5 sm:py-3.5 overflow-hidden whitespace-nowrap">
+          <div className="flex gap-8 sm:gap-16 text-stone-300 text-[11px] sm:text-sm font-semibold tracking-wider uppercase animate-[marquee_25s_linear_infinite] hover:[animation-play-state:paused]">
+            {[1, 2, 3, 4].map((idx) => (
+              <div key={idx} className="flex items-center gap-8 sm:gap-16 select-none shrink-0">
+                <span className="flex items-center gap-1.5 sm:gap-2">
+                  <span>🚚</span> FREE NATIONWIDE SHIPPING
+                </span>
+                <span className="text-amber-500">•</span>
+                <span className="flex items-center gap-1.5 sm:gap-2">
+                  <span>⚡</span> CASH ON DELIVERY (COD)
+                </span>
+                <span className="text-amber-500">•</span>
+                <span className="flex items-center gap-1.5 sm:gap-2">
+                  <span>🎒</span> BOGO FREE FANNY BAG
+                </span>
+                <span className="text-amber-500">•</span>
+                <span className="flex items-center gap-1.5 sm:gap-2">
+                  <ShieldCheck className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-emerald-400 inline" /> 7-DAY EASY EXCHANGE
+                </span>
+                <span className="text-amber-500">•</span>
               </div>
             ))}
           </div>
@@ -192,125 +140,3 @@ export function HeroSection({ data }: HeroSectionProps) {
     </section>
   );
 }
-
-// "use client";
-
-// import * as React from "react";
-// import Link from "next/link";
-// import Image from "next/image";
-// import { motion } from "framer-motion";
-// import { ArrowRight, Star } from "lucide-react";
-// import { Button } from "@/components/ui/button";
-// import { SectionContainer } from "@/components/layout/section-container";
-// import type { HeroSectionContent } from "@/features/homepage/types/cms.types";
-// interface HeroSectionProps {
-//   data?: HeroSectionContent;
-// }
-
-// export function HeroSection({ data }: HeroSectionProps) {
-//   const heading = data?.heading || "Carry Your Ambition";
-//   const subheading = data?.subheading || "Premium school bags, backpacks, and accessories designed for students in Pakistan. Built for durability, comfort, and undeniable style.";
-//   const primaryButtonText = data?.primaryButtonText || "Shop Collection";
-//   const primaryButtonLink = data?.primaryButtonLink || "/products";
-//   const backgroundImageUrl = data?.backgroundImageUrl || "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=2500&auto=format&fit=crop";
-
-//   return (
-//     <div className="relative overflow-hidden bg-blue-500">
-//       {/* <SectionContainer className="relative pt-24 pb-32 sm:pt-32 sm:pb-40 lg:pt-40 lg:pb-48 bg-pink-800"> */}
-//       <SectionContainer className="relative  bg-pink-800">
-
-//         <div className="flex w-full h-[500px] lg:h-[800px] relative" >
-//           <div className="absolute inset-0 w-full h-full">
-//             <Image
-//               src={backgroundImageUrl}
-//               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-//               alt="Hero Image"
-//               fill
-//               className="w-full h-full no-repeat"
-//               priority
-//             />
-//           </div>
-//           <div className="flex w-full h-full items-center font-bold text-white  absolute z-10 inset-0 bg-black/50">
-
-//             <div className="flex flex-col justify-center gap-10 p-6 max-w-3xl">
-
-// <div className="flex">
-//     {
-//       [1,2,3,4,5].map((item, index)=>{
-//         return(
-//           <span className="text-xs bg-green-700 p-2 m-px"><Star className="h-4 w-4" /></span>
-//         )
-//       })
-//     }
-// </div>
-
-//               <h1 className="text-4xl font-bold">DELSEY PARIS</h1>
-//               {/* <h1>Hero Section Content goes here!</h1> */}
-//               <h1 className="text-2xl">Experience The World With Delsey Paris. Iconic Design Meets Ultimate Durability For Your Next Grand Adventure.</h1>
-
-//              <div>
-//                <Button size="lg" asChild className="font-semibold shadow-md bg-white text-black">
-//                 <Link href={primaryButtonLink}>
-//                   {primaryButtonText}
-//                   <ArrowRight className="ml-2 h-4 w-4" />
-//                 </Link>
-//               </Button>
-//              </div>
-//            </div>
-//           </div>
-//         </div>
-//         {/*
-//         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center bg-green-400">
-
-//            <motion.div
-//             initial={{ opacity: 0, x: -30 }}
-//             animate={{ opacity: 1, x: 0 }}
-//             transition={{ duration: 0.6, ease: "easeOut" }}
-//             className="max-w-2xl"
-//           >
-//             <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl mb-6">
-//               {heading.split(" ").map((word, i, arr) => (
-//                 <React.Fragment key={i}>
-//                   {i === arr.length - 1 ? <span className="text-primary">{word}</span> : word + " "}
-//                 </React.Fragment>
-//               ))}
-//             </h1>
-//             <p className="mt-4 text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
-//               {subheading}
-//             </p>
-//             <div className="flex flex-col sm:flex-row gap-4">
-//               <Button size="lg" asChild className="font-semibold shadow-md">
-//                 <Link href={primaryButtonLink}>
-//                   {primaryButtonText}
-//                   <ArrowRight className="ml-2 h-4 w-4" />
-//                 </Link>
-//               </Button>
-//               <Button size="lg" variant="outline" asChild>
-//                 <Link href="/products?category=best-sellers">
-//                   View Best Sellers
-//                 </Link>
-//               </Button>
-//             </div>
-//           </motion.div>
-
-//           <motion.div
-//             initial={{ opacity: 0, scale: 0.95 }}
-//             animate={{ opacity: 1, scale: 1 }}
-//             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-//             className="relative lg:ml-auto w-full max-w-lg aspect-square lg:aspect-[4/5] mx-auto rounded-3xl overflow-hidden shadow-2xl"
-//           >
-//             <Image
-//               src={backgroundImageUrl}
-//               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-//               alt="Hero Image"
-//               fill
-//               className="object-cover"
-//               priority
-//             />
-//             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-//           </motion.div>
-//         </div> */}
-//       </SectionContainer>
-//     </div>
-//   );
-// }

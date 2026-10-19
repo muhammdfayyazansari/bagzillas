@@ -17,23 +17,25 @@ interface TrustSectionProps {
 
 export function TrustSection({ data }: TrustSectionProps) {
   const badges = data?.badges || [
-    { icon: "truck", title: "Fast Nationwide Delivery", description: "Quick and reliable delivery across all major cities in Pakistan." },
-    { icon: "shield-check", title: "Premium Quality", description: "Durable materials and excellent craftsmanship on every product." },
-    { icon: "refresh-cw", title: "Easy Returns", description: "7-day hassle-free return policy for your peace of mind." },
-    { icon: "headphones-icon", title: "Dedicated Support", description: "Our customer service team is always here to help you." },
+    { icon: "truck", title: "Free Shipping Across Pakistan", description: "Zero delivery charges on all orders nationwide with express tracking." },
+    { icon: "shield-check", title: "Cash On Delivery (COD)", description: "Convenient and safe cash payment right at your doorstep." },
+    { icon: "refresh-cw", title: "7-Day Easy Exchange", description: "Hassle-free replacement and return policy on any manufacturing defect." },
+    { icon: "headphones-icon", title: "Dedicated Support", description: "Prompt customer service assistance via WhatsApp and phone call." },
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-background">
+    <section className="py-12 sm:py-20 md:py-24 bg-stone-50 border-b border-stone-200">
       <SectionContainer>
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Why Choose Bagzillas</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            We are committed to providing the best quality and service for all your carrying needs.
+        <div className="text-center mb-8 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900 mb-2 sm:mb-3">
+            Shop with Confidence
+          </h2>
+          <p className="text-stone-600 text-xs sm:text-base md:text-lg max-w-2xl mx-auto">
+            Engineered for reliability, backed by seamless Pakistani customer service.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
           {badges.map((badge, idx) => {
             const IconComponent = iconMap[badge.icon] || HelpCircle;
             return (

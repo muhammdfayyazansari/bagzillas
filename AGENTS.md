@@ -481,7 +481,18 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - Built `SHOP BY BRANDS` flyout menu for leading brands (Delsey Paris, Samsonite, American Tourister, etc.).
 - Enhanced `CartDrawer` to accept custom triggers, displaying `ShoppingBag` icon with live inline cart count.
 - Added interactive expandable search bar with direct routing to `/products?q=...`.
-- Implemented fully responsive mobile navigation drawer with expandable accordions for categories and brands.
+- Step 9 Albus.pk UI/UX Transformation (`albuspk` branch)
+- Scraped, analyzed, and extracted real catalog, assets, styling, and copy from `https://www.albus.pk`.
+- Updated brand identity in `src/components/layout/nav-logo.tsx` to sleek minimalist ALBUS typography.
+- Rebuilt `src/components/layout/navbar.tsx` with top rotating announcement ticker (BOGO fanny bag, free nationwide shipping, COD), category links, search trigger, and sliding cart drawer.
+- Updated `src/features/storefront/components/hero-section.tsx` with luxury Albus hero layout, rating badges, call-to-actions, and continuous marquee ticker.
+- Updated `src/features/storefront/components/featured-products-section.tsx` with the 4 real Albus catalog products (`S1 BackPack`, `All in One Carry Bag`, `The Onyx Backpack`, and `S1 Premium Leather Backpack + Fanny Bag Free`) featuring real prices and Shopify CDN photography.
+- Created `src/features/storefront/components/albus-story-section.tsx` highlighting the editorial "Carry Your Story" lookbook and craftsmanship values.
+- Created `src/features/storefront/components/albus-comparison-section.tsx` featuring the "Why ALBUS?" interactive comparison matrix against ordinary bags.
+- Created `src/features/storefront/components/albus-faq-section.tsx` with interactive expandable accordion addressing delivery, COD, durability, and warranty.
+- Updated `src/features/storefront/components/trust-section.tsx` and `testimonials-section.tsx` with Pakistani customer proof and trust factors.
+- Rebuilt `src/components/layout/footer.tsx` with Albus branding, newsletter subscription, policy links, and Pakistani payment indicators (COD, JazzCash, EasyPaisa).
+- Whitelisted `www.albus.pk` in `next.config.ts` remote patterns.
 
 ### Pending
 
@@ -489,4 +500,5 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - Customer-facing auth
 - Payments integration
 - Connect storefront catalog pages to Prisma-backed product reads (admin path is wired)
+
 

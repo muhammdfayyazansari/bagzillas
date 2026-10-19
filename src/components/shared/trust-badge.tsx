@@ -10,12 +10,22 @@ interface TrustBadgeProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function TrustBadge({ icon: Icon, title, description, className, ...props }: TrustBadgeProps) {
   return (
-    <div className={cn("flex flex-col items-center text-center p-6 bg-card rounded-2xl border shadow-sm", className)} {...props}>
-      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-        <Icon className="h-6 w-6" />
+    <div
+      className={cn(
+        "flex flex-col items-center text-center p-3.5 sm:p-6 bg-white rounded-2xl border border-stone-200/80 shadow-xs",
+        className
+      )}
+      {...props}
+    >
+      <div className="mb-2 sm:mb-4 inline-flex h-9 w-9 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#8B5E3C]/10 text-[#8B5E3C]">
+        <Icon className="h-4 w-4 sm:h-6 sm:w-6" />
       </div>
-      <h3 className="mb-2 text-base font-semibold text-foreground">{title}</h3>
-      <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+      <h3 className="mb-1 sm:mb-2 text-xs sm:text-base font-bold text-stone-900 leading-tight">
+        {title}
+      </h3>
+      <p className="text-[10.5px] sm:text-sm text-stone-500 leading-normal line-clamp-2 sm:line-clamp-none">
+        {description}
+      </p>
     </div>
   );
 }
