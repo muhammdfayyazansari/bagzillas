@@ -1,5 +1,6 @@
 import { homepageRepository } from "@/server/db/repositories/homepage.repository";
 import { prisma } from "@/lib/prisma";
+import { env } from "@/lib/env";
 import { 
   heroSectionSchema, 
   featuredProductsSchema, 
@@ -16,52 +17,77 @@ import type {
 
 export const homepageService = {
   async getHeroSection(): Promise<HeroSectionContent | null> {
-    const record = await homepageRepository.getByKey(CMS_KEYS.HERO);
-    if (!record || record.status !== "PUBLISHED") return null;
-    
-    const parsed = heroSectionSchema.safeParse(record.content);
-    return parsed.success ? parsed.data : null;
+    if (!env.DATABASE_URL) return null;
+    try {
+      const record = await homepageRepository.getByKey(CMS_KEYS.HERO);
+      if (!record || record.status !== "PUBLISHED") return null;
+      
+      const parsed = heroSectionSchema.safeParse(record.content);
+      return parsed.success ? parsed.data : null;
+    } catch {
+      return null;
+    }
   },
 
   async getFeaturedProducts(): Promise<FeaturedProductsContent | null> {
-    const record = await homepageRepository.getByKey(CMS_KEYS.FEATURED_PRODUCTS);
-    if (!record || record.status !== "PUBLISHED") return null;
+    if (!env.DATABASE_URL) return null;
+    try {
+      const record = await homepageRepository.getByKey(CMS_KEYS.FEATURED_PRODUCTS);
+      if (!record || record.status !== "PUBLISHED") return null;
 
-    const parsed = featuredProductsSchema.safeParse(record.content);
-    return parsed.success ? parsed.data : null;
+      const parsed = featuredProductsSchema.safeParse(record.content);
+      return parsed.success ? parsed.data : null;
+    } catch {
+      return null;
+    }
   },
 
   async getResolvedFeaturedProducts() {
-    const content = await this.getFeaturedProducts();
-    if (!content || content.productIds.length === 0) return [];
+    if (!env.DATABASE_URL) return [];
+    try {
+      const content = await this.getFeaturedProducts();
+      if (!content || content.productIds.length === 0) return [];
 
-    const products = await prisma.product.findMany({
-      where: {
-        id: { in: content.productIds },
-        status: "ACTIVE",
-      },
-    });
+      const products = await prisma.product.findMany({
+        where: {
+          id: { in: content.productIds },
+          status: "ACTIVE",
+        },
+      });
 
-    // Reorder based on the saved array order
-    return products.sort(
-      (a, b) => content.productIds.indexOf(a.id) - content.productIds.indexOf(b.id)
-    );
+      // Reorder based on the saved array order
+      return products.sort(
+        (a, b) => content.productIds.indexOf(a.id) - content.productIds.indexOf(b.id)
+      );
+    } catch {
+      return [];
+    }
   },
 
   async getTrustSection(): Promise<TrustSectionContent | null> {
-    const record = await homepageRepository.getByKey(CMS_KEYS.TRUST_BADGES);
-    if (!record || record.status !== "PUBLISHED") return null;
+    if (!env.DATABASE_URL) return null;
+    try {
+      const record = await homepageRepository.getByKey(CMS_KEYS.TRUST_BADGES);
+      if (!record || record.status !== "PUBLISHED") return null;
 
-    const parsed = trustSectionSchema.safeParse(record.content);
-    return parsed.success ? parsed.data : null;
+      const parsed = trustSectionSchema.safeParse(record.content);
+      return parsed.success ? parsed.data : null;
+    } catch {
+      return null;
+    }
   },
 
   async getTestimonialsSection(): Promise<TestimonialsSectionContent | null> {
-    const record = await homepageRepository.getByKey(CMS_KEYS.TESTIMONIALS);
-    if (!record || record.status !== "PUBLISHED") return null;
+    if (!env.DATABASE_URL) return null;
+    try {
+      const record = await homepageRepository.getByKey(CMS_KEYS.TESTIMONIALS);
+      if (!record || record.status !== "PUBLISHED") return null;
 
-    const parsed = testimonialsSectionSchema.safeParse(record.content);
-    return parsed.success ? parsed.data : null;
+      const parsed = testimonialsSectionSchema.safeParse(record.content);
+      return parsed.success ? parsed.data : null;
+    } catch {
+      return null;
+    }
   },
 
   async saveHeroSection(data: HeroSectionContent, adminId: string) {

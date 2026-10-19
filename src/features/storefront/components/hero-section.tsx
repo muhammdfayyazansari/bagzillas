@@ -3,314 +3,164 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Star } from "lucide-react";
-import { motion } from "framer-motion";
-
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { SectionContainer } from "@/components/layout/section-container";
-
 import type { HeroSectionContent } from "@/features/homepage/types/cms.types";
-import { useState } from "react";
 
 interface HeroSectionProps {
   data?: HeroSectionContent;
 }
 
+const SLIDES = [
+  {
+    image: "https://www.albus.pk/cdn/shop/files/desktop_size.png?v=1784564918&width=1672",
+    mobileImage: "https://www.albus.pk/cdn/shop/files/1413451f-2d06-4a02-b274-5f5cbabfc777-ezremove.png?v=1776586314&width=480",
+    title: "Carry with Confidence",
+    buttonText: "Shop Now",
+    buttonLink: "/products?category=backpacks",
+  },
+  {
+    image: "https://www.albus.pk/cdn/shop/files/ChatGPT_Image_Jul_20_2026_09_58_03_PM.png?v=1784569384&width=1916",
+    mobileImage: "https://www.albus.pk/cdn/shop/files/IMG_7127_JPG.jpg?v=1777891414&width=480",
+    title: "Carry with Confidence",
+    buttonText: "Shop Now",
+    buttonLink: "/products?category=backpacks",
+  },
+
+];
+
 export function HeroSection({ data }: HeroSectionProps) {
-  const heading = data?.heading || "DELSEY PARIS";
-  const [isHovered, setIsHovered] = useState(false);
+  const [currentSlide, setCurrentSlide] = React.useState(0);
 
-  const subheading =
-    data?.subheading ||
-    "Experience The World With Delsey Paris. Iconic Design Meets Ultimate Durability For Your Next Grand Adventure.";
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
 
-  const primaryButtonText = data?.primaryButtonText || "Shop Collection";
-
-  const primaryButtonLink = data?.primaryButtonLink || "/products";
-
-  const backgroundImageUrl =
-    data?.backgroundImageUrl ||
-    "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=2500&auto=format&fit=crop";
+  const slide = SLIDES[currentSlide];
 
   return (
-    <section className="relative w-full overflow-hidden">
-      <SectionContainer className="relative max-w-none! px-0!">
-        {/* HERO CONTAINER */}
-        <div
-          className="
-            relative w-full
-            min-h-137.5
-            h-[40vh]
-            sm:h-[65vh]
-          
-         
- 
-            3xl:h-[100vh]
-          "
-        >
-          {/* BACKGROUND IMAGE */}
-          <Image
-            src={backgroundImageUrl}
-            alt="Hero Background"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center"
-          />
-
-          {/* DARK OVERLAY */}
-          <div className="absolute inset-0 bg-black/30" />
-
-          {/* CONTENT */}
-          <div className="relative z-10 flex h-full items-center">
-            <div
-              className="
-              flex flex-col justify-center
-              h-full
-                w-full
-                px-4
-                sm:px-6
-                md:px-10
-                lg:px-16
-                xl:px-24
-                2xl:px-32
-                3xl:px-44
-              "
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
-                className="
-                 flex flex-col justify-around 
-                  max-w-full
-                  sm:max-w-xl
-                  md:max-w-2xl
-                  lg:max-w-3xl
-                  xl:max-w-4xl
-                  2xl:max-w-5xl
-                "
-              >
-                {/* STARS */}
-                <div className="mb-3 flex flex-wrap items-center gap-1 sm:mb-4 text-white text-sm font-semibold">
-                  {[1, 2, 3, 4, 5].map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-center justify-center rounded bg-green-600 h-4 w-4"
-                    >
-                      <Star className="text-white fill-white h-2 w-2" />
-                    </div>
-                  ))}
-
-                  <p className="pl-2"> Excellent 4.9</p>
-                </div>
-
-                {/* HEADING */}
-                <h1
-                  className="
-                    font-semibold uppercase tracking-tight text-white
-                    leading-[1.05]
-
-                    text-3xl
-                    xs:text-4xl
-                    sm:text-5xl
-                   
-
-
-                  "
-                >
-                  {heading}
-                </h1>
-
-                {/* SUBHEADING */}
-                <h6
-                  className="
-                    mt-4 text-gray-200 leading-relaxed
-
-                    text-sm
-                    sm:text-base
-                    md:text-lg
-                    lg:text-xl
-
-        
-                  "
-                >
-                  {subheading}
-                </h6>
-
-                {/* BUTTONS */}
-                <div
-                  className="
-                    mt-8 flex flex-col gap-4
-                    sm:flex-row sm:items-center
-                    lg:mt-10
-                    xl:mt-12
-                  "
-                >
-                  <Button
-                    size="lg"
-                    asChild
-                    className="
-                      w-full sm:w-auto
-                      bg-white text-black
-                      
-[a]:hover:bg-bz-green
-                      font-semibold
-
-                      h-11 px-6 text-lg
-                      sm:h-12 sm:px-7 sm:text-base
-                    rounded-full
-                    "
-                  >
-                    {/* shop now button */}
-                    <Link href={primaryButtonLink}>
-                      {primaryButtonText}
-                      {/* <ArrowRight className="ml-2 h-4 w-4 lg:h-5 lg:w-5" /> */}
-                    </Link>
-                  </Button>
-                </div>
-              </motion.div>
+    <section className="relative w-full overflow-hidden bg-stone-900 select-none">
+      {/* FULLY RESPONSIVE SLIDESHOW CONTAINER (Mobile, Tablet, Desktop) */}
+      {/* <div className="relative w-full h-[52vh] sm:h-[60vh] md:h-[68vh] lg:h-[75vh] min-h-[350px] sm:min-h-[440px] md:min-h-[520px] max-h-[760px] 2xl:max-h-[850px] flex items-end justify-start"> */}
+      {/* <div className="relative w-full h-[calc(100svh-105px)] flex items-end justify-start min-h-[350px] sm:min-h-[440px] md:min-h-[520px] max-h-[760px] 2xl:max-h-[850px]"> */}
+      <div className="
+  relative w-full
+  h-[calc(100svh-105px)]
+  min-h-[420px]
+  max-h-[480px]
+  sm:h-[calc(100svh-105px)]
+  sm:min-h-[480px]
+  sm:max-h-[760px]
+  lg:h-[calc(100svh-105px)]
+  lg:min-h-0
+  lg:max-h-none
+  flex items-end justify-start
+">
+        {/* RESPONSIVE SLIDE IMAGE WITH CROSSFADE & KEN BURNS SCALE ANIMATION */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.75, ease: "easeOut" }}
+            className="absolute inset-0"
+          >
+            {/* Desktop image: strictly hidden on mobile (< 768px), shown on desktop (md+) */}
+            <div className="hidden md:block absolute inset-0">
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                priority={currentSlide === 0}
+                sizes="(min-width: 768px) 100vw, 0px"
+                className="object-cover object-center"
+              />
             </div>
-          </div>
+
+            {/* Mobile image: strictly shown on mobile (< 768px), hidden on desktop (md+) */}
+            <div className="block md:hidden absolute inset-0">
+              <Image
+                src={slide.mobileImage}
+                alt={slide.title}
+                fill
+                priority={currentSlide === 0}
+                sizes="(max-width: 767px) 100vw, 0px"
+                className="object-cover object-center"
+              />
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* GRADIENT OVERLAYS FOR RESPONSIVE TEXT CONTRAST */}
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none z-[1]" /> */}
+        {/* <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent pointer-events-none z-[1]" /> */}
+
+        {/* HERO CAPTION & BUTTON (BOTTOM-LEFT POSITIONED WITH H6 TEXT) */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pb-7 sm:pb-12 md:pb-16 text-left text-white">
+          <motion.div
+            key={`caption-${currentSlide}`}
+            initial={{ opacity: 0, x: -24, y: 12 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            exit={{ opacity: 0, x: -14, y: -6 }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 1.5 }}
+            className="max-w-xs sm:max-w-md md:max-w-lg"
+          >
+            {/* H6 SIZE CARRY WITH CONFIDENCE HEADLINE */}
+            {/* <h6 className="font-serif text-sm sm:text-base md:text-lg lg:text-xl font-bold tracking-wider uppercase text-white drop-shadow-md mb-2.5 sm:mb-3.5 leading-snug">
+              {slide.title}
+            </h6> */}
+
+            {/* SHOP NOW BUTTON */}
+            <Button
+              size="lg"
+              asChild
+              className="bg-[#8B5E3C] hover:bg-[#724b2f] text-white font-medium text-[11px] sm:text-xs md:text-sm px-5 sm:px-7 py-2 sm:py-2.5 md:py-5 rounded-lg shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <Link href={slide.buttonLink} className="flex items-center gap-1.5 sm:gap-2">
+                <span>{slide.buttonText}</span>
+                <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4" />
+              </Link>
+            </Button>
+          </motion.div>
         </div>
-        <div className="w-full overflow-hidden whitespace-nowrap h-20 -mt-20">
-          {/* 2. The moving track that pauses smoothly on hover */}
-          <div className="flex text-white text-2xl tracking-wide  gap-20 w-max animate-[marquee_25s_linear_infinite] hover:[animation-play-state:paused]">
-            {/* 3. Original Text Block (Repeated to fill space) */}
-            {[
-              "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
-              "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
-              "🚚NEED IT IN 2 HOURS IN KARACHI? ⚡JUST PAY FULL ADVANCE VIA BANK TRANSFER. STANDARD CASH ON DELIVERY ACROSS PAKISTAN TAKES 3–5 WORKING DAYS.",
-            ].map((text, index) => (
-              <div key={text + index} className="flex  gap-20 select-none">
-                <span>{text}</span>
-              </div>
-            ))}
-          </div>
+
+        {/* RESPONSIVE PREV / NEXT CONTROLS (TOUCH-FRIENDLY & SCALED) */}
+        <button
+          onClick={() => setCurrentSlide((prev) => (prev === 0 ? SLIDES.length - 1 : prev - 1))}
+          className="absolute left-2 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 z-20 p-1.5 sm:p-2.5 rounded-full bg-black/35 hover:bg-black/65 active:scale-90 text-white backdrop-blur-xs transition-all cursor-pointer"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+        </button>
+
+        <button
+          onClick={() => setCurrentSlide((prev) => (prev + 1) % SLIDES.length)}
+          className="absolute right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-20 p-1.5 sm:p-2.5 rounded-full bg-black/35 hover:bg-black/65 active:scale-90 text-white backdrop-blur-xs transition-all cursor-pointer"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+        </button>
+
+        {/* RESPONSIVE SLIDE INDICATORS (BOTTOM-RIGHT) */}
+        <div className="absolute bottom-3 sm:bottom-5 md:bottom-6 right-4 sm:right-8 lg:right-12 z-20 flex items-center gap-1.5 sm:gap-2">
+          {SLIDES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${currentSlide === i
+                ? "w-6 sm:w-8 bg-[#8B5E3C]"
+                : "w-1.5 sm:w-2.5 bg-white/50 hover:bg-white"
+                }`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
         </div>
-      </SectionContainer>
+      </div>
     </section>
   );
 }
-
-// "use client";
-
-// import * as React from "react";
-// import Link from "next/link";
-// import Image from "next/image";
-// import { motion } from "framer-motion";
-// import { ArrowRight, Star } from "lucide-react";
-// import { Button } from "@/components/ui/button";
-// import { SectionContainer } from "@/components/layout/section-container";
-// import type { HeroSectionContent } from "@/features/homepage/types/cms.types";
-// interface HeroSectionProps {
-//   data?: HeroSectionContent;
-// }
-
-// export function HeroSection({ data }: HeroSectionProps) {
-//   const heading = data?.heading || "Carry Your Ambition";
-//   const subheading = data?.subheading || "Premium school bags, backpacks, and accessories designed for students in Pakistan. Built for durability, comfort, and undeniable style.";
-//   const primaryButtonText = data?.primaryButtonText || "Shop Collection";
-//   const primaryButtonLink = data?.primaryButtonLink || "/products";
-//   const backgroundImageUrl = data?.backgroundImageUrl || "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=2500&auto=format&fit=crop";
-
-//   return (
-//     <div className="relative overflow-hidden bg-blue-500">
-//       {/* <SectionContainer className="relative pt-24 pb-32 sm:pt-32 sm:pb-40 lg:pt-40 lg:pb-48 bg-pink-800"> */}
-//       <SectionContainer className="relative  bg-pink-800">
-
-//         <div className="flex w-full h-[500px] lg:h-[800px] relative" >
-//           <div className="absolute inset-0 w-full h-full">
-//             <Image
-//               src={backgroundImageUrl}
-//               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-//               alt="Hero Image"
-//               fill
-//               className="w-full h-full no-repeat"
-//               priority
-//             />
-//           </div>
-//           <div className="flex w-full h-full items-center font-bold text-white  absolute z-10 inset-0 bg-black/50">
-
-//             <div className="flex flex-col justify-center gap-10 p-6 max-w-3xl">
-
-// <div className="flex">
-//     {
-//       [1,2,3,4,5].map((item, index)=>{
-//         return(
-//           <span className="text-xs bg-green-700 p-2 m-px"><Star className="h-4 w-4" /></span>
-//         )
-//       })
-//     }
-// </div>
-
-//               <h1 className="text-4xl font-bold">DELSEY PARIS</h1>
-//               {/* <h1>Hero Section Content goes here!</h1> */}
-//               <h1 className="text-2xl">Experience The World With Delsey Paris. Iconic Design Meets Ultimate Durability For Your Next Grand Adventure.</h1>
-
-//              <div>
-//                <Button size="lg" asChild className="font-semibold shadow-md bg-white text-black">
-//                 <Link href={primaryButtonLink}>
-//                   {primaryButtonText}
-//                   <ArrowRight className="ml-2 h-4 w-4" />
-//                 </Link>
-//               </Button>
-//              </div>
-//            </div>
-//           </div>
-//         </div>
-//         {/*
-//         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center bg-green-400">
-
-//            <motion.div
-//             initial={{ opacity: 0, x: -30 }}
-//             animate={{ opacity: 1, x: 0 }}
-//             transition={{ duration: 0.6, ease: "easeOut" }}
-//             className="max-w-2xl"
-//           >
-//             <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl mb-6">
-//               {heading.split(" ").map((word, i, arr) => (
-//                 <React.Fragment key={i}>
-//                   {i === arr.length - 1 ? <span className="text-primary">{word}</span> : word + " "}
-//                 </React.Fragment>
-//               ))}
-//             </h1>
-//             <p className="mt-4 text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed">
-//               {subheading}
-//             </p>
-//             <div className="flex flex-col sm:flex-row gap-4">
-//               <Button size="lg" asChild className="font-semibold shadow-md">
-//                 <Link href={primaryButtonLink}>
-//                   {primaryButtonText}
-//                   <ArrowRight className="ml-2 h-4 w-4" />
-//                 </Link>
-//               </Button>
-//               <Button size="lg" variant="outline" asChild>
-//                 <Link href="/products?category=best-sellers">
-//                   View Best Sellers
-//                 </Link>
-//               </Button>
-//             </div>
-//           </motion.div>
-
-//           <motion.div
-//             initial={{ opacity: 0, scale: 0.95 }}
-//             animate={{ opacity: 1, scale: 1 }}
-//             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-//             className="relative lg:ml-auto w-full max-w-lg aspect-square lg:aspect-[4/5] mx-auto rounded-3xl overflow-hidden shadow-2xl"
-//           >
-//             <Image
-//               src={backgroundImageUrl}
-//               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-//               alt="Hero Image"
-//               fill
-//               className="object-cover"
-//               priority
-//             />
-//             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-//           </motion.div>
-//         </div> */}
-//       </SectionContainer>
-//     </div>
-//   );
-// }
