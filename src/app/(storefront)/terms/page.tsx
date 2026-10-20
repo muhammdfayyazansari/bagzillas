@@ -563,7 +563,7 @@ export default function TermsOfServicePage() {
                       Phone / WhatsApp
                     </span>
                     <span className="text-sm font-semibold text-stone-900 group-hover:text-[#8B5E3C] transition-colors">
-                      03432878749
+                      +92 341 2345061
                     </span>
                   </div>
                 </a>
@@ -571,13 +571,13 @@ export default function TermsOfServicePage() {
 
               <div className="mt-4 pt-4 border-t border-stone-100 flex flex-wrap items-center gap-3">
                 <a
-                  href="https://wa.me/923432878749"
+                  href="https://wa.me/923412345061"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-xs sm:text-sm transition-colors"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  Chat on WhatsApp: 03432878749
+                  Chat on WhatsApp: +92 341 2345061
                 </a>
               </div>
             </div>

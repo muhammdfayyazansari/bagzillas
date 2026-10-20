@@ -2,17 +2,20 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import {
   Menu,
   ShoppingBag,
   User,
   Search,
   X,
-  ChevronDown,
-  Sparkles,
+  ChevronRight,
   ShieldCheck,
   Truck,
+  Home,
+  Backpack,
+  Luggage,
+  Phone,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -30,29 +33,38 @@ const NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "Backpack", href: "/products?category=backpacks" },
   { name: "Travel Bags", href: "/products?category=travel-bags" },
-  { name: "Why Bagzillas?", href: "/#why-bagzillas" },
   { name: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
   const router = useRouter();
+  const pathname = usePathname();
   const [isMounted, setIsMounted] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [isSearchOpen, setIsSearchOpen] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState("");
   const [announcementIndex, setAnnouncementIndex] = React.useState(0);
+  const [searchParamsString, setSearchParamsString] = React.useState("");
 
   const cartCount = useCartStore((state) => (isMounted ? state.cartCount() : 0));
 
   React.useEffect(() => {
     setIsMounted(true);
+    setSearchParamsString(window.location.search);
 
     const interval = setInterval(() => {
       setAnnouncementIndex((prev) => (prev + 1) % ANNOUNCEMENTS.length);
     }, 4000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [pathname]);
+
+  const isBackpackActive =
+    pathname === "/products" &&
+    (searchParamsString.includes("backpack") || searchParamsString.includes("backpacks"));
+  const isTravelActive =
+    pathname === "/products" &&
+    (searchParamsString.includes("travel") || searchParamsString.includes("travel-bags"));
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -116,16 +128,35 @@ export function Navbar() {
 
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-7 xl:gap-8">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-[13px] font-semibold uppercase tracking-wider text-stone-700 hover:text-[#8B5E3C] transition-colors relative group py-2"
-            >
-              <span>{link.name}</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#8B5E3C] transition-all duration-200 group-hover:w-full" />
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isLinkActive =
+              link.href === "/"
+                ? pathname === "/"
+                : link.href.includes("backpacks")
+                ? isBackpackActive
+                : link.href.includes("travel-bags")
+                ? isTravelActive
+                : pathname === link.href;
+
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`text-[13px] font-semibold uppercase tracking-wider transition-colors relative group py-2 ${
+                  isLinkActive
+                    ? "text-[#8B5E3C]"
+                    : "text-stone-700 hover:text-[#8B5E3C]"
+                }`}
+              >
+                <span>{link.name}</span>
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-[#8B5E3C] transition-all duration-200 ${
+                    isLinkActive ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Right Action Icons */}
@@ -166,6 +197,63 @@ export function Navbar() {
               </button>
             }
           />
+        </div>
+      </div>
+
+      {/* 2b. MOBILE SCREEN MENU BAR (Visible on small screens) */}
+      <div className="lg:hidden border-t border-stone-200/80 bg-stone-50/95 backdrop-blur-md px-2.5 py-2 shadow-xs">
+        <div className="grid grid-cols-4 gap-1.5 max-w-md mx-auto">
+          {/* Home Button */}
+          <Link
+            href="/"
+            className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-center transition-all ${
+              pathname === "/"
+                ? "bg-stone-900 text-white font-semibold shadow-xs"
+                : "text-stone-700 hover:text-stone-950 hover:bg-stone-200/60 font-medium"
+            }`}
+          >
+            <Home className="h-4 w-4 mb-0.5" />
+            <span className="text-[11px] leading-tight">Home</span>
+          </Link>
+
+          {/* Backpack Button */}
+          <Link
+            href="/products?category=backpacks"
+            className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-center transition-all ${
+              isBackpackActive
+                ? "bg-stone-900 text-white font-semibold shadow-xs"
+                : "text-stone-700 hover:text-stone-950 hover:bg-stone-200/60 font-medium"
+            }`}
+          >
+            <Backpack className="h-4 w-4 mb-0.5" />
+            <span className="text-[11px] leading-tight">Backpack</span>
+          </Link>
+
+          {/* Travel Bags Button */}
+          <Link
+            href="/products?category=travel-bags"
+            className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-center transition-all ${
+              isTravelActive
+                ? "bg-stone-900 text-white font-semibold shadow-xs"
+                : "text-stone-700 hover:text-stone-950 hover:bg-stone-200/60 font-medium"
+            }`}
+          >
+            <Luggage className="h-4 w-4 mb-0.5" />
+            <span className="text-[11px] leading-tight">Travel Bags</span>
+          </Link>
+
+          {/* Contact Button */}
+          <Link
+            href="/contact"
+            className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-center transition-all ${
+              pathname === "/contact"
+                ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
+                : "bg-white text-[#8B5E3C] hover:bg-[#8B5E3C] hover:text-white font-semibold border border-amber-200/80 shadow-xs"
+            }`}
+          >
+            <Phone className="h-4 w-4 mb-0.5" />
+            <span className="text-[11px] leading-tight">Contact</span>
+          </Link>
         </div>
       </div>
 
@@ -227,29 +315,154 @@ export function Navbar() {
                   type="button"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="p-2 rounded-lg text-stone-600 hover:text-stone-900 hover:bg-stone-100"
+                  aria-label="Close menu"
                 >
                   <X className="h-5 w-5" />
                 </button>
               </div>
 
-              {/* Mobile Links */}
-              <div className="flex-1 overflow-y-auto py-4 px-4 space-y-1">
-                {NAV_LINKS.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-3 px-4 rounded-xl text-stone-800 hover:bg-stone-100 hover:text-[#8B5E3C] text-sm font-semibold tracking-wide transition-colors"
+              {/* Mobile Navigation Buttons */}
+              <div className="flex-1 overflow-y-auto p-4 space-y-2.5">
+                <div className="text-[11px] font-bold uppercase tracking-wider text-stone-400 px-1 mb-1">
+                  Menu
+                </div>
+
+                {/* 1. Home Button */}
+                <Link
+                  href="/"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${
+                    pathname === "/"
+                      ? "bg-stone-900 text-white border-stone-900 font-semibold shadow-sm"
+                      : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`p-2 rounded-lg ${
+                        pathname === "/" ? "bg-stone-800 text-white" : "bg-stone-100 text-stone-700"
+                      }`}
+                    >
+                      <Home className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold">Home</div>
+                      <div className={`text-xs ${pathname === "/" ? "text-stone-300" : "text-stone-500"}`}>
+                        Return to storefront
+                      </div>
+                    </div>
+                  </div>
+                  <ChevronRight className="h-4 w-4 opacity-60" />
+                </Link>
+
+                {/* 2. Backpack Button */}
+                <Link
+                  href="/products?category=backpacks"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${
+                    isBackpackActive
+                      ? "bg-stone-900 text-white border-stone-900 font-semibold shadow-sm"
+                      : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`p-2 rounded-lg ${
+                        isBackpackActive ? "bg-stone-800 text-white" : "bg-stone-100 text-stone-700"
+                      }`}
+                    >
+                      <Backpack className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold">Backpack</div>
+                      <div
+                        className={`text-xs ${
+                          isBackpackActive ? "text-stone-300" : "text-stone-500"
+                        }`}
+                      >
+                        Premium leather backpacks
+                      </div>
+                    </div>
+                  </div>
+                  <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">
+                    Hot
+                  </span>
+                </Link>
+
+                {/* 3. Travel Bags Button */}
+                <Link
+                  href="/products?category=travel-bags"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${
+                    isTravelActive
+                      ? "bg-stone-900 text-white border-stone-900 font-semibold shadow-sm"
+                      : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`p-2 rounded-lg ${
+                        isTravelActive ? "bg-stone-800 text-white" : "bg-stone-100 text-stone-700"
+                      }`}
+                    >
+                      <Luggage className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold">Travel Bags</div>
+                      <div
+                        className={`text-xs ${
+                          isTravelActive ? "text-stone-300" : "text-stone-500"
+                        }`}
+                      >
+                        All-in-one carry &amp; travel bags
+                      </div>
+                    </div>
+                  </div>
+                  <ChevronRight className="h-4 w-4 opacity-60" />
+                </Link>
+
+                {/* 4. Contact Button */}
+                <Link
+                  href="/contact"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center justify-between p-3.5 rounded-xl border transition-all mt-3 ${
+                    pathname === "/contact"
+                      ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
+                      : "bg-[#8B5E3C]/10 text-[#8B5E3C] border-[#8B5E3C]/30 hover:bg-[#8B5E3C] hover:text-white font-semibold"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-[#8B5E3C] text-white">
+                      <Phone className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-bold">Contact Button</div>
+                      <div className="text-xs opacity-80">
+                        24/7 Support &amp; Direct Assistance
+                      </div>
+                    </div>
+                  </div>
+                  <ChevronRight className="h-4 w-4 opacity-60" />
+                </Link>
+
+                {/* WhatsApp Quick Link inside Drawer */}
+                <div className="pt-3">
+                  <a
+                    href="https://wa.me/923412345061?text=Hello%20Bagzillas!%20I%20have%20an%20inquiry%20about%20your%20products."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2.5 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 hover:bg-emerald-100 transition-colors text-xs font-semibold"
                   >
-                    <span>{link.name}</span>
-                  </Link>
-                ))}
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-pulse" />
+                    <span>WhatsApp: +92 341 2345061</span>
+                  </a>
+                </div>
               </div>
 
               {/* Mobile Footer */}
               <div className="p-5 border-t border-stone-200 bg-stone-50 space-y-3">
                 <div className="text-xs text-stone-500 text-center">
-                  🚚 Free Shipping & COD across Pakistan
+                  🚚 Free Shipping &amp; COD across Pakistan
                 </div>
                 <Link
                   href="/admin"

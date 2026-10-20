@@ -529,8 +529,20 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - Step 15 Storefront Terms of Service Page
   - Added dedicated `/terms` and `/terms-of-service` routes with responsive, clean formatting matching the Bagzillas brand system.
   - Implemented all sections: Overview, Online Store Terms (age/legal usage), Products & Services (availability/color depiction), Pricing & Payments (PKR, COD/Bank transfer verification), Order Acceptance & Cancellation (unavailability/pricing/fraud), Shipping & Delivery, Exchange Policy (No Refund, exchange criteria), Accuracy of Information, Prohibited Uses (unlawful/malicious code/hacking), Limitation of Liability, Changes to Terms, Governing Law (Pakistan), and Direct Contact details.
-  - Added interactive WhatsApp, Phone (`03432878749`), and Email (`mianfaizan3881@gmail.com`) quick links.
-  - Verified routing alignment with footer policy links (`/terms`) and confirmed clean TypeScript build.
+- Step 16 Mobile Screen Navigation Menu Bar & WhatsApp Button Integration
+  - **Mobile Screen Menu Bar**:
+    - Added dedicated, high-accessibility mobile menu bar in `src/components/layout/navbar.tsx` visible on small/mobile screens (`lg:hidden`).
+    - Integrated direct page link buttons with matching icons:
+      - **Home** (`/`) with `Home` icon
+      - **Backpack** (`/products?category=backpacks`) with `Backpack` icon
+      - **Travel Bags** (`/products?category=travel-bags`) with `Luggage` icon
+      - **Contact** (`/contact`) with `Phone` icon and highlighted button styling
+    - Upgraded mobile drawer menu (`isMobileMenuOpen`) with corresponding interactive button cards, hot badges, and direct navigation links.
+    - Updated `/products` page (`src/app/(storefront)/products/page.tsx`) to dynamically filter and display products based on `?category=backpacks` and `?category=travel-bags` queries.
+  - **Universal WhatsApp Floating Action Button**:
+    - Built reusable `src/components/shared/whatsapp-button.tsx` with official WhatsApp SVG icon, pulsing glow animation, tooltip, and direct link to `https://wa.me/923412345061`.
+    - Integrated `<WhatsAppButton />` into `src/components/layout/storefront-layout.tsx` to render floating on every storefront page.
+    - Updated store WhatsApp/phone number across `contact/page.tsx`, `footer.tsx`, `shipping/page.tsx`, `terms/page.tsx`, `returns/page.tsx`, and `privacy/page.tsx` to `+92 341 2345061`.
 
 ### Pending
 
