@@ -9,7 +9,7 @@ interface StorefrontLayoutProps {
 
 export function StorefrontLayout({ children }: StorefrontLayoutProps) {
   return (
-    <div className="flex min-h-screen flex-col relative">
+    <div className="flex min-h-screen flex-col relative pb-16 lg:pb-0">
       <Navbar />
       <main className="flex-1">
         {children}

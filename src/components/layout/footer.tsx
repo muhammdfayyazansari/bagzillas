@@ -209,9 +209,9 @@ export function Footer() {
           <p>&copy; {new Date().getFullYear()}, Bagzillas Pakistan. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <span className="text-[11px] text-stone-400">Cash on Delivery across Pakistan</span>
-            <Link href="/admin" className="text-stone-400 hover:text-white transition-colors">
+            {/* <Link href="/admin" className="text-stone-400 hover:text-white transition-colors">
               Admin Portal
-            </Link>
+            </Link> */}
           </div>
         </div>
       </SectionContainer>

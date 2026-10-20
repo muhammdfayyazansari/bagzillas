@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { MessageCircle } from "lucide-react";
 
 interface WhatsAppButtonProps {
   phoneNumber?: string;
@@ -9,17 +8,19 @@ interface WhatsAppButtonProps {
   className?: string;
 }
 
+const emptySubscribe = () => () => {};
+
 export function WhatsAppButton({
   phoneNumber = "923412345061",
   defaultMessage = "Hello Bagzillas! I have an inquiry about your products.",
   className = "",
 }: WhatsAppButtonProps) {
   const [isHovered, setIsHovered] = React.useState(false);
-  const [isMounted, setIsMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const isMounted = React.useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
 
   if (!isMounted) return null;
 
@@ -28,7 +29,7 @@ export function WhatsAppButton({
 
   return (
     <div
-      className={`fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2.5 pointer-events-auto ${className}`}
+      className={`fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2.5 pointer-events-auto ${className}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
