@@ -520,8 +520,11 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - Step 12 Storefront Privacy Policy Page
   - Added dedicated `/privacy` and `/privacy-policy` routes with responsive, elegant styling matching the brand aesthetic.
   - Implemented all 8 required sections: Information We Collect (Personal & Order), How We Use Information, Sharing Boundaries, Data Retention, Data Security, User Rights, Policy Changes, and Direct Contact details.
+- Step 13 Storefront Return & Refund Policy Page
+  - Added dedicated `/returns`, `/refund-policy`, and `/refund` routes with responsive, premium formatting aligned with the Bagzillas aesthetic.
+  - Implemented all 9 sections: Return Eligibility (7-Day window, item condition criteria), Non-Returnable Items (sale/custom/misuse), Valid Reasons (wrong/damaged item), Step-by-Step Return Process, Refund Methods (Bank Transfer, EasyPaisa, JazzCash, digital COD refunds, 8-12 business days), Exchanges, Shipping Costs, 48-Hour Damaged/Incorrect Item Reporting, and Direct Contact details.
   - Added interactive WhatsApp, Phone (`03432878749`), and Email (`mianfaizan3881@gmail.com`) quick links.
-  - Verified routing alignment with footer policy links (`/privacy`) and type check passes.
+  - Verified routing alignment with footer policy links (`/returns`) and confirmed clean TypeScript build.
 
 ### Pending
 
