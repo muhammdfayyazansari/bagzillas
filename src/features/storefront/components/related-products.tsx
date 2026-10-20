@@ -1,7 +1,7 @@
 import * as React from "react";
 import { SectionContainer } from "@/components/layout/section-container";
 import { ProductCard } from "@/components/shared/product-card";
-import { ALBUS_PRODUCTS } from "./featured-products-section";
+import { BAGZILLAS_PRODUCTS } from "./featured-products-section";
 
 export function RelatedProducts() {
   return (
@@ -11,7 +11,7 @@ export function RelatedProducts() {
           You May Also Like
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-          {ALBUS_PRODUCTS.slice(0, 4).map((product) => (
+          {BAGZILLAS_PRODUCTS.slice(0, 4).map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

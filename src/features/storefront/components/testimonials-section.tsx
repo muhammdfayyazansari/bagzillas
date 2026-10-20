@@ -18,7 +18,7 @@ interface CustomerReview {
   regularPrice: string;
 }
 
-const ALBUS_REVIEWS: CustomerReview[] = [
+const BAGZILLAS_REVIEWS: CustomerReview[] = [
   {
     name: "Ahmad Raza",
     comment:
@@ -74,12 +74,12 @@ export function TestimonialsSection({ data }: TestimonialsSectionProps) {
             What Our Customers Say
           </h2>
           <p className="text-stone-500 text-xs sm:text-sm md:text-base">
-            Honest feedback from people who carry ALBUS everyday.
+            Honest feedback from people who carry Bagzillas everyday.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {ALBUS_REVIEWS.map((review, index) => (
+          {BAGZILLAS_REVIEWS.map((review, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 15 }}

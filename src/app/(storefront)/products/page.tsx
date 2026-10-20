@@ -2,11 +2,11 @@ import { PageHeader } from "@/components/layout/page-header";
 import { SectionContainer } from "@/components/layout/section-container";
 import { ProductFilters, DesktopFilterSidebar } from "@/features/storefront/components/product-filters";
 import { ProductGrid } from "@/features/storefront/components/product-grid";
-import { ALBUS_PRODUCTS } from "@/features/storefront/components/featured-products-section";
+import { BAGZILLAS_PRODUCTS } from "@/features/storefront/components/featured-products-section";
 
 export const metadata = {
-  title: "Shop All Bags | ALBUS Pakistan",
-  description: "Browse the complete ALBUS collection of premium backpacks and carry bags.",
+  title: "Shop All Bags | Bagzillas Pakistan",
+  description: "Browse the complete Bagzillas collection of premium backpacks and carry bags.",
 };
 
 export default function ProductsPage() {
@@ -23,7 +23,7 @@ export default function ProductsPage() {
 
           <div className="flex-1">
             <ProductFilters />
-            <ProductGrid products={ALBUS_PRODUCTS} />
+            <ProductGrid products={BAGZILLAS_PRODUCTS} />
           </div>
         </div>
       </SectionContainer>

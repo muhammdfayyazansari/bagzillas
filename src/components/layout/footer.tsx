@@ -114,7 +114,7 @@ export function Footer() {
 
             {subscribed ? (
               <div className="p-3 rounded-lg bg-emerald-950/60 border border-emerald-800 text-emerald-300 text-xs">
-                ✓ Thank you for subscribing to ALBUS!
+                ✓ Thank you for subscribing to Bagzillas!
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="space-y-2">
@@ -206,7 +206,7 @@ export function Footer() {
 
         {/* BOTTOM COPYRIGHT */}
         <div className="mt-12 pt-6 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
-          <p>&copy; {new Date().getFullYear()}, ALBUS Pakistan. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()}, Bagzillas Pakistan. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <span className="text-[11px] text-stone-400">Cash on Delivery across Pakistan</span>
             <Link href="/admin" className="text-stone-400 hover:text-white transition-colors">

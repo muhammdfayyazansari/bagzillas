@@ -2,8 +2,8 @@ import { SectionContainer } from "@/components/layout/section-container";
 import { CheckoutForm } from "@/features/checkout/components/checkout-form";
 
 export const metadata = {
-  title: "Checkout | ALBUS Pakistan",
-  description: "Secure Cash on Delivery checkout for your ALBUS order across Pakistan.",
+  title: "Checkout | Bagzillas Pakistan",
+  description: "Secure Cash on Delivery checkout for your Bagzillas order across Pakistan.",
 };
 
 export default function CheckoutPage() {

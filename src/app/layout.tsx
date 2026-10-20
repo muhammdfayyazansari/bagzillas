@@ -18,11 +18,11 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: "ALBUS Pakistan | Premium Backpacks & Everyday Carry Bags",
-    template: "%s | ALBUS Pakistan",
+    default: "Bagzillas Pakistan | Premium Backpacks & Everyday Carry Bags",
+    template: "%s | Bagzillas Pakistan",
   },
   description:
-    "Carry with confidence with ALBUS premium backpacks—crafted for style, durability, and daily comfort. Cash on Delivery across Pakistan.",
+    "Carry with confidence with Bagzillas premium backpacks—crafted for style, durability, and daily comfort. Cash on Delivery across Pakistan.",
 };
 
 export default function RootLayout({

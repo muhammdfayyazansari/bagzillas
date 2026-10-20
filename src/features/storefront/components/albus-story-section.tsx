@@ -25,7 +25,7 @@ export function AlbusStorySection() {
             <div className="relative aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl bg-stone-100">
               <Image
                 src="https://www.albus.pk/cdn/shop/files/2_1.png?v=1778757314&width=1000"
-                alt="ALBUS Carry Your Story"
+                alt="Bagzillas Carry Your Story"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover object-center hover:scale-105 transition-transform duration-700"
@@ -62,11 +62,11 @@ export function AlbusStorySection() {
             </h2>
 
             <p className="text-stone-700 text-sm sm:text-base lg:text-lg leading-relaxed mb-4 font-normal">
-              Inspired by modern individuals who move through life with confidence and style, <strong className="font-bold text-stone-900">ALBUS</strong> creates premium leather bags that combine smart functionality with refined design.
+              Inspired by modern individuals who move through life with confidence and style, <strong className="font-bold text-stone-900">Bagzillas</strong> creates premium leather bags that combine smart functionality with refined design.
             </p>
 
             <p className="text-stone-700 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 font-normal">
-              From workdays to weekend plans and every journey in between, each bag is made to keep you organized, comfortable and effortlessly stylish. With ALBUS, carry more than your essentials—carry confidence wherever you go.
+              From workdays to weekend plans and every journey in between, each bag is made to keep you organized, comfortable and effortlessly stylish. With Bagzillas, carry more than your essentials—carry confidence wherever you go.
             </p>
 
             {/* FEATURE CHECKLIST */}

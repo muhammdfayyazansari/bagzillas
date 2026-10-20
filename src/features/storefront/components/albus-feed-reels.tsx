@@ -82,7 +82,7 @@ export function AlbusFeedReels() {
             As Seen in Your Feed
           </h2>
           <p className="mt-2 text-xs sm:text-sm text-stone-500">
-            Real moments, real style. Watch how ALBUS bags move with everyday life.
+            Real moments, real style. Watch how Bagzillas bags move with everyday life.
           </p>
         </div>
 
