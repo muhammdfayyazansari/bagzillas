@@ -517,7 +517,11 @@ This file must always stay updated so future AI/dev agents can continue seamless
     - `TestimonialsSection`: subtitle updated to `Honest feedback from people who carry Bagzillas everyday`.
     - Product SKUs in PDP catalog updated to `BAGZILLAS-S1-PREMIUM`, `BAGZILLAS-ONYX-01`, `BAGZILLAS-AIO-01`, and `BAGZILLAS-S1-STD`.
     - Contact page updated to `Contact Bagzillas` and form placeholder to `Bagzillas products`.
-  - Verified 200 OK across all storefront routes (`/`, `/products`, `/contact`, `/checkout`).
+- Step 12 Storefront Privacy Policy Page
+  - Added dedicated `/privacy` and `/privacy-policy` routes with responsive, elegant styling matching the brand aesthetic.
+  - Implemented all 8 required sections: Information We Collect (Personal & Order), How We Use Information, Sharing Boundaries, Data Retention, Data Security, User Rights, Policy Changes, and Direct Contact details.
+  - Added interactive WhatsApp, Phone (`03432878749`), and Email (`mianfaizan3881@gmail.com`) quick links.
+  - Verified routing alignment with footer policy links (`/privacy`) and type check passes.
 
 ### Pending
 
