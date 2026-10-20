@@ -151,10 +151,10 @@ export function Footer() {
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#8B5E3C] shrink-0" />
                 <a
-                  href="tel:+923432878749"
+                  href="tel:+923412345061"
                   className="text-stone-300 hover:text-white transition-colors"
                 >
-                  +92 343 2878749
+                  +92 341 2345061
                 </a>
               </div>
 
@@ -209,9 +209,9 @@ export function Footer() {
           <p>&copy; {new Date().getFullYear()}, Bagzillas Pakistan. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <span className="text-[11px] text-stone-400">Cash on Delivery across Pakistan</span>
-            <Link href="/admin" className="text-stone-400 hover:text-white transition-colors">
+            {/* <Link href="/admin" className="text-stone-400 hover:text-white transition-colors">
               Admin Portal
-            </Link>
+            </Link> */}
           </div>
         </div>
       </SectionContainer>
