@@ -21,10 +21,12 @@ export function NavLogo({ className, onClick }: NavLogoProps) {
       {/* Brand Typography */}
       <div className="flex flex-col">
         <span className="text-xl font-extrabold tracking-[0.12em] text-stone-900 leading-none group-hover:text-[#8B5E3C] transition-colors">
-          BAGZILLAS
+          {/* BagZillas */}
+          BagZillas
         </span>
         <span className="text-[8.5px] font-semibold tracking-[0.25em] text-stone-500 uppercase leading-tight mt-0.5">
-          PAKISTAN
+          {/* Quality Bags For Everyone */}
+          Quality Products
         </span>
       </div>
     </Link>
