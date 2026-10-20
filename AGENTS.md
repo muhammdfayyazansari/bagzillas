@@ -526,8 +526,11 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - Step 14 Storefront Shipping Policy Page
   - Added dedicated `/shipping` and `/shipping-policy` routes with responsive, clean formatting matching the Bagzillas brand system.
   - Implemented all 10 required sections: Order Processing (3-5 business days, COD confirmation call/SMS), Delivery Time (3-5 business days nationwide), Shipping Charges (checkout calculation & non-refundable clause), Order Tracking (SMS/WhatsApp tracking ID & courier portal), Delivery Attempts (2-3 attempts & return prevention), Shipping Delays (weather/holidays/remote areas disclaimer), Incorrect Address liability, Damaged/Missing Items (24-48 hours reporting), International Shipping (Pakistan-only policy), and Direct Contact details.
+- Step 15 Storefront Terms of Service Page
+  - Added dedicated `/terms` and `/terms-of-service` routes with responsive, clean formatting matching the Bagzillas brand system.
+  - Implemented all sections: Overview, Online Store Terms (age/legal usage), Products & Services (availability/color depiction), Pricing & Payments (PKR, COD/Bank transfer verification), Order Acceptance & Cancellation (unavailability/pricing/fraud), Shipping & Delivery, Exchange Policy (No Refund, exchange criteria), Accuracy of Information, Prohibited Uses (unlawful/malicious code/hacking), Limitation of Liability, Changes to Terms, Governing Law (Pakistan), and Direct Contact details.
   - Added interactive WhatsApp, Phone (`03432878749`), and Email (`mianfaizan3881@gmail.com`) quick links.
-  - Verified routing alignment with footer policy links (`/shipping`) and confirmed clean TypeScript build.
+  - Verified routing alignment with footer policy links (`/terms`) and confirmed clean TypeScript build.
 
 ### Pending
 
