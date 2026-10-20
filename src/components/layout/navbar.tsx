@@ -16,6 +16,7 @@ import {
   Backpack,
   Luggage,
   Phone,
+  LayoutGrid,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -54,7 +55,7 @@ function SearchParamsTracker({
   return null;
 }
 
-const emptySubscribe = () => () => {};
+const emptySubscribe = () => () => { };
 
 export function Navbar() {
   const router = useRouter();
@@ -82,6 +83,7 @@ export function Navbar() {
 
   // Mutually exclusive active state computations
   const isHomeActive = pathname === "/";
+  const isAllProductsActive = pathname === "/products" && !currentCategory;
   const isBackpackActive =
     pathname === "/products" &&
     (currentCategory === "backpacks" || currentCategory === "backpack");
@@ -173,17 +175,15 @@ export function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-[13px] font-semibold uppercase tracking-wider transition-colors relative group py-2 ${
-                    isLinkActive
+                  className={`text-[13px] font-semibold uppercase tracking-wider transition-colors relative group py-2 ${isLinkActive
                       ? "text-[#8B5E3C]"
                       : "text-stone-700 hover:text-[#8B5E3C]"
-                  }`}
+                    }`}
                 >
                   <span>{link.name}</span>
                   <span
-                    className={`absolute bottom-0 left-0 h-0.5 bg-[#8B5E3C] transition-all duration-200 ${
-                      isLinkActive ? "w-full" : "w-0 group-hover:w-full"
-                    }`}
+                    className={`absolute bottom-0 left-0 h-0.5 bg-[#8B5E3C] transition-all duration-200 ${isLinkActive ? "w-full" : "w-0 group-hover:w-full"
+                      }`}
                   />
                 </Link>
               );
@@ -298,34 +298,28 @@ export function Navbar() {
 
               {/* Mobile Navigation Buttons */}
               <div className="flex-1 overflow-y-auto p-4 space-y-2.5">
-                <div className="text-[11px] font-bold uppercase tracking-wider text-stone-400 px-1 mb-1">
-                  Menu
-                </div>
 
                 {/* 1. Home Button */}
                 <Link
                   href="/"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${
-                    isHomeActive
+                  className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${isHomeActive
                       ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
                       : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-3">
                     <div
-                      className={`p-2 rounded-lg ${
-                        isHomeActive ? "bg-white/20 text-white" : "bg-stone-100 text-stone-700"
-                      }`}
+                      className={`p-2 rounded-lg ${isHomeActive ? "bg-white/20 text-white" : "bg-stone-100 text-stone-700"
+                        }`}
                     >
                       <Home className="h-5 w-5" />
                     </div>
                     <div>
                       <div className="text-sm font-semibold">Home</div>
                       <div
-                        className={`text-xs ${
-                          isHomeActive ? "text-stone-100" : "text-stone-500"
-                        }`}
+                        className={`text-xs ${isHomeActive ? "text-stone-100" : "text-stone-500"
+                          }`}
                       >
                         Return to storefront
                       </div>
@@ -334,70 +328,93 @@ export function Navbar() {
                   <ChevronRight className={`h-4 w-4 ${isHomeActive ? "text-white" : "opacity-60"}`} />
                 </Link>
 
-                {/* 2. Backpack Button */}
+                {/* 2. All Products Button (On Top of List) */}
                 <Link
-                  href="/products?category=backpacks"
+                  href="/products"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${
-                    isBackpackActive
+                  className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${isAllProductsActive
                       ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
                       : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-3">
                     <div
-                      className={`p-2 rounded-lg ${
-                        isBackpackActive ? "bg-white/20 text-white" : "bg-stone-100 text-stone-700"
-                      }`}
+                      className={`p-2 rounded-lg ${isAllProductsActive ? "bg-white/20 text-white" : "bg-stone-100 text-stone-700"
+                        }`}
+                    >
+                      <LayoutGrid className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold">All Products</div>
+                      <div
+                        className={`text-xs ${isAllProductsActive ? "text-stone-100" : "text-stone-500"
+                          }`}
+                      >
+                        Explore full collection
+                      </div>
+                    </div>
+                  </div>
+                  <ChevronRight className={`h-4 w-4 ${isAllProductsActive ? "text-white" : "opacity-60"}`} />
+                </Link>
+
+
+                {/* 3. Backpack Button */}
+                <Link
+                  href="/products?category=backpacks"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${isBackpackActive
+                      ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
+                      : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
+                    }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`p-2 rounded-lg ${isBackpackActive ? "bg-white/20 text-white" : "bg-stone-100 text-stone-700"
+                        }`}
                     >
                       <Backpack className="h-5 w-5" />
                     </div>
                     <div>
                       <div className="text-sm font-semibold">Backpack</div>
                       <div
-                        className={`text-xs ${
-                          isBackpackActive ? "text-stone-100" : "text-stone-500"
-                        }`}
+                        className={`text-xs ${isBackpackActive ? "text-stone-100" : "text-stone-500"
+                          }`}
                       >
                         Premium leather backpacks
                       </div>
                     </div>
                   </div>
                   <span
-                    className={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full ${
-                      isBackpackActive
+                    className={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full ${isBackpackActive
                         ? "bg-white/20 text-white"
                         : "bg-amber-100 text-amber-800"
-                    }`}
+                      }`}
                   >
                     Hot
                   </span>
                 </Link>
 
-                {/* 3. Travel Bags Button */}
+                {/* 4. Travel Bags Button */}
                 <Link
                   href="/products?category=travel-bags"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${
-                    isTravelActive
+                  className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${isTravelActive
                       ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
                       : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-3">
                     <div
-                      className={`p-2 rounded-lg ${
-                        isTravelActive ? "bg-white/20 text-white" : "bg-stone-100 text-stone-700"
-                      }`}
+                      className={`p-2 rounded-lg ${isTravelActive ? "bg-white/20 text-white" : "bg-stone-100 text-stone-700"
+                        }`}
                     >
                       <Luggage className="h-5 w-5" />
                     </div>
                     <div>
                       <div className="text-sm font-semibold">Travel Bags</div>
                       <div
-                        className={`text-xs ${
-                          isTravelActive ? "text-stone-100" : "text-stone-500"
-                        }`}
+                        className={`text-xs ${isTravelActive ? "text-stone-100" : "text-stone-500"
+                          }`}
                       >
                         All-in-one carry &amp; travel bags
                       </div>
@@ -406,30 +423,27 @@ export function Navbar() {
                   <ChevronRight className={`h-4 w-4 ${isTravelActive ? "text-white" : "opacity-60"}`} />
                 </Link>
 
-                {/* 4. Contact Button */}
+                {/* 5. Contact Button */}
                 <Link
                   href="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${
-                    isContactActive
+                  className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${isContactActive
                       ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
                       : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-3">
                     <div
-                      className={`p-2 rounded-lg ${
-                        isContactActive ? "bg-white/20 text-white" : "bg-[#8B5E3C]/10 text-[#8B5E3C]"
-                      }`}
+                      className={`p-2 rounded-lg ${isContactActive ? "bg-white/20 text-white" : "bg-[#8B5E3C]/10 text-[#8B5E3C]"
+                        }`}
                     >
                       <Phone className="h-5 w-5" />
                     </div>
                     <div>
                       <div className="text-sm font-semibold">Contact</div>
                       <div
-                        className={`text-xs ${
-                          isContactActive ? "text-stone-100" : "text-stone-500"
-                        }`}
+                        className={`text-xs ${isContactActive ? "text-stone-100" : "text-stone-500"
+                          }`}
                       >
                         24/7 Support &amp; Direct Assistance
                       </div>
@@ -466,30 +480,40 @@ export function Navbar() {
       {/* 5. FIXED MOBILE BOTTOM NAVIGATION BAR (Sticky to bottom on mobile, small icons, #8B5E3C active bg) */}
       <nav
         aria-label="Mobile navigation"
-        className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200/90 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] px-2 pt-1.5 pb-[calc(0.4rem+env(safe-area-inset-bottom,0px))] lg:hidden"
+        className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200/90 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] px-1.5 pt-1.5 pb-[calc(0.4rem+env(safe-area-inset-bottom,0px))] lg:hidden"
       >
-        <div className="grid grid-cols-4 gap-1 max-w-md mx-auto">
+        <div className="grid grid-cols-5 gap-1 max-w-md mx-auto">
           {/* Home Button */}
           <Link
             href="/"
-            className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-center transition-all ${
-              isHomeActive
+            className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isHomeActive
                 ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
                 : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
-            }`}
+              }`}
           >
             <Home className="h-4 w-4 mb-0.5" />
             <span className="text-[10px] leading-tight">Home</span>
           </Link>
 
+          {/* All Products Button */}
+          <Link
+            href="/products"
+            className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isAllProductsActive
+                ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
+                : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
+              }`}
+          >
+            <LayoutGrid className="h-4 w-4 mb-0.5" />
+            <span className="text-[10px] leading-tight">Products</span>
+          </Link>
+
           {/* Backpack Button */}
           <Link
             href="/products?category=backpacks"
-            className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-center transition-all ${
-              isBackpackActive
+            className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isBackpackActive
                 ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
                 : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
-            }`}
+              }`}
           >
             <Backpack className="h-4 w-4 mb-0.5" />
             <span className="text-[10px] leading-tight">Backpack</span>
@@ -498,24 +522,22 @@ export function Navbar() {
           {/* Travel Bags Button */}
           <Link
             href="/products?category=travel-bags"
-            className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-center transition-all ${
-              isTravelActive
+            className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isTravelActive
                 ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
                 : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
-            }`}
+              }`}
           >
             <Luggage className="h-4 w-4 mb-0.5" />
-            <span className="text-[10px] leading-tight">Travel Bags</span>
+            <span className="text-[10px] leading-tight">Travel</span>
           </Link>
 
           {/* Contact Button */}
           <Link
             href="/contact"
-            className={`flex flex-col items-center justify-center py-1.5 px-1 rounded-xl text-center transition-all ${
-              isContactActive
+            className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isContactActive
                 ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
                 : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
-            }`}
+              }`}
           >
             <Phone className="h-4 w-4 mb-0.5" />
             <span className="text-[10px] leading-tight">Contact</span>

@@ -504,8 +504,8 @@ This file must always stay updated so future AI/dev agents can continue seamless
 - Successfully verified with complete Next.js production build (`npm run build`).
 
 - Step 11 Full Brand Name Transformation: ALBUS -> Bagzillas
-  - Updated all client-facing branding and typography from ALBUS to **Bagzillas** (or **BAGZILLAS** in uppercase contexts).
-  - Updated `NavLogo` with "B" monogram and `BAGZILLAS PAKISTAN` typography.
+  - Updated all client-facing branding and typography from ALBUS to **Bagzillas** (or **BagZillas** in uppercase contexts).
+  - Updated `NavLogo` with "B" monogram and `BagZillas PAKISTAN` typography.
   - Updated `Navbar` desktop and mobile menus: replaced "Why ALBUS?" with "Why Bagzillas?" linking to `/#why-bagzillas`.
   - Updated `Footer`: newsletter subscription confirmation and copyright notice updated to `Bagzillas Pakistan`.
   - Updated metadata across all storefront routes: `layout.tsx`, `(storefront)/page.tsx`, `/contact`, `/checkout`, `/products`, and `/products/[slug]`.
@@ -515,7 +515,7 @@ This file must always stay updated so future AI/dev agents can continue seamless
     - `AlbusStorySection`: copy updated to `Bagzillas creates premium leather bags... With Bagzillas, carry more than your essentials`.
     - `AlbusFeedReels`: subtitle updated to `Watch how Bagzillas bags move with everyday life`.
     - `TestimonialsSection`: subtitle updated to `Honest feedback from people who carry Bagzillas everyday`.
-    - Product SKUs in PDP catalog updated to `BAGZILLAS-S1-PREMIUM`, `BAGZILLAS-ONYX-01`, `BAGZILLAS-AIO-01`, and `BAGZILLAS-S1-STD`.
+    - Product SKUs in PDP catalog updated to `BagZillas-S1-PREMIUM`, `BagZillas-ONYX-01`, `BagZillas-AIO-01`, and `BagZillas-S1-STD`.
     - Contact page updated to `Contact Bagzillas` and form placeholder to `Bagzillas products`.
 - Step 12 Storefront Privacy Policy Page
   - Added dedicated `/privacy` and `/privacy-policy` routes with responsive, elegant styling matching the brand aesthetic.

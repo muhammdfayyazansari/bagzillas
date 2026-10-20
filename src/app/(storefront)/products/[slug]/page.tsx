@@ -28,7 +28,7 @@ const BAGZILLAS_CATALOG: Record<string, ProductDetail> = {
     description:
       "Crafted from premium textured synthetic leather, the S1 Premium Leather Backpack combines modern elegance with smart functionality. Features a spacious main compartment, dedicated laptop protection, and includes a matching Fanny Bag absolutely FREE with this limited launch bundle.",
     category: "Backpacks",
-    sku: "BAGZILLAS-S1-PREMIUM",
+    sku: "BagZillas-S1-PREMIUM",
     inStock: true,
     images: [
       "https://www.albus.pk/cdn/shop/files/media.jpg?v=1784714546&width=896",
@@ -47,7 +47,7 @@ const BAGZILLAS_CATALOG: Record<string, ProductDetail> = {
     description:
       "Meet the Onyx Backpack—where sleek minimalist aesthetics meet ultimate everyday functionality. Designed for university students, commuters, and travelers with water-resistant fabric, multi-pocket smart organization, and air-mesh ergonomic back padding.",
     category: "Backpacks",
-    sku: "BAGZILLAS-ONYX-01",
+    sku: "BagZillas-ONYX-01",
     inStock: true,
     isNew: true,
     images: [
@@ -67,7 +67,7 @@ const BAGZILLAS_CATALOG: Record<string, ProductDetail> = {
     description:
       "A versatile gym, travel, and everyday carry bag engineered with a dedicated zippered bottom shoe compartment to keep footwear isolated from clean apparel. Sized at 19\" x 13\" x 6\" with high-elasticity side pockets and durable water-resistant construction.",
     category: "Travel Bags",
-    sku: "BAGZILLAS-AIO-01",
+    sku: "BagZillas-AIO-01",
     inStock: true,
     images: [
       "https://www.albus.pk/cdn/shop/files/Black_Bag_1.png?v=1785407749&width=1254",
@@ -85,7 +85,7 @@ const BAGZILLAS_CATALOG: Record<string, ProductDetail> = {
     description:
       "The flagship S1 BackPack features a modern matte finish, generous interior volume for 15.6\" laptops, books, and gadgets, and ergonomic shoulder straps for effortless daily commuting across Pakistan.",
     category: "Backpacks",
-    sku: "BAGZILLAS-S1-STD",
+    sku: "BagZillas-S1-STD",
     inStock: true,
     isNew: true,
     images: [
