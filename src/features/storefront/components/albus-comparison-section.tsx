@@ -6,42 +6,42 @@ import { SectionContainer } from "@/components/layout/section-container";
 const COMPARISON_ROWS = [
   {
     feature: "Design",
-    albus: "Modern premium look",
+    bagzillas: "Modern premium look",
     ordinary: "Basic design",
   },
   {
     feature: "Storage",
-    albus: "Smart compartments",
+    bagzillas: "Smart compartments",
     ordinary: "Limited space",
   },
   {
     feature: "Comfort",
-    albus: "Easy all-day carry",
+    bagzillas: "Easy all-day carry",
     ordinary: "Less comfortable",
   },
   {
     feature: "Quality",
-    albus: "Strong finishing",
+    bagzillas: "Strong finishing",
     ordinary: "Quality varies",
   },
   {
     feature: "Use",
-    albus: "Work, travel & daily use",
+    bagzillas: "Work, travel & daily use",
     ordinary: "Limited use",
   },
 ];
 
 export function AlbusComparisonSection() {
   return (
-    <section id="why-albus" className="w-full py-12 sm:py-16 md:py-20 bg-white">
+    <section id="why-bagzillas" className="w-full py-12 sm:py-16 md:py-20 bg-white">
       <SectionContainer>
         {/* HEADING */}
         <div className="text-center mb-7 sm:mb-9">
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#6F472D] leading-none mb-2">
-            Why ALBUS?
+            Why Bagzillas?
           </h2>
           <p className="font-sans text-xs sm:text-sm md:text-base text-[#5E5149]">
-            See how ALBUS compares to ordinary bags.
+            See how Bagzillas compares to ordinary bags.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export function AlbusComparisonSection() {
                   Features
                 </th>
                 <th className="w-[35%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-semibold text-white bg-[#8B5E3C] border-r border-[#E7D8CD]">
-                  ALBUS
+                  Bagzillas
                 </th>
                 <th className="w-[35%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-semibold text-[#382A22] bg-white">
                   Ordinary Bags
@@ -71,7 +71,7 @@ export function AlbusComparisonSection() {
                     {row.feature}
                   </td>
                   <td className="py-3 sm:py-4 px-2 sm:px-4 text-[10.5px] sm:text-sm font-semibold text-[#6F472D] bg-[#F3E8DF] border-r border-[#E7D8CD]">
-                    {row.albus}
+                    {row.bagzillas}
                   </td>
                   <td className="py-3 sm:py-4 px-2 sm:px-4 text-[10.5px] sm:text-sm text-[#736357] bg-white">
                     {row.ordinary}

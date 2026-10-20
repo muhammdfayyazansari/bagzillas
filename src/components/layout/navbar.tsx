@@ -30,7 +30,7 @@ const NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "Backpack", href: "/products?category=backpacks" },
   { name: "Travel Bags", href: "/products?category=travel-bags" },
-  { name: "Why ALBUS?", href: "/#why-albus" },
+  { name: "Why Bagzillas?", href: "/#why-bagzillas" },
   { name: "Contact", href: "/contact" },
 ];
 

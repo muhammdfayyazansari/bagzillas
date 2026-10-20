@@ -18,7 +18,7 @@ interface ProductDetail {
   images: string[];
 }
 
-const ALBUS_CATALOG: Record<string, ProductDetail> = {
+const BAGZILLAS_CATALOG: Record<string, ProductDetail> = {
   "s1-premium-leather-backpack": {
     id: "albus-s1-bundle",
     slug: "s1-premium-leather-backpack",
@@ -28,7 +28,7 @@ const ALBUS_CATALOG: Record<string, ProductDetail> = {
     description:
       "Crafted from premium textured synthetic leather, the S1 Premium Leather Backpack combines modern elegance with smart functionality. Features a spacious main compartment, dedicated laptop protection, and includes a matching Fanny Bag absolutely FREE with this limited launch bundle.",
     category: "Backpacks",
-    sku: "ALBUS-S1-PREMIUM",
+    sku: "BAGZILLAS-S1-PREMIUM",
     inStock: true,
     images: [
       "https://www.albus.pk/cdn/shop/files/media.jpg?v=1784714546&width=896",
@@ -47,7 +47,7 @@ const ALBUS_CATALOG: Record<string, ProductDetail> = {
     description:
       "Meet the Onyx Backpack—where sleek minimalist aesthetics meet ultimate everyday functionality. Designed for university students, commuters, and travelers with water-resistant fabric, multi-pocket smart organization, and air-mesh ergonomic back padding.",
     category: "Backpacks",
-    sku: "ALBUS-ONYX-01",
+    sku: "BAGZILLAS-ONYX-01",
     inStock: true,
     isNew: true,
     images: [
@@ -67,7 +67,7 @@ const ALBUS_CATALOG: Record<string, ProductDetail> = {
     description:
       "A versatile gym, travel, and everyday carry bag engineered with a dedicated zippered bottom shoe compartment to keep footwear isolated from clean apparel. Sized at 19\" x 13\" x 6\" with high-elasticity side pockets and durable water-resistant construction.",
     category: "Travel Bags",
-    sku: "ALBUS-AIO-01",
+    sku: "BAGZILLAS-AIO-01",
     inStock: true,
     images: [
       "https://www.albus.pk/cdn/shop/files/Black_Bag_1.png?v=1785407749&width=1254",
@@ -85,7 +85,7 @@ const ALBUS_CATALOG: Record<string, ProductDetail> = {
     description:
       "The flagship S1 BackPack features a modern matte finish, generous interior volume for 15.6\" laptops, books, and gadgets, and ergonomic shoulder straps for effortless daily commuting across Pakistan.",
     category: "Backpacks",
-    sku: "ALBUS-S1-STD",
+    sku: "BAGZILLAS-S1-STD",
     inStock: true,
     isNew: true,
     images: [
@@ -99,11 +99,11 @@ const ALBUS_CATALOG: Record<string, ProductDetail> = {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const product = ALBUS_CATALOG[slug];
-  if (!product) return { title: "Product | ALBUS Pakistan" };
+  const product = BAGZILLAS_CATALOG[slug];
+  if (!product) return { title: "Product | Bagzillas Pakistan" };
 
   return {
-    title: `${product.title} | ALBUS Pakistan`,
+    title: `${product.title} | Bagzillas Pakistan`,
     description: product.description,
   };
 }
@@ -114,7 +114,7 @@ export default async function ProductDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const product = ALBUS_CATALOG[slug] || ALBUS_CATALOG["s1-backpack"];
+  const product = BAGZILLAS_CATALOG[slug] || BAGZILLAS_CATALOG["s1-backpack"];
 
   return (
     <>

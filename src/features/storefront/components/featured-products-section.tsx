@@ -5,8 +5,8 @@ import { SectionContainer } from "@/components/layout/section-container";
 import { ProductCard } from "@/components/shared/product-card";
 import { Button } from "@/components/ui/button";
 
-// Real Albus PK Live Product Catalog
-export const ALBUS_PRODUCTS = [
+// Bagzillas Live Product Catalog
+export const BAGZILLAS_PRODUCTS = [
   {
     id: "albus-s1-bundle",
     slug: "s1-premium-leather-backpack",
@@ -49,6 +49,8 @@ export const ALBUS_PRODUCTS = [
   },
 ];
 
+export const ALBUS_PRODUCTS = BAGZILLAS_PRODUCTS;
+
 interface FeaturedProductsSectionProps {
   products?: any[];
 }
@@ -68,7 +70,7 @@ export function FeaturedProductsSection({ products }: FeaturedProductsSectionPro
           category: p.category?.name || "Backpacks",
           isFeatured: p.isFeatured,
         }))
-      : ALBUS_PRODUCTS;
+      : BAGZILLAS_PRODUCTS;
 
   return (
     <section id="products" className="py-12 sm:py-16 md:py-20 bg-white border-b border-stone-100">

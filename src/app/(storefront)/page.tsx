@@ -11,9 +11,9 @@ import { TrustSection } from "@/features/storefront/components/trust-section";
 import { homepageService } from "@/server/services/homepage.service";
 
 export const metadata = {
-  title: "ALBUS Pakistan | Premium Backpacks & Everyday Carry Bags",
+  title: "Bagzillas Pakistan | Premium Backpacks & Everyday Carry Bags",
   description:
-    "Carry with confidence with ALBUS premium backpacks—crafted for style, durability, and daily comfort. Cash on Delivery across Pakistan.",
+    "Carry with confidence with Bagzillas premium backpacks—crafted for style, durability, and daily comfort. Cash on Delivery across Pakistan.",
 };
 
 export default async function HomePage() {
@@ -41,7 +41,7 @@ export default async function HomePage() {
       {/* 5. Brown Scrolling Marquee Banner ("Buy 1 Get 1 Free...") */}
       <AlbusScrollingTicker />
 
-      {/* 6. Comparison Table ("Why ALBUS?") */}
+      {/* 6. Comparison Table ("Why Bagzillas?") */}
       <AlbusComparisonSection />
 
       {/* 7. Video Gallery ("As Seen in Your Feed") */}

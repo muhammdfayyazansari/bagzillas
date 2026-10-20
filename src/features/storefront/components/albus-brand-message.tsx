@@ -5,7 +5,7 @@ export function AlbusBrandMessage() {
     <section className="w-full py-8 sm:py-10 px-4 sm:px-6 text-center bg-white border-b border-stone-100">
       <div className="max-w-4xl mx-auto">
         <p className="font-sans text-xs sm:text-sm font-semibold tracking-wider text-[#8B5E3C] uppercase mb-2.5 sm:mb-3">
-          ALBUS — Luxury You Can Carry
+          Bagzillas — Luxury You Can Carry
         </p>
 
         <h2 className="font-serif text-xl sm:text-3xl md:text-4xl font-bold text-[#6F472D] leading-tight sm:leading-snug">

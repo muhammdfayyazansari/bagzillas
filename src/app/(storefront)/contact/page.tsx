@@ -11,7 +11,7 @@ export default function ContactPage() {
       <SectionContainer className="max-w-4xl">
         <div className="text-center mb-10 sm:mb-14">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-stone-900 tracking-tight mb-3">
-            Contact ALBUS
+            Contact Bagzillas
           </h1>
           <p className="text-stone-600 text-sm sm:text-base max-w-xl mx-auto">
             Have a question about an order, delivery timeline, or bulk inquiries? Reach out to our dedicated team.
@@ -128,7 +128,7 @@ export default function ContactPage() {
                 <textarea
                   rows={4}
                   required
-                  placeholder="How can we assist you with ALBUS products?"
+                  placeholder="How can we assist you with Bagzillas products?"
                   className="w-full px-4 py-2.5 bg-stone-50 border border-stone-300 rounded-lg text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8B5E3C]"
                 />
               </div>
