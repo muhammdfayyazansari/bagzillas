@@ -12,41 +12,104 @@ interface HeroSectionProps {
   data?: HeroSectionContent;
 }
 
-const SLIDES = [
+/* ---------- Polymorphic Slide Types ---------- */
+
+type ImageSlide = {
+  type: "image";
+  image: string;
+  mobileImage: string;
+  title: string;
+  buttonText: string;
+  buttonLink: string;
+  duration: number;
+};
+
+type VideoSlide = {
+  type: "video";
+  videoSrc: string;
+  poster: string;
+  title: string;
+  buttonText: string;
+  buttonLink: string;
+  duration: number;
+};
+
+type HeroSlide = ImageSlide | VideoSlide;
+
+/* ---------- Slide Dataset ---------- */
+
+const SLIDES: HeroSlide[] = [
   {
+    type: "video",
+    videoSrc: "/images/hero_video/1000295211.mp4",
+    poster: "/images/hero_video/poster.jpg",
+    title: "Engineered For Everyday Life",
+    buttonText: "Explore Collection",
+    buttonLink: "/products",
+    duration: 20000,
+  },
+  {
+    type: "image",
     image: "https://www.albus.pk/cdn/shop/files/desktop_size.png?v=1784564918&width=1672",
     mobileImage: "https://www.albus.pk/cdn/shop/files/1413451f-2d06-4a02-b274-5f5cbabfc777-ezremove.png?v=1776586314&width=480",
     title: "Carry with Confidence",
     buttonText: "Shop Now",
     buttonLink: "/products?category=backpacks",
+    duration: 6000,
   },
   {
+    type: "image",
     image: "https://www.albus.pk/cdn/shop/files/ChatGPT_Image_Jul_20_2026_09_58_03_PM.png?v=1784569384&width=1916",
     mobileImage: "https://www.albus.pk/cdn/shop/files/IMG_7127_JPG.jpg?v=1777891414&width=480",
     title: "Carry with Confidence",
     buttonText: "Shop Now",
     buttonLink: "/products?category=backpacks",
+    duration: 6000,
   },
-
 ];
+
+/* ---------- Component ---------- */
 
 export function HeroSection({ data }: HeroSectionProps) {
   const [currentSlide, setCurrentSlide] = React.useState(0);
-
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
 
   const slide = SLIDES[currentSlide];
 
+  /* Dynamic slide timer — respects per-slide duration.
+     For video slides the timer acts as a maximum cap; the video's
+     `onEnded` callback can also advance the slide early. */
+  React.useEffect(() => {
+    const currentDuration = SLIDES[currentSlide].duration;
+    const timer = setTimeout(() => {
+      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
+    }, currentDuration);
+    return () => clearTimeout(timer);
+  }, [currentSlide]);
+
+  /* Play / pause lifecycle for the video element */
+  React.useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid) return;
+
+    if (SLIDES[currentSlide].type === "video") {
+      vid.currentTime = 0;
+      vid.play().catch(() => {
+        /* autoplay may be blocked — poster remains visible */
+      });
+    } else {
+      vid.pause();
+    }
+  }, [currentSlide]);
+
+  /* Advance to next slide when video finishes naturally */
+  const handleVideoEnded = React.useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
+  }, []);
+
   return (
     <section className="relative w-full overflow-hidden bg-stone-900 select-none">
-      {/* FULLY RESPONSIVE SLIDESHOW CONTAINER (Mobile, Tablet, Desktop) */}
-      {/* <div className="relative w-full h-[52vh] sm:h-[60vh] md:h-[68vh] lg:h-[75vh] min-h-[350px] sm:min-h-[440px] md:min-h-[520px] max-h-[760px] 2xl:max-h-[850px] flex items-end justify-start"> */}
-      {/* <div className="relative w-full h-[calc(100svh-105px)] flex items-end justify-start min-h-[350px] sm:min-h-[440px] md:min-h-[520px] max-h-[760px] 2xl:max-h-[850px]"> */}
+      {/* FULLY RESPONSIVE SLIDESHOW CONTAINER */}
       <div className="
   relative w-full
   h-[calc(100svh-105px)]
@@ -60,7 +123,7 @@ export function HeroSection({ data }: HeroSectionProps) {
   lg:max-h-none
   flex items-end justify-start
 ">
-        {/* RESPONSIVE SLIDE IMAGE WITH CROSSFADE & KEN BURNS SCALE ANIMATION */}
+        {/* SLIDE MEDIA — CROSSFADE & KEN BURNS */}
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -70,37 +133,53 @@ export function HeroSection({ data }: HeroSectionProps) {
             transition={{ duration: 0.75, ease: "easeOut" }}
             className="absolute inset-0"
           >
-            {/* Desktop image: strictly hidden on mobile (< 768px), shown on desktop (md+) */}
-            <div className="hidden md:block absolute inset-0">
-              <Image
-                src={slide.image}
-                alt={slide.title}
-                fill
-                priority={currentSlide === 0}
-                sizes="(min-width: 768px) 100vw, 0px"
-                className="object-cover object-center"
-              />
-            </div>
+            {slide.type === "video" ? (
+              /* ===== VIDEO SLIDE ===== */
+              <div className="absolute inset-0 w-full h-full bg-stone-900">
+                <video
+                  ref={videoRef}
+                  src={slide.videoSrc}
+                  poster={slide.poster}
+                  autoPlay
+                  muted
+                  playsInline
+                  preload="metadata"
+                  onEnded={handleVideoEnded}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+            ) : (
+              /* ===== IMAGE SLIDE ===== */
+              <>
+                {/* Desktop image (md+) */}
+                <div className="hidden md:block absolute inset-0">
+                  <Image
+                    src={slide.image}
+                    alt={slide.title}
+                    fill
+                    priority={currentSlide === 0}
+                    sizes="(min-width: 768px) 100vw, 0px"
+                    className="object-cover object-center"
+                  />
+                </div>
 
-            {/* Mobile image: strictly shown on mobile (< 768px), hidden on desktop (md+) */}
-            <div className="block md:hidden absolute inset-0">
-              <Image
-                src={slide.mobileImage}
-                alt={slide.title}
-                fill
-                priority={currentSlide === 0}
-                sizes="(max-width: 767px) 100vw, 0px"
-                className="object-cover object-center"
-              />
-            </div>
+                {/* Mobile image (< md) */}
+                <div className="block md:hidden absolute inset-0">
+                  <Image
+                    src={slide.mobileImage}
+                    alt={slide.title}
+                    fill
+                    priority={currentSlide === 0}
+                    sizes="(max-width: 767px) 100vw, 0px"
+                    className="object-cover object-center"
+                  />
+                </div>
+              </>
+            )}
           </motion.div>
         </AnimatePresence>
 
-        {/* GRADIENT OVERLAYS FOR RESPONSIVE TEXT CONTRAST */}
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none z-[1]" /> */}
-        {/* <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent pointer-events-none z-[1]" /> */}
-
-        {/* HERO CAPTION & BUTTON (BOTTOM-LEFT POSITIONED WITH H6 TEXT) */}
+        {/* HERO CAPTION & BUTTON (BOTTOM-LEFT) */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pb-7 sm:pb-12 md:pb-16 text-left text-white">
           <motion.div
             key={`caption-${currentSlide}`}
@@ -110,11 +189,6 @@ export function HeroSection({ data }: HeroSectionProps) {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 1.5 }}
             className="max-w-xs sm:max-w-md md:max-w-lg"
           >
-            {/* H6 SIZE CARRY WITH CONFIDENCE HEADLINE */}
-            {/* <h6 className="font-serif text-sm sm:text-base md:text-lg lg:text-xl font-bold tracking-wider uppercase text-white drop-shadow-md mb-2.5 sm:mb-3.5 leading-snug">
-              {slide.title}
-            </h6> */}
-
             {/* SHOP NOW BUTTON */}
             <Button
               size="lg"
@@ -129,7 +203,7 @@ export function HeroSection({ data }: HeroSectionProps) {
           </motion.div>
         </div>
 
-        {/* RESPONSIVE PREV / NEXT CONTROLS (TOUCH-FRIENDLY & SCALED) */}
+        {/* RESPONSIVE PREV / NEXT CONTROLS */}
         <button
           onClick={() => setCurrentSlide((prev) => (prev === 0 ? SLIDES.length - 1 : prev - 1))}
           className="absolute left-2 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 z-20 p-1.5 sm:p-2.5 rounded-full bg-black/35 hover:bg-black/65 active:scale-90 text-white backdrop-blur-xs transition-all cursor-pointer"
@@ -152,10 +226,11 @@ export function HeroSection({ data }: HeroSectionProps) {
             <button
               key={i}
               onClick={() => setCurrentSlide(i)}
-              className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${currentSlide === i
-                ? "w-6 sm:w-8 bg-[#8B5E3C]"
-                : "w-1.5 sm:w-2.5 bg-white/50 hover:bg-white"
-                }`}
+              className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                currentSlide === i
+                  ? "w-6 sm:w-8 bg-[#8B5E3C]"
+                  : "w-1.5 sm:w-2.5 bg-white/50 hover:bg-white"
+              }`}
               aria-label={`Go to slide ${i + 1}`}
             />
           ))}
