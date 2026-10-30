@@ -39,6 +39,7 @@ type HeroSlide = ImageSlide | VideoSlide;
 /* ---------- Slide Dataset ---------- */
 
 const SLIDES: HeroSlide[] = [
+  /* Video slide commented out — video is now placed as the main navbar logo:
   {
     type: "video",
     videoSrc: "/images/hero_video/1000295211.mp4",
@@ -48,6 +49,7 @@ const SLIDES: HeroSlide[] = [
     buttonLink: "/products",
     duration: 20000,
   },
+  */
   {
     type: "image",
     image: "https://www.albus.pk/cdn/shop/files/desktop_size.png?v=1784564918&width=1672",
