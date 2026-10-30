@@ -193,14 +193,14 @@ export function Navbar() {
           {/* Right Action Icons */}
           <div className="flex items-center gap-2 sm:gap-4">
             {/* Search Trigger */}
-            <button
+            {/* <button
               type="button"
               onClick={() => setIsSearchOpen(!isSearchOpen)}
               className="p-2.5 rounded-full text-stone-700 hover:text-stone-950 hover:bg-stone-100 transition-colors"
               aria-label="Search site"
             >
               {isSearchOpen ? <X className="h-5 w-5" /> : <Search className="h-5 w-5" />}
-            </button>
+            </button> */}
 
             {/* Admin / Account Link */}
             {/* <Link
