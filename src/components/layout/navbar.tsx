@@ -176,8 +176,8 @@ export function Navbar() {
                   key={link.name}
                   href={link.href}
                   className={`text-[13px] font-semibold uppercase tracking-wider transition-colors relative group py-2 ${isLinkActive
-                      ? "text-[#8B5E3C]"
-                      : "text-stone-700 hover:text-[#8B5E3C]"
+                    ? "text-[#8B5E3C]"
+                    : "text-stone-700 hover:text-[#8B5E3C]"
                     }`}
                 >
                   <span>{link.name}</span>
@@ -203,13 +203,13 @@ export function Navbar() {
             </button>
 
             {/* Admin / Account Link */}
-            <Link
+            {/* <Link
               href="/admin"
               className="hidden sm:inline-flex p-2.5 rounded-full text-stone-700 hover:text-stone-950 hover:bg-stone-100 transition-colors"
               title="Admin Dashboard"
             >
               <User className="h-5 w-5" />
-            </Link>
+            </Link> */}
 
             {/* Sliding Cart Drawer Trigger */}
             <CartDrawer
@@ -245,7 +245,7 @@ export function Navbar() {
                   <Search className="absolute left-4 h-5 w-5 text-stone-400" />
                   <input
                     type="text"
-                    placeholder="Search backpacks, travel bags, onyx edition..."
+                    placeholder="Search backpacks, travel bags..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     autoFocus
@@ -304,8 +304,8 @@ export function Navbar() {
                   href="/"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${isHomeActive
-                      ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
-                      : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
+                    ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
+                    : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
                     }`}
                 >
                   <div className="flex items-center gap-3">
@@ -333,8 +333,8 @@ export function Navbar() {
                   href="/products"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${isAllProductsActive
-                      ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
-                      : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
+                    ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
+                    : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
                     }`}
                 >
                   <div className="flex items-center gap-3">
@@ -363,8 +363,8 @@ export function Navbar() {
                   href="/products?category=backpacks"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${isBackpackActive
-                      ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
-                      : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
+                    ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
+                    : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
                     }`}
                 >
                   <div className="flex items-center gap-3">
@@ -386,8 +386,8 @@ export function Navbar() {
                   </div>
                   <span
                     className={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full ${isBackpackActive
-                        ? "bg-white/20 text-white"
-                        : "bg-amber-100 text-amber-800"
+                      ? "bg-white/20 text-white"
+                      : "bg-amber-100 text-amber-800"
                       }`}
                   >
                     Hot
@@ -399,8 +399,8 @@ export function Navbar() {
                   href="/products?category=travel-bags"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${isTravelActive
-                      ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
-                      : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
+                    ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
+                    : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
                     }`}
                 >
                   <div className="flex items-center gap-3">
@@ -428,8 +428,8 @@ export function Navbar() {
                   href="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${isContactActive
-                      ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
-                      : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
+                    ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
+                    : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
                     }`}
                 >
                   <div className="flex items-center gap-3">
@@ -487,8 +487,8 @@ export function Navbar() {
           <Link
             href="/"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isHomeActive
-                ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
-                : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
+              ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
+              : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
               }`}
           >
             <Home className="h-4 w-4 mb-0.5" />
@@ -499,8 +499,8 @@ export function Navbar() {
           <Link
             href="/products"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isAllProductsActive
-                ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
-                : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
+              ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
+              : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
               }`}
           >
             <LayoutGrid className="h-4 w-4 mb-0.5" />
@@ -511,8 +511,8 @@ export function Navbar() {
           <Link
             href="/products?category=backpacks"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isBackpackActive
-                ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
-                : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
+              ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
+              : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
               }`}
           >
             <Backpack className="h-4 w-4 mb-0.5" />
@@ -523,8 +523,8 @@ export function Navbar() {
           <Link
             href="/products?category=travel-bags"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isTravelActive
-                ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
-                : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
+              ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
+              : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
               }`}
           >
             <Luggage className="h-4 w-4 mb-0.5" />
@@ -535,8 +535,8 @@ export function Navbar() {
           <Link
             href="/contact"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isContactActive
-                ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
-                : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
+              ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
+              : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
               }`}
           >
             <Phone className="h-4 w-4 mb-0.5" />

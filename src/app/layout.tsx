@@ -23,6 +23,15 @@ export const metadata: Metadata = {
   },
   description:
     "Carry with confidence with Bagzillas premium backpacks—crafted for style, durability, and daily comfort. Cash on Delivery across Pakistan.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/images/bagzillas-logo-square.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/images/bagzillas-logo-square.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({
