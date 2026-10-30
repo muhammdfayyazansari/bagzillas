@@ -1,34 +1,35 @@
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface NavLogoProps {
   className?: string;
   onClick?: () => void;
+  size?: "default" | "compact" | "large";
 }
 
-export function NavLogo({ className, onClick }: NavLogoProps) {
+export function NavLogo({ className, onClick, size = "default" }: NavLogoProps) {
+  const sizeClasses = {
+    compact: "h-9 w-auto",
+    default: "h-11 sm:h-12 md:h-13 w-auto",
+    large: "h-14 sm:h-16 w-auto",
+  }[size];
+
   return (
     <Link
       href="/"
       onClick={onClick}
-      className={`inline-flex items-center gap-2 group select-none transition-transform active:scale-95 ${className ?? ""}`}
+      className={`inline-flex items-center group select-none transition-transform active:scale-95 ${className ?? ""}`}
+      aria-label="Bagzillas - The Name of Quality"
     >
-      {/* Sleek Bagzillas Monogram Icon */}
-      <div className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-stone-900 text-white font-black text-sm tracking-widest shadow-sm group-hover:bg-[#8B5E3C] transition-colors">
-        <span>B</span>
-      </div>
-
-      {/* Brand Typography */}
-      <div className="flex flex-col">
-        <span className="text-xl font-extrabold tracking-[0.12em] text-stone-900 leading-none group-hover:text-[#8B5E3C] transition-colors">
-          {/* BagZillas */}
-          BagZillas
-        </span>
-        <span className="text-[8.5px] font-semibold tracking-[0.25em] text-stone-500 uppercase leading-tight mt-0.5">
-          {/* Quality Bags For Everyone */}
-          Quality Products
-        </span>
-      </div>
+      <Image
+        src="/images/bagzillas-logo.png"
+        alt="Bagzillas - The Name of Quality"
+        width={191}
+        height={151}
+        priority
+        className={`${sizeClasses} object-contain transition-transform duration-200 group-hover:scale-105`}
+      />
     </Link>
   );
 }
