@@ -543,6 +543,18 @@ This file must always stay updated so future AI/dev agents can continue seamless
     - Built reusable `src/components/shared/whatsapp-button.tsx` with official WhatsApp SVG icon, pulsing glow animation, tooltip, and direct link to `https://wa.me/923412345061`.
     - Integrated `<WhatsAppButton />` into `src/components/layout/storefront-layout.tsx` to render floating on every storefront page.
     - Updated store WhatsApp/phone number across `contact/page.tsx`, `footer.tsx`, `shipping/page.tsx`, `terms/page.tsx`, `returns/page.tsx`, and `privacy/page.tsx` to `+92 341 2345061`.
+- Step 17 Centralized Global Brand Color Theme Architecture
+  - Eliminated hardcoded inline hex colors (`#8B5E3C`, `#724b2f`, `#6F472D`, `#F3E8DF`, `#E7D8CD`) across all 18 storefront files and components.
+  - Defined centralized Tailwind v4 `@theme inline` tokens and `:root` variables in `src/app/globals.css`:
+    - `--color-brand: var(--brand)`
+    - `--color-brand-hover: var(--brand-hover)`
+    - `--color-brand-active: var(--brand-active)`
+    - `--color-brand-dark: var(--brand-dark)`
+    - `--color-brand-light: var(--brand-light)`
+    - `--color-brand-border: var(--brand-border)`
+    - `--color-brand-foreground: var(--brand-foreground)`
+  - Enabled native Tailwind v4 `color-mix` opacity variants (`bg-brand/10`, `border-brand/20`, etc.).
+  - Changing the website's entire color theme now requires editing only **one single file** (`src/app/globals.css`).
 
 ### Pending
 

@@ -131,12 +131,12 @@ export function TestimonialsSection({ data }: TestimonialsSectionProps) {
                 <div className="flex-1 min-w-0">
                   <Link
                     href={`/products/${review.productSlug}`}
-                    className="text-xs font-semibold text-stone-900 hover:text-[#8B5E3C] line-clamp-1 block transition-colors"
+                    className="text-xs font-semibold text-stone-900 hover:text-brand line-clamp-1 block transition-colors"
                   >
                     {review.productName}
                   </Link>
                   <div className="flex items-center gap-1.5 mt-0.5">
-                    <span className="text-xs font-bold text-[#8B5E3C]">
+                    <span className="text-xs font-bold text-brand">
                       {review.salePrice}
                     </span>
                     <span className="text-[11px] text-stone-400 line-through">

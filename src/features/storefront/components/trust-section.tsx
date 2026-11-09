@@ -43,7 +43,7 @@ export function TrustSection({ data }: TrustSectionProps) {
                 key={idx}
                 className="flex flex-col items-center text-center p-4 group"
               >
-                <div className="w-14 h-14 rounded-full bg-stone-50 border border-stone-200/80 flex items-center justify-center text-[#8B5E3C] mb-3.5 group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-full bg-stone-50 border border-stone-200/80 flex items-center justify-center text-brand mb-3.5 group-hover:scale-110 transition-transform">
                   <Icon className="w-7 h-7 stroke-[1.5]" />
                 </div>
                 <h3 className="font-sans text-base sm:text-lg font-bold text-stone-900 mb-1.5">

@@ -25,7 +25,7 @@ export default function ContactPage() {
 
             <div className="space-y-4 text-sm text-stone-700">
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <div>
                   <span className="font-semibold block text-stone-900">Address</span>
                   <span>Kashmir Road Faisalabad, Pakistan</span>
@@ -33,27 +33,27 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <Phone className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <div>
                   <span className="font-semibold block text-stone-900">Phone &amp; WhatsApp</span>
-                  <a href="tel:+923412345061" className="text-[#8B5E3C] hover:underline">
+                  <a href="tel:+923412345061" className="text-brand hover:underline">
                     +92 341 2345061
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <Mail className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <div>
                   <span className="font-semibold block text-stone-900">Email</span>
-                  <a href="mailto:albus3781@gmail.com" className="text-[#8B5E3C] hover:underline">
+                  <a href="mailto:albus3781@gmail.com" className="text-brand hover:underline">
                     albus3781@gmail.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <div>
                   <span className="font-semibold block text-stone-900">Operating Hours</span>
                   <span>Monday – Sunday: 24/7 Available</span>
@@ -93,7 +93,7 @@ export default function ContactPage() {
                   type="text"
                   required
                   placeholder="e.g. Ahmad Raza"
-                  className="w-full px-4 py-2.5 bg-stone-50 border border-stone-300 rounded-lg text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8B5E3C]"
+                  className="w-full px-4 py-2.5 bg-stone-50 border border-stone-300 rounded-lg text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-brand"
                 />
               </div>
 
@@ -105,7 +105,7 @@ export default function ContactPage() {
                   type="email"
                   required
                   placeholder="name@example.com"
-                  className="w-full px-4 py-2.5 bg-stone-50 border border-stone-300 rounded-lg text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8B5E3C]"
+                  className="w-full px-4 py-2.5 bg-stone-50 border border-stone-300 rounded-lg text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-brand"
                 />
               </div>
 
@@ -117,7 +117,7 @@ export default function ContactPage() {
                   type="tel"
                   required
                   placeholder="03XXXXXXXXX"
-                  className="w-full px-4 py-2.5 bg-stone-50 border border-stone-300 rounded-lg text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8B5E3C]"
+                  className="w-full px-4 py-2.5 bg-stone-50 border border-stone-300 rounded-lg text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-brand"
                 />
               </div>
 
@@ -129,13 +129,13 @@ export default function ContactPage() {
                   rows={4}
                   required
                   placeholder="How can we assist you with Bagzillas products?"
-                  className="w-full px-4 py-2.5 bg-stone-50 border border-stone-300 rounded-lg text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-[#8B5E3C]"
+                  className="w-full px-4 py-2.5 bg-stone-50 border border-stone-300 rounded-lg text-sm text-stone-900 focus:outline-none focus:ring-2 focus:ring-brand"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3.5 bg-stone-900 hover:bg-[#8B5E3C] text-white rounded-full font-semibold text-sm transition-colors cursor-pointer"
+                className="w-full py-3.5 bg-stone-900 hover:bg-brand text-white rounded-full font-semibold text-sm transition-colors cursor-pointer"
               >
                 Send Message
               </button>

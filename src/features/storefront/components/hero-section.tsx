@@ -193,7 +193,7 @@ export function HeroSection({ data }: HeroSectionProps) {
             <Button
               size="lg"
               asChild
-              className="bg-[#8B5E3C] hover:bg-[#724b2f] text-white font-medium text-[11px] sm:text-xs md:text-sm px-5 sm:px-7 py-2 sm:py-2.5 md:py-5 rounded-lg shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+              className="bg-brand hover:bg-brand-hover text-brand-foreground font-medium text-[11px] sm:text-xs md:text-sm px-5 sm:px-7 py-2 sm:py-2.5 md:py-5 rounded-lg shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
             >
               <Link href={slide.buttonLink} className="flex items-center gap-1.5 sm:gap-2">
                 <span>{slide.buttonText}</span>
@@ -228,7 +228,7 @@ export function HeroSection({ data }: HeroSectionProps) {
               onClick={() => setCurrentSlide(i)}
               className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${
                 currentSlide === i
-                  ? "w-6 sm:w-8 bg-[#8B5E3C]"
+                  ? "w-6 sm:w-8 bg-brand"
                   : "w-1.5 sm:w-2.5 bg-white/50 hover:bg-white"
               }`}
               aria-label={`Go to slide ${i + 1}`}

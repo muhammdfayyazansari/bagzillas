@@ -13,7 +13,7 @@ export function AlbusScrollingTicker() {
   ];
 
   return (
-    <div className="w-full bg-[#8B5E3C] text-white py-3 sm:py-3.5 overflow-hidden select-none border-y border-[#774f32]">
+    <div className="w-full bg-brand text-brand-foreground py-3 sm:py-3.5 overflow-hidden select-none border-y border-brand-hover">
       <div className="flex w-max animate-[marquee_24s_linear_infinite] hover:[animation-play-state:paused]">
         {/* Double list for smooth seamless loop */}
         {[...items, ...items].map((text, idx) => (

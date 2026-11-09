@@ -6,7 +6,6 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import {
   Menu,
   ShoppingBag,
-  User,
   Search,
   X,
   ChevronRight,
@@ -176,13 +175,13 @@ export function Navbar() {
                   key={link.name}
                   href={link.href}
                   className={`text-[13px] font-semibold uppercase tracking-wider transition-colors relative group py-2 ${isLinkActive
-                    ? "text-[#8B5E3C]"
-                    : "text-stone-700 hover:text-[#8B5E3C]"
+                    ? "text-brand"
+                    : "text-stone-700 hover:text-brand"
                     }`}
                 >
                   <span>{link.name}</span>
                   <span
-                    className={`absolute bottom-0 left-0 h-0.5 bg-[#8B5E3C] transition-all duration-200 ${isLinkActive ? "w-full" : "w-0 group-hover:w-full"
+                    className={`absolute bottom-0 left-0 h-0.5 bg-brand transition-all duration-200 ${isLinkActive ? "w-full" : "w-0 group-hover:w-full"
                       }`}
                   />
                 </Link>
@@ -221,7 +220,7 @@ export function Navbar() {
                 >
                   <ShoppingBag className="h-5 w-5 group-hover:scale-105 transition-transform" />
                   {cartCount > 0 && (
-                    <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-[#8B5E3C] text-[10.5px] font-bold text-white shadow-sm ring-2 ring-white">
+                    <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-brand text-[10.5px] font-bold text-brand-foreground shadow-sm ring-2 ring-white">
                       {cartCount}
                     </span>
                   )}
@@ -249,11 +248,11 @@ export function Navbar() {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     autoFocus
-                    className="w-full pl-12 pr-28 py-3.5 bg-white border border-stone-300 rounded-full text-stone-900 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#8B5E3C] focus:border-transparent shadow-sm"
+                    className="w-full pl-12 pr-28 py-3.5 bg-white border border-stone-300 rounded-full text-stone-900 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent shadow-sm"
                   />
                   <button
                     type="submit"
-                    className="absolute right-2 px-5 py-2 bg-stone-900 text-white rounded-full text-xs font-semibold hover:bg-[#8B5E3C] transition-colors"
+                    className="absolute right-2 px-5 py-2 bg-stone-900 text-white rounded-full text-xs font-semibold hover:bg-brand transition-colors"
                   >
                     Search
                   </button>
@@ -304,7 +303,7 @@ export function Navbar() {
                   href="/"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${isHomeActive
-                    ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
+                    ? "bg-brand text-brand-foreground border-brand font-semibold shadow-sm"
                     : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
                     }`}
                 >
@@ -333,7 +332,7 @@ export function Navbar() {
                   href="/products"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${isAllProductsActive
-                    ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
+                    ? "bg-brand text-brand-foreground border-brand font-semibold shadow-sm"
                     : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
                     }`}
                 >
@@ -363,7 +362,7 @@ export function Navbar() {
                   href="/products?category=backpacks"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${isBackpackActive
-                    ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
+                    ? "bg-brand text-brand-foreground border-brand font-semibold shadow-sm"
                     : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
                     }`}
                 >
@@ -399,7 +398,7 @@ export function Navbar() {
                   href="/products?category=travel-bags"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${isTravelActive
-                    ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
+                    ? "bg-brand text-brand-foreground border-brand font-semibold shadow-sm"
                     : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
                     }`}
                 >
@@ -428,13 +427,13 @@ export function Navbar() {
                   href="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center justify-between p-3.5 rounded-xl border transition-all ${isContactActive
-                    ? "bg-[#8B5E3C] text-white border-[#8B5E3C] font-semibold shadow-sm"
+                    ? "bg-brand text-brand-foreground border-brand font-semibold shadow-sm"
                     : "bg-white text-stone-800 border-stone-200 hover:bg-stone-50 hover:border-stone-300"
                     }`}
                 >
                   <div className="flex items-center gap-3">
                     <div
-                      className={`p-2 rounded-lg ${isContactActive ? "bg-white/20 text-white" : "bg-[#8B5E3C]/10 text-[#8B5E3C]"
+                      className={`p-2 rounded-lg ${isContactActive ? "bg-white/20 text-white" : "bg-brand/10 text-brand"
                         }`}
                     >
                       <Phone className="h-5 w-5" />
@@ -477,7 +476,7 @@ export function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* 5. FIXED MOBILE BOTTOM NAVIGATION BAR (Sticky to bottom on mobile, small icons, #8B5E3C active bg) */}
+      {/* 5. FIXED MOBILE BOTTOM NAVIGATION BAR (Sticky to bottom on mobile, small icons, brand active bg) */}
       <nav
         aria-label="Mobile navigation"
         className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200/90 shadow-[0_-4px_16px_rgba(0,0,0,0.06)] px-1.5 pt-1.5 pb-[calc(0.4rem+env(safe-area-inset-bottom,0px))] lg:hidden"
@@ -487,7 +486,7 @@ export function Navbar() {
           <Link
             href="/"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isHomeActive
-              ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
+              ? "bg-brand text-brand-foreground font-semibold shadow-xs"
               : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
               }`}
           >
@@ -499,7 +498,7 @@ export function Navbar() {
           <Link
             href="/products"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isAllProductsActive
-              ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
+              ? "bg-brand text-brand-foreground font-semibold shadow-xs"
               : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
               }`}
           >
@@ -511,7 +510,7 @@ export function Navbar() {
           <Link
             href="/products?category=backpacks"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isBackpackActive
-              ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
+              ? "bg-brand text-brand-foreground font-semibold shadow-xs"
               : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
               }`}
           >
@@ -523,7 +522,7 @@ export function Navbar() {
           <Link
             href="/products?category=travel-bags"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isTravelActive
-              ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
+              ? "bg-brand text-brand-foreground font-semibold shadow-xs"
               : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
               }`}
           >
@@ -535,7 +534,7 @@ export function Navbar() {
           <Link
             href="/contact"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isContactActive
-              ? "bg-[#8B5E3C] text-white font-semibold shadow-xs"
+              ? "bg-brand text-brand-foreground font-semibold shadow-xs"
               : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
               }`}
           >

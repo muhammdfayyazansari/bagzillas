@@ -17,7 +17,7 @@ export function TrustBadge({ icon: Icon, title, description, className, ...props
       )}
       {...props}
     >
-      <div className="mb-2 sm:mb-4 inline-flex h-9 w-9 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#8B5E3C]/10 text-[#8B5E3C]">
+      <div className="mb-2 sm:mb-4 inline-flex h-9 w-9 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-brand/10 text-brand">
         <Icon className="h-4 w-4 sm:h-6 sm:w-6" />
       </div>
       <h3 className="mb-1 sm:mb-2 text-xs sm:text-base font-bold text-stone-900 leading-tight">

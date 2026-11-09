@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { Send, MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 import { SectionContainer } from "./section-container";
 
 export function Footer() {
@@ -124,11 +124,11 @@ export function Footer() {
                   placeholder="Enter your email... "
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-stone-800 border border-stone-700 rounded-lg text-white placeholder-stone-500 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#8B5E3C]"
+                  className="w-full px-4 py-2.5 bg-stone-800 border border-stone-700 rounded-lg text-white placeholder-stone-500 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-brand"
                 />
                 <button
                   type="submit"
-                  className="w-full px-4 py-2.5 bg-[#8B5E3C] hover:bg-[#724b2f] text-white rounded-lg text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
+                  className="w-full px-4 py-2.5 bg-brand hover:bg-brand-hover text-brand-foreground rounded-lg text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
                 >
                   Sign Up
                 </button>
@@ -144,12 +144,12 @@ export function Footer() {
 
             <div className="space-y-3 text-xs sm:text-sm text-stone-400">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                 <span>Kashmir Road Faisalabad, Pakistan</span>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#8B5E3C] shrink-0" />
+                <Phone className="w-4 h-4 text-brand shrink-0" />
                 <a
                   href="tel:+923412345061"
                   className="text-stone-300 hover:text-white transition-colors"
@@ -159,7 +159,7 @@ export function Footer() {
               </div>
 
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#8B5E3C] shrink-0" />
+                <Mail className="w-4 h-4 text-brand shrink-0" />
                 <a
                   href="mailto:albus3781@gmail.com"
                   className="text-stone-300 hover:text-white transition-colors"
@@ -175,7 +175,7 @@ export function Footer() {
                 href="https://www.facebook.com/share/192ef9k3gq/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-stone-800 border border-stone-700 flex items-center justify-center text-stone-300 hover:text-white hover:bg-[#8B5E3C] transition-colors"
+                className="w-9 h-9 rounded-full bg-stone-800 border border-stone-700 flex items-center justify-center text-stone-300 hover:text-white hover:bg-brand transition-colors"
                 aria-label="Facebook"
               >
                 <span className="font-bold text-xs">f</span>
@@ -185,7 +185,7 @@ export function Footer() {
                 href="https://www.instagram.com/albuspk_?igsh=MWx5OHJzN2Z4Y284bQ%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-stone-800 border border-stone-700 flex items-center justify-center text-stone-300 hover:text-white hover:bg-[#8B5E3C] transition-colors"
+                className="w-9 h-9 rounded-full bg-stone-800 border border-stone-700 flex items-center justify-center text-stone-300 hover:text-white hover:bg-brand transition-colors"
                 aria-label="Instagram"
               >
                 <span className="font-bold text-xs">ig</span>
@@ -195,7 +195,7 @@ export function Footer() {
                 href="https://www.tiktok.com/@albus.pk?_r=1&_t=ZS-98CTxaOELvW"
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-stone-800 border border-stone-700 flex items-center justify-center text-stone-300 hover:text-white hover:bg-[#8B5E3C] transition-colors"
+                className="w-9 h-9 rounded-full bg-stone-800 border border-stone-700 flex items-center justify-center text-stone-300 hover:text-white hover:bg-brand transition-colors"
                 aria-label="TikTok"
               >
                 <span className="font-bold text-xs">tt</span>

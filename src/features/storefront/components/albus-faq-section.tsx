@@ -65,7 +65,7 @@ export function AlbusFaqSection() {
                     </span>
                     <ChevronDown
                       className={`h-4 w-4 sm:h-5 sm:w-5 text-stone-500 shrink-0 transition-transform duration-300 ${
-                        isOpen ? "rotate-180 text-[#8B5E3C]" : ""
+                        isOpen ? "rotate-180 text-brand" : ""
                       }`}
                     />
                   </button>

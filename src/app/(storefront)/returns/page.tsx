@@ -46,7 +46,7 @@ export default function ReturnsPolicyPage() {
 
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-100 text-stone-700 text-xs font-semibold uppercase tracking-wider mb-4">
-              <RotateCcw className="w-3.5 h-3.5 text-[#8B5E3C]" />
+              <RotateCcw className="w-3.5 h-3.5 text-brand" />
               Customer Protection &amp; Guarantee
             </div>
 
@@ -69,7 +69,7 @@ export default function ReturnsPolicyPage() {
         </div>
 
         {/* INTRO CALLOUT */}
-        <div className="bg-[#8B5E3C]/5 border border-[#8B5E3C]/20 rounded-2xl p-5 sm:p-6 mb-8 text-stone-800 text-sm sm:text-base leading-relaxed">
+        <div className="bg-brand/5 border border-brand/20 rounded-2xl p-5 sm:p-6 mb-8 text-stone-800 text-sm sm:text-base leading-relaxed">
           <p className="font-medium">
             At <strong className="text-stone-900">Bagzillas.com</strong>, we strive to ensure customer satisfaction.
             If you are not completely satisfied with your purchase, you may request a return or exchange under the
@@ -80,7 +80,7 @@ export default function ReturnsPolicyPage() {
         {/* QUICK PROCESS OVERVIEW BANNER */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
           <div className="bg-white p-4 rounded-2xl border border-stone-200 flex items-start gap-3">
-            <div className="w-8 h-8 rounded-xl bg-amber-50 text-[#8B5E3C] flex items-center justify-center shrink-0 font-bold text-xs">
+            <div className="w-8 h-8 rounded-xl bg-amber-50 text-brand flex items-center justify-center shrink-0 font-bold text-xs">
               01
             </div>
             <div>
@@ -89,7 +89,7 @@ export default function ReturnsPolicyPage() {
             </div>
           </div>
           <div className="bg-white p-4 rounded-2xl border border-stone-200 flex items-start gap-3">
-            <div className="w-8 h-8 rounded-xl bg-amber-50 text-[#8B5E3C] flex items-center justify-center shrink-0 font-bold text-xs">
+            <div className="w-8 h-8 rounded-xl bg-amber-50 text-brand flex items-center justify-center shrink-0 font-bold text-xs">
               02
             </div>
             <div>
@@ -98,7 +98,7 @@ export default function ReturnsPolicyPage() {
             </div>
           </div>
           <div className="bg-white p-4 rounded-2xl border border-stone-200 flex items-start gap-3">
-            <div className="w-8 h-8 rounded-xl bg-amber-50 text-[#8B5E3C] flex items-center justify-center shrink-0 font-bold text-xs">
+            <div className="w-8 h-8 rounded-xl bg-amber-50 text-brand flex items-center justify-center shrink-0 font-bold text-xs">
               03
             </div>
             <div>
@@ -130,14 +130,14 @@ export default function ReturnsPolicyPage() {
             <div className="space-y-4 pl-0 sm:pl-11">
               {/* 1.1 Time Frame */}
               <div className="bg-stone-50 rounded-2xl p-4 sm:p-5 border border-stone-200/80 flex items-start gap-3">
-                <Clock className="w-5 h-5 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <div>
                   <h3 className="text-sm font-bold text-stone-900 mb-1">
                     1.1 Time Frame
                   </h3>
                   <p className="text-stone-700 text-sm">
                     Returns or exchange requests must be made within{" "}
-                    <strong className="text-stone-900 font-semibold underline decoration-[#8B5E3C] decoration-2">
+                    <strong className="text-stone-900 font-semibold underline decoration-brand decoration-2">
                       7 days
                     </strong>{" "}
                     of receiving your order.
@@ -148,7 +148,7 @@ export default function ReturnsPolicyPage() {
               {/* 1.2 Condition of Items */}
               <div className="bg-stone-50 rounded-2xl p-5 border border-stone-200/80">
                 <h3 className="text-sm font-bold text-stone-900 mb-2.5 flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-[#8B5E3C]" />
+                  <ShieldCheck className="w-4 h-4 text-brand" />
                   1.2 Condition of Items
                 </h3>
                 <p className="text-stone-600 text-sm mb-3">
@@ -283,20 +283,20 @@ export default function ReturnsPolicyPage() {
               {/* 4.1 Request a Return */}
               <div className="bg-stone-50 rounded-2xl p-5 border border-stone-200/80">
                 <h3 className="text-sm font-bold text-stone-900 mb-2 flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4 text-[#8B5E3C]" />
+                  <MessageSquare className="w-4 h-4 text-brand" />
                   4.1 Request a Return
                 </h3>
                 <p className="text-stone-600 text-sm mb-3">To initiate a return:</p>
                 <ul className="space-y-2 text-sm text-stone-700">
                   <li className="flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#8B5E3C] mt-2 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2 shrink-0" />
                     <span>
                       Contact us via{" "}
                       <a
                         href="https://wa.me/923412345061"
                         target="_blank"
                         rel="noreferrer"
-                        className="text-[#8B5E3C] font-semibold hover:underline"
+                        className="text-brand font-semibold hover:underline"
                       >
                         +92 341 2345061
                       </a>{" "}
@@ -304,7 +304,7 @@ export default function ReturnsPolicyPage() {
                     </span>
                   </li>
                   <li className="flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#8B5E3C] mt-2 shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2 shrink-0" />
                     <span>Provide your order number and clear images of the product</span>
                   </li>
                 </ul>
@@ -313,7 +313,7 @@ export default function ReturnsPolicyPage() {
               {/* 4.2 Approval */}
               <div className="bg-stone-50 rounded-2xl p-5 border border-stone-200/80">
                 <h3 className="text-sm font-bold text-stone-900 mb-1 flex items-center gap-2">
-                  <FileCheck2 className="w-4 h-4 text-[#8B5E3C]" />
+                  <FileCheck2 className="w-4 h-4 text-brand" />
                   4.2 Approval
                 </h3>
                 <p className="text-stone-700 text-sm">
@@ -345,7 +345,7 @@ export default function ReturnsPolicyPage() {
               {/* 5.1 Refund Method */}
               <div className="bg-stone-50 rounded-2xl p-5 border border-stone-200/80">
                 <h3 className="text-sm font-bold text-stone-900 mb-2 flex items-center gap-2">
-                  <CreditCard className="w-4 h-4 text-[#8B5E3C]" />
+                  <CreditCard className="w-4 h-4 text-brand" />
                   5.1 Refund Method
                 </h3>
                 <p className="text-stone-600 text-sm mb-3">Refunds are issued via:</p>
@@ -370,7 +370,7 @@ export default function ReturnsPolicyPage() {
 
               {/* 5.2 Processing Time */}
               <div className="bg-stone-50 rounded-2xl p-5 border border-stone-200/80 flex items-start gap-3">
-                <Clock className="w-5 h-5 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <div>
                   <h3 className="text-sm font-bold text-stone-900 mb-1">
                     5.2 Processing Time
@@ -407,11 +407,11 @@ export default function ReturnsPolicyPage() {
 
             <div className="pl-0 sm:pl-11 space-y-2.5 text-sm text-stone-700">
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-2.5">
-                <RefreshCw className="w-4 h-4 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <RefreshCw className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                 <span>Exchanges are subject to product availability.</span>
               </div>
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                 <span>If the requested item is unavailable, a refund will be issued instead.</span>
               </div>
             </div>
@@ -437,7 +437,7 @@ export default function ReturnsPolicyPage() {
 
             <div className="pl-0 sm:pl-11 space-y-3">
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-3">
-                <Truck className="w-5 h-5 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <Truck className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <div className="space-y-1.5 text-sm text-stone-700">
                   <p>
                     Customers are responsible for return shipping charges unless:
@@ -523,14 +523,14 @@ export default function ReturnsPolicyPage() {
                   href="mailto:mianfaizan3781@gmail.com"
                   className="flex items-center gap-3.5 p-4 rounded-2xl bg-stone-50 hover:bg-stone-100 border border-stone-200 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#8B5E3C] shadow-xs group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-brand shadow-xs group-hover:scale-105 transition-transform">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-xs uppercase tracking-wider text-stone-500 font-semibold block">
                       Email
                     </span>
-                    <span className="text-sm font-semibold text-stone-900 group-hover:text-[#8B5E3C] transition-colors break-all">
+                    <span className="text-sm font-semibold text-stone-900 group-hover:text-brand transition-colors break-all">
                       mianfaizan3781@gmail.com
                     </span>
                   </div>
@@ -540,14 +540,14 @@ export default function ReturnsPolicyPage() {
                   href="tel:03432878749"
                   className="flex items-center gap-3.5 p-4 rounded-2xl bg-stone-50 hover:bg-stone-100 border border-stone-200 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#8B5E3C] shadow-xs group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-brand shadow-xs group-hover:scale-105 transition-transform">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-xs uppercase tracking-wider text-stone-500 font-semibold block">
                       Phone / WhatsApp
                     </span>
-                    <span className="text-sm font-semibold text-stone-900 group-hover:text-[#8B5E3C] transition-colors">
+                    <span className="text-sm font-semibold text-stone-900 group-hover:text-brand transition-colors">
                       +92 341 2345061
                     </span>
                   </div>

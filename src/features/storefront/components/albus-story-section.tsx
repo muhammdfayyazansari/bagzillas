@@ -35,14 +35,14 @@ export function AlbusStorySection() {
               {/* FLOATING PROMO PILL */}
               <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-md shadow-lg border border-white/40 flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-[#8B5E3C] block">
+                  <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-brand block">
                     Limited Bundle
                   </span>
                   <span className="text-xs sm:text-sm font-extrabold text-stone-900 block">
                     Free Fanny Bag Included
                   </span>
                 </div>
-                <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[#8B5E3C] text-white text-[10px] sm:text-xs font-bold shrink-0">
+                <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-brand text-brand-foreground text-[10px] sm:text-xs font-bold shrink-0">
                   Offer Active
                 </span>
               </div>
@@ -57,7 +57,7 @@ export function AlbusStorySection() {
             transition={{ duration: 0.5 }}
             className="flex flex-col justify-center"
           >
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#6F472D] leading-[1.2] mb-4 sm:mb-6">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-brand-dark leading-[1.2] mb-4 sm:mb-6">
               Carry Your Story
             </h2>
 
@@ -72,7 +72,7 @@ export function AlbusStorySection() {
             {/* FEATURE CHECKLIST */}
             <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
               <div className="flex items-start gap-2.5 sm:gap-3">
-                <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5 text-brand shrink-0 mt-0.5" />
                 <div>
                   <span className="text-xs sm:text-sm font-bold text-stone-900 block">Durable &amp; Weather-Resistant Build</span>
                   <span className="text-[11px] sm:text-xs text-stone-500">High-density materials to withstand everyday wear across Pakistan.</span>
@@ -80,7 +80,7 @@ export function AlbusStorySection() {
               </div>
 
               <div className="flex items-start gap-2.5 sm:gap-3">
-                <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5 text-brand shrink-0 mt-0.5" />
                 <div>
                   <span className="text-xs sm:text-sm font-bold text-stone-900 block">Smart Isolated Compartments</span>
                   <span className="text-[11px] sm:text-xs text-stone-500">Dedicated organization compartments for laptop, accessories, and everyday carry.</span>
@@ -88,7 +88,7 @@ export function AlbusStorySection() {
               </div>
 
               <div className="flex items-start gap-2.5 sm:gap-3">
-                <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5 text-brand shrink-0 mt-0.5" />
                 <div>
                   <span className="text-xs sm:text-sm font-bold text-stone-900 block">Ergonomic Comfort</span>
                   <span className="text-[11px] sm:text-xs text-stone-500">Padded shoulder straps engineered for effortless all-day carry.</span>
@@ -101,7 +101,7 @@ export function AlbusStorySection() {
               <Button
                 size="lg"
                 asChild
-                className="w-full sm:w-auto bg-[#8B5E3C] hover:bg-[#70492c] text-white font-semibold rounded-full px-8 py-5 sm:py-6 text-xs sm:text-sm md:text-base shadow-md transition-colors"
+                className="w-full sm:w-auto bg-brand hover:bg-brand-hover text-brand-foreground font-semibold rounded-full px-8 py-5 sm:py-6 text-xs sm:text-sm md:text-base shadow-md transition-colors"
               >
                 <Link href="/products" className="flex items-center justify-center">
                   Shop Carry Essentials

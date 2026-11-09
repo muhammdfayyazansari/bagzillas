@@ -37,7 +37,7 @@ export function AlbusComparisonSection() {
       <SectionContainer>
         {/* HEADING */}
         <div className="text-center mb-7 sm:mb-9">
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#6F472D] leading-none mb-2">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark leading-none mb-2">
             Why Bagzillas?
           </h2>
           <p className="font-sans text-xs sm:text-sm md:text-base text-[#5E5149]">
@@ -46,14 +46,14 @@ export function AlbusComparisonSection() {
         </div>
 
         {/* COMPARISON TABLE */}
-        <div className="max-w-4xl mx-auto overflow-hidden rounded-xl sm:rounded-2xl bg-white border border-[#E7D8CD] shadow-[0_10px_30px_rgba(111,71,45,0.12)]">
+        <div className="max-w-4xl mx-auto overflow-hidden rounded-xl sm:rounded-2xl bg-white border border-brand-border shadow-[0_10px_30px_rgba(111,71,45,0.12)]">
           <table className="w-full border-collapse table-fixed text-center font-sans">
             <thead>
-              <tr className="border-b border-[#E7D8CD]">
-                <th className="w-[30%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-semibold text-[#382A22] bg-white border-r border-[#E7D8CD]">
+              <tr className="border-b border-brand-border">
+                <th className="w-[30%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-semibold text-[#382A22] bg-white border-r border-brand-border">
                   Features
                 </th>
-                <th className="w-[35%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-semibold text-white bg-[#8B5E3C] border-r border-[#E7D8CD]">
+                <th className="w-[35%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-semibold text-brand-foreground bg-brand border-r border-brand-border">
                   Bagzillas
                 </th>
                 <th className="w-[35%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-semibold text-[#382A22] bg-white">
@@ -65,12 +65,12 @@ export function AlbusComparisonSection() {
               {COMPARISON_ROWS.map((row, idx) => (
                 <tr
                   key={row.feature}
-                  className={idx !== COMPARISON_ROWS.length - 1 ? "border-b border-[#E7D8CD]" : ""}
+                  className={idx !== COMPARISON_ROWS.length - 1 ? "border-b border-brand-border" : ""}
                 >
-                  <td className="py-3 sm:py-4 px-2 sm:px-4 text-[10.5px] sm:text-sm font-medium text-[#382A22] bg-white border-r border-[#E7D8CD]">
+                  <td className="py-3 sm:py-4 px-2 sm:px-4 text-[10.5px] sm:text-sm font-medium text-[#382A22] bg-white border-r border-brand-border">
                     {row.feature}
                   </td>
-                  <td className="py-3 sm:py-4 px-2 sm:px-4 text-[10.5px] sm:text-sm font-semibold text-[#6F472D] bg-[#F3E8DF] border-r border-[#E7D8CD]">
+                  <td className="py-3 sm:py-4 px-2 sm:px-4 text-[10.5px] sm:text-sm font-semibold text-brand-dark bg-brand-light border-r border-brand-border">
                     {row.bagzillas}
                   </td>
                   <td className="py-3 sm:py-4 px-2 sm:px-4 text-[10.5px] sm:text-sm text-[#736357] bg-white">

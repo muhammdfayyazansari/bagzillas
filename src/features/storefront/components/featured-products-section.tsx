@@ -52,7 +52,16 @@ export const BAGZILLAS_PRODUCTS = [
 export const ALBUS_PRODUCTS = BAGZILLAS_PRODUCTS;
 
 interface FeaturedProductsSectionProps {
-  products?: any[];
+  products?: Array<{
+    id: string;
+    slug: string;
+    name: string;
+    price: number | string | { toString(): string };
+    compareAtPrice?: number | string | { toString(): string } | null;
+    images?: Array<{ url: string }>;
+    category?: { name?: string } | null;
+    isFeatured?: boolean;
+  }>;
 }
 
 export function FeaturedProductsSection({ products }: FeaturedProductsSectionProps) {
@@ -89,7 +98,7 @@ export function FeaturedProductsSection({ products }: FeaturedProductsSectionPro
           <Button
             variant="outline"
             asChild
-            className="shrink-0 w-full sm:w-fit rounded-full border-stone-300 hover:bg-[#8B5E3C] hover:text-white hover:border-[#8B5E3C] transition-colors text-xs sm:text-sm py-4"
+            className="shrink-0 w-full sm:w-fit rounded-full border-stone-300 hover:bg-brand hover:text-brand-foreground hover:border-brand transition-colors text-xs sm:text-sm py-4"
           >
             <Link href="/products" className="flex items-center justify-center">
               View All

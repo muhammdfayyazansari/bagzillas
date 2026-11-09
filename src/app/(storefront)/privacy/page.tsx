@@ -43,7 +43,7 @@ export default function PrivacyPolicyPage() {
 
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-100 text-stone-700 text-xs font-semibold uppercase tracking-wider mb-4">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#8B5E3C]" />
+              <ShieldCheck className="w-3.5 h-3.5 text-brand" />
               Legal &amp; Transparency
             </div>
 
@@ -64,7 +64,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         {/* WELCOME / INTRO CALLOUT */}
-        <div className="bg-[#8B5E3C]/5 border border-[#8B5E3C]/20 rounded-2xl p-5 sm:p-6 mb-8 text-stone-800 text-sm sm:text-base leading-relaxed">
+        <div className="bg-brand/5 border border-brand/20 rounded-2xl p-5 sm:p-6 mb-8 text-stone-800 text-sm sm:text-base leading-relaxed">
           <p className="font-medium">
             Welcome to <strong className="text-stone-900">Bagzillas.com</strong>. Your privacy is important to us.
             This Privacy Policy explains how we collect, use, and protect your personal information when you
@@ -95,7 +95,7 @@ export default function PrivacyPolicyPage() {
               {/* 1.1 Personal Information */}
               <div className="bg-stone-50 rounded-2xl p-5 border border-stone-200/80">
                 <h3 className="text-base font-bold text-stone-900 mb-2 flex items-center gap-2">
-                  <UserCheck className="w-4 h-4 text-[#8B5E3C]" />
+                  <UserCheck className="w-4 h-4 text-brand" />
                   1.1 Personal Information
                 </h3>
                 <p className="text-stone-600 text-sm mb-3">
@@ -128,7 +128,7 @@ export default function PrivacyPolicyPage() {
               {/* 1.2 Order Information */}
               <div className="bg-stone-50 rounded-2xl p-5 border border-stone-200/80">
                 <h3 className="text-base font-bold text-stone-900 mb-2 flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-[#8B5E3C]" />
+                  <FileText className="w-4 h-4 text-brand" />
                   1.2 Order Information
                 </h3>
                 <p className="text-stone-600 text-sm mb-3">
@@ -136,15 +136,15 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <ul className="space-y-2 text-sm text-stone-700">
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#8B5E3C]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand" />
                     <span>Products ordered</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#8B5E3C]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand" />
                     <span>Order value</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#8B5E3C]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand" />
                     <span>Transaction history</span>
                   </li>
                 </ul>
@@ -174,27 +174,27 @@ export default function PrivacyPolicyPage() {
               <p className="text-stone-600 text-sm mb-3">We use your information to:</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-stone-700">
                 <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-2.5">
-                  <Truck className="w-4 h-4 text-[#8B5E3C] shrink-0 mt-0.5" />
+                  <Truck className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                   <span>Process and deliver your orders</span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-2.5">
-                  <MessageSquare className="w-4 h-4 text-[#8B5E3C] shrink-0 mt-0.5" />
+                  <MessageSquare className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                   <span>Communicate with you regarding your purchases</span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-2.5">
-                  <UserCheck className="w-4 h-4 text-[#8B5E3C] shrink-0 mt-0.5" />
+                  <UserCheck className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                   <span>Provide customer support</span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#8B5E3C] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                   <span>Improve our website and services</span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-2.5">
-                  <ShieldCheck className="w-4 h-4 text-[#8B5E3C] shrink-0 mt-0.5" />
+                  <ShieldCheck className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                   <span>Prevent fraud and enhance security</span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-2.5">
-                  <Mail className="w-4 h-4 text-[#8B5E3C] shrink-0 mt-0.5" />
+                  <Mail className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                   <span>Send promotional offers (only if you opt in)</span>
                 </div>
               </div>
@@ -233,19 +233,19 @@ export default function PrivacyPolicyPage() {
 
               <ul className="space-y-2.5 text-sm text-stone-700">
                 <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#8B5E3C] mt-2 shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2 shrink-0" />
                   <span>Payment gateways and banks for transaction processing</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#8B5E3C] mt-2 shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2 shrink-0" />
                   <span>Courier and delivery services for order fulfillment</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#8B5E3C] mt-2 shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2 shrink-0" />
                   <span>Service providers (e.g., Shopify, analytics tools)</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#8B5E3C] mt-2 shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand mt-2 shrink-0" />
                   <span>Legal authorities if required by law</span>
                 </li>
               </ul>
@@ -276,15 +276,15 @@ export default function PrivacyPolicyPage() {
               </p>
               <ul className="space-y-2 text-sm text-stone-700">
                 <li className="flex items-center gap-2">
-                  <Database className="w-4 h-4 text-[#8B5E3C]" />
+                  <Database className="w-4 h-4 text-brand" />
                   <span>Fulfill orders</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Database className="w-4 h-4 text-[#8B5E3C]" />
+                  <Database className="w-4 h-4 text-brand" />
                   <span>Comply with legal obligations</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Database className="w-4 h-4 text-[#8B5E3C]" />
+                  <Database className="w-4 h-4 text-brand" />
                   <span>Resolve disputes</span>
                 </li>
               </ul>
@@ -311,7 +311,7 @@ export default function PrivacyPolicyPage() {
 
             <div className="pl-0 sm:pl-11">
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-3">
-                <Lock className="w-5 h-5 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <Lock className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <p className="text-stone-700 text-sm leading-relaxed">
                   We take reasonable precautions and follow industry best practices to protect your
                   personal information from unauthorized access, misuse, or disclosure.
@@ -342,15 +342,15 @@ export default function PrivacyPolicyPage() {
               <p className="text-stone-600 text-sm">You have the right to:</p>
               <ul className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-sm text-stone-700">
                 <li className="p-3 bg-stone-50 border border-stone-200 rounded-xl flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#8B5E3C] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-brand shrink-0" />
                   <span>Access your personal data</span>
                 </li>
                 <li className="p-3 bg-stone-50 border border-stone-200 rounded-xl flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#8B5E3C] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-brand shrink-0" />
                   <span>Request corrections or updates</span>
                 </li>
                 <li className="p-3 bg-stone-50 border border-stone-200 rounded-xl flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#8B5E3C] shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-brand shrink-0" />
                   <span>Opt out of marketing communications</span>
                 </li>
               </ul>
@@ -417,14 +417,14 @@ export default function PrivacyPolicyPage() {
                   href="mailto:mianfaizan3881@gmail.com"
                   className="flex items-center gap-3.5 p-4 rounded-2xl bg-stone-50 hover:bg-stone-100 border border-stone-200 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#8B5E3C] shadow-xs group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-brand shadow-xs group-hover:scale-105 transition-transform">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-xs uppercase tracking-wider text-stone-500 font-semibold block">
                       Email
                     </span>
-                    <span className="text-sm font-semibold text-stone-900 group-hover:text-[#8B5E3C] transition-colors break-all">
+                    <span className="text-sm font-semibold text-stone-900 group-hover:text-brand transition-colors break-all">
                       mianfaizan3881@gmail.com
                     </span>
                   </div>
@@ -434,14 +434,14 @@ export default function PrivacyPolicyPage() {
                   href="tel:03432878749"
                   className="flex items-center gap-3.5 p-4 rounded-2xl bg-stone-50 hover:bg-stone-100 border border-stone-200 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#8B5E3C] shadow-xs group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-brand shadow-xs group-hover:scale-105 transition-transform">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-xs uppercase tracking-wider text-stone-500 font-semibold block">
                       Phone / WhatsApp
                     </span>
-                    <span className="text-sm font-semibold text-stone-900 group-hover:text-[#8B5E3C] transition-colors">
+                    <span className="text-sm font-semibold text-stone-900 group-hover:text-brand transition-colors">
                       +92 341 2345061
                     </span>
                   </div>

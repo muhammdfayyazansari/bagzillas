@@ -50,7 +50,7 @@ export default function TermsOfServicePage() {
 
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-100 text-stone-700 text-xs font-semibold uppercase tracking-wider mb-4">
-              <Scale className="w-3.5 h-3.5 text-[#8B5E3C]" />
+              <Scale className="w-3.5 h-3.5 text-brand" />
               Legal Terms &amp; Conditions
             </div>
 
@@ -73,7 +73,7 @@ export default function TermsOfServicePage() {
         </div>
 
         {/* WELCOME / SUMMARY BANNER */}
-        <div className="bg-[#8B5E3C]/5 border border-[#8B5E3C]/20 rounded-2xl p-5 sm:p-6 mb-8 text-stone-800 text-sm sm:text-base leading-relaxed">
+        <div className="bg-brand/5 border border-brand/20 rounded-2xl p-5 sm:p-6 mb-8 text-stone-800 text-sm sm:text-base leading-relaxed">
           <p className="font-medium">
             Please read these Terms of Service carefully before accessing or using our website. By accessing or
             using any part of <strong className="text-stone-900">Bagzillas.com</strong>, you agree to be bound by
@@ -166,15 +166,15 @@ export default function TermsOfServicePage() {
 
             <div className="pl-0 sm:pl-11 space-y-2.5 text-sm text-stone-700">
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-2.5">
-                <ShoppingBag className="w-4 h-4 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <ShoppingBag className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                 <span>All products are subject to availability.</span>
               </div>
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-2.5">
-                <ShoppingBag className="w-4 h-4 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <ShoppingBag className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                 <span>We reserve the right to limit quantities or discontinue products at any time.</span>
               </div>
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-2.5">
-                <ShoppingBag className="w-4 h-4 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <ShoppingBag className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                 <span>
                   We try to display product colors and images accurately, but we cannot guarantee exact matches due to screen differences.
                 </span>
@@ -203,7 +203,7 @@ export default function TermsOfServicePage() {
             <div className="space-y-4 pl-0 sm:pl-11">
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-2 text-sm text-stone-700">
                 <div className="flex items-center gap-2">
-                  <CreditCard className="w-4 h-4 text-[#8B5E3C]" />
+                  <CreditCard className="w-4 h-4 text-brand" />
                   <span className="font-semibold text-stone-900">
                     Prices are listed in PKR (Rs.) unless stated otherwise.
                   </span>
@@ -295,15 +295,15 @@ export default function TermsOfServicePage() {
 
             <div className="pl-0 sm:pl-11 space-y-2.5 text-sm text-stone-700">
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-2.5">
-                <Truck className="w-4 h-4 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <Truck className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                 <span>Delivery times are estimates and may vary depending on location.</span>
               </div>
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-2.5">
-                <Truck className="w-4 h-4 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <Truck className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                 <span>We are not responsible for delays caused by courier services or unforeseen circumstances.</span>
               </div>
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-2.5">
-                <Truck className="w-4 h-4 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <Truck className="w-4 h-4 text-brand shrink-0 mt-0.5" />
                 <span>Shipping charges (if applicable) are displayed at checkout.</span>
               </div>
             </div>
@@ -330,7 +330,7 @@ export default function TermsOfServicePage() {
             <div className="pl-0 sm:pl-11 space-y-3">
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-2 text-sm text-stone-700">
                 <div className="flex items-center gap-2">
-                  <RotateCcw className="w-4 h-4 text-[#8B5E3C]" />
+                  <RotateCcw className="w-4 h-4 text-brand" />
                   <span className="font-semibold text-stone-900">
                     We follow a No Refund Policy.
                   </span>
@@ -365,7 +365,7 @@ export default function TermsOfServicePage() {
 
             <div className="pl-0 sm:pl-11">
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-3 text-sm text-stone-700 leading-relaxed">
-                <Info className="w-5 h-5 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <Info className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <p>
                   We are not responsible if information on this site is not accurate, complete, or current.
                   Content is provided for general information only and may be updated without notice.
@@ -437,15 +437,15 @@ export default function TermsOfServicePage() {
               <p className="text-stone-600 text-sm">We shall not be liable for any:</p>
               <ul className="space-y-2 text-sm text-stone-700">
                 <li className="flex items-center gap-2 bg-stone-50 p-3 rounded-xl border border-stone-200">
-                  <ShieldAlert className="w-4 h-4 text-[#8B5E3C]" />
+                  <ShieldAlert className="w-4 h-4 text-brand" />
                   <span>Direct or indirect damages</span>
                 </li>
                 <li className="flex items-center gap-2 bg-stone-50 p-3 rounded-xl border border-stone-200">
-                  <ShieldAlert className="w-4 h-4 text-[#8B5E3C]" />
+                  <ShieldAlert className="w-4 h-4 text-brand" />
                   <span>Losses related to the use of our products or website</span>
                 </li>
                 <li className="flex items-center gap-2 bg-stone-50 p-3 rounded-xl border border-stone-200">
-                  <ShieldAlert className="w-4 h-4 text-[#8B5E3C]" />
+                  <ShieldAlert className="w-4 h-4 text-brand" />
                   <span>Delays, errors, or interruptions in service</span>
                 </li>
               </ul>
@@ -472,7 +472,7 @@ export default function TermsOfServicePage() {
 
             <div className="pl-0 sm:pl-11">
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-3 text-sm text-stone-700 leading-relaxed">
-                <RefreshCw className="w-5 h-5 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <RefreshCw className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <p>
                   We reserve the right to update or modify these Terms of Service at any time. Changes will take
                   effect immediately upon posting on this page.
@@ -501,7 +501,7 @@ export default function TermsOfServicePage() {
 
             <div className="pl-0 sm:pl-11">
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-3 text-sm text-stone-700 leading-relaxed">
-                <Landmark className="w-5 h-5 text-[#8B5E3C] shrink-0 mt-0.5" />
+                <Landmark className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <p>
                   These Terms shall be governed by and interpreted in accordance with the laws of{" "}
                   <strong className="text-stone-900">Pakistan</strong>.
@@ -538,14 +538,14 @@ export default function TermsOfServicePage() {
                   href="mailto:mianfaizan3881@gmail.com"
                   className="flex items-center gap-3.5 p-4 rounded-2xl bg-stone-50 hover:bg-stone-100 border border-stone-200 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#8B5E3C] shadow-xs group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-brand shadow-xs group-hover:scale-105 transition-transform">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-xs uppercase tracking-wider text-stone-500 font-semibold block">
                       Email
                     </span>
-                    <span className="text-sm font-semibold text-stone-900 group-hover:text-[#8B5E3C] transition-colors break-all">
+                    <span className="text-sm font-semibold text-stone-900 group-hover:text-brand transition-colors break-all">
                       mianfaizan3881@gmail.com
                     </span>
                   </div>
@@ -555,14 +555,14 @@ export default function TermsOfServicePage() {
                   href="tel:03432878749"
                   className="flex items-center gap-3.5 p-4 rounded-2xl bg-stone-50 hover:bg-stone-100 border border-stone-200 transition-colors group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#8B5E3C] shadow-xs group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-brand shadow-xs group-hover:scale-105 transition-transform">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-xs uppercase tracking-wider text-stone-500 font-semibold block">
                       Phone / WhatsApp
                     </span>
-                    <span className="text-sm font-semibold text-stone-900 group-hover:text-[#8B5E3C] transition-colors">
+                    <span className="text-sm font-semibold text-stone-900 group-hover:text-brand transition-colors">
                       +92 341 2345061
                     </span>
                   </div>

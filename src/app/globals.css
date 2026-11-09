@@ -38,6 +38,16 @@
   --color-primary: var(--primary);
   --color-bz-green: var(--bz-green);
   --color-bz-red: var(--bz-red);
+
+  /* Global Brand Theme Tokens (Single Source of Truth) */
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-active: var(--brand-active);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-light: var(--brand-light);
+  --color-brand-border: var(--brand-border);
+  --color-brand-foreground: var(--brand-foreground);
+
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -50,7 +60,7 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
-/* custom css of mine  */
+  /* custom css of mine  */
   --max-width-8xl: 90rem;   /* 1440px */
   --max-width-9xl: 100rem;  /* 1600px */
   --max-width-10xl: 110rem; /* 1760px */
@@ -95,6 +105,18 @@
   --sidebar-ring: oklch(0.708 0 0);
   --bz-green: oklch(0.7676 0.1027 133.6);
   --bz-red: oklch(0.568 0.2002 26.41);
+
+  /* =========================================================================
+     GLOBAL BRAND COLOR THEME CONFIGURATION
+     Change these values here in ONE place to change the color theme across the entire website!
+     ========================================================================= */
+  --brand: #8B5E3C;             /* Main brand color (badges, active nav, primary CTAs, highlights) */
+  --brand-hover: #724b2f;       /* Hover state for buttons and interactive items */
+  --brand-active: #5c3b23;      /* Pressed/active state */
+  --brand-dark: #6F472D;        /* Deep brand accent for serif headings and titles */
+  --brand-light: #F3E8DF;       /* Subtle tinted surfaces and comparison tables */
+  --brand-border: #E7D8CD;      /* Tinted borders matching the brand palette */
+  --brand-foreground: #ffffff;  /* Text on top of brand backgrounds */
 }
 
 .dark {
@@ -129,6 +151,15 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* Dark mode brand tokens */
+  --brand: #A77450;
+  --brand-hover: #8B5E3C;
+  --brand-active: #724b2f;
+  --brand-dark: #F3E8DF;
+  --brand-light: #2A1D15;
+  --brand-border: #4A3528;
+  --brand-foreground: #ffffff;
 }
 
 @layer base {
@@ -142,8 +173,6 @@
     @apply font-sans;
   }
 }
-
-
 
 /* app/globals.css */
 @keyframes marquee {

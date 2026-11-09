@@ -56,7 +56,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
         {/* Badges */}
         <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 flex flex-col gap-1.5">
           {product.isNew && (
-            <Badge className="bg-[#8B5E3C] text-white text-[9.5px] sm:text-xs px-2 py-0.5 font-bold shadow-xs">
+            <Badge className="bg-brand text-brand-foreground text-[9.5px] sm:text-xs px-2 py-0.5 font-bold shadow-xs">
               New
             </Badge>
           )}
@@ -97,7 +97,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
           {product.category}
         </div>
         <Link href={`/products/${product.slug}`} className="block mb-1 sm:mb-1.5">
-          <h3 className="text-xs sm:text-sm md:text-base font-semibold text-stone-900 line-clamp-2 group-hover:text-[#8B5E3C] transition-colors leading-snug">
+          <h3 className="text-xs sm:text-sm md:text-base font-semibold text-stone-900 line-clamp-2 group-hover:text-brand transition-colors leading-snug">
             {product.title}
           </h3>
         </Link>
@@ -121,7 +121,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
         )}
       >
         <Button
-          className="w-full shadow-lg gap-2 bg-stone-900 text-white py-5 hover:bg-[#8B5E3C] rounded-full text-xs font-semibold tracking-wide transition-colors cursor-pointer"
+          className="w-full shadow-lg gap-2 bg-stone-900 text-white py-5 hover:bg-brand rounded-full text-xs font-semibold tracking-wide transition-colors cursor-pointer"
           size="sm"
           onClick={handleAddToCart}
         >

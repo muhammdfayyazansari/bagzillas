@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ShoppingCart, Minus, Plus, Trash2, X } from "lucide-react";
+import { ShoppingCart, Minus, Plus, Trash2 } from "lucide-react";
 import { useCartStore } from "@/store/cart.store";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -20,8 +20,10 @@ interface CartDrawerProps {
   trigger?: React.ReactNode;
 }
 
+const emptySubscribe = () => () => {};
+
 export function CartDrawer({ children, trigger }: CartDrawerProps = {}) {
-  const [isMounted, setIsMounted] = React.useState(false);
+  const isMounted = React.useSyncExternalStore(emptySubscribe, () => true, () => false);
   
   const isOpen = useCartStore((state) => state.isOpen);
   const setIsOpen = useCartStore((state) => state.setIsOpen);
@@ -30,10 +32,6 @@ export function CartDrawer({ children, trigger }: CartDrawerProps = {}) {
   const cartTotal = useCartStore((state) => state.cartTotal());
   const removeItem = useCartStore((state) => state.removeItem);
   const updateQuantity = useCartStore((state) => state.updateQuantity);
-
-  React.useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   if (!isMounted) return null;
 
