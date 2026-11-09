@@ -555,6 +555,18 @@ This file must always stay updated so future AI/dev agents can continue seamless
     - `--color-brand-foreground: var(--brand-foreground)`
   - Enabled native Tailwind v4 `color-mix` opacity variants (`bg-brand/10`, `border-brand/20`, etc.).
   - Changing the website's entire color theme now requires editing only **one single file** (`src/app/globals.css`).
+- Step 18 Linear Gradient Theme Integration (#5996CD -> #3D79AF)
+  - Configured Ocean Blue Linear Gradient tokens in `src/app/globals.css`:
+    - `--brand-start: hsl(208, 54%, 58%)` (`#5996CD`)
+    - `--brand-end: hsl(208, 48%, 46%)` (`#3D79AF`)
+    - `--brand: #3D79AF` (solid fallback for icons, borders, focus rings)
+    - `--brand-gradient: linear-gradient(90deg, hsl(208, 54%, 58%) 0%, hsl(208, 48%, 46%) 100%)`
+    - `--brand-hover-gradient` and `--brand-active-gradient`
+    - `--brand-dark: #111D2B` (deep navy-black for headings and titles)
+    - `--brand-light: #EAF2FA` (ice-blue surface tint for comparison table and cards)
+    - `--brand-border: #DCE5EE` and `--brand-border-strong: #2F4A63`
+  - Added utility classes `bg-brand-gradient`, `hover:bg-brand-hover-gradient`, `.btn-primary`, and `.btn-outline`.
+  - Applied gradient styling to primary interactive elements across the storefront: Hero "Shop Now" button, Hero slide indicator, Brand Message tagline badge, scrolling announcement ticker, Story "Carry Essentials" CTA, Story bundle pill, comparison table header, product card badges/quick-add, newsletter button, contact form button, and mobile nav active tab.
 
 ### Pending
 

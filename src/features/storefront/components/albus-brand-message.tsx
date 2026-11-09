@@ -9,7 +9,7 @@ export function AlbusBrandMessage() {
         </p>
 
         <h2 className="font-serif text-xl sm:text-3xl md:text-4xl font-bold text-brand-dark leading-tight sm:leading-snug">
-          <span className="inline bg-brand text-brand-foreground px-2 py-0.5 rounded-xs sm:rounded-sm box-decoration-clone">
+          <span className="inline bg-brand-gradient text-white font-semibold px-2.5 py-0.5 rounded-xs sm:rounded-sm box-decoration-clone shadow-xs">
             Modern bags. Premium details. Everyday confidence.
           </span>
           <span className="block mt-2 sm:mt-2.5 text-base sm:text-2xl md:text-3xl font-serif text-brand-dark font-semibold">

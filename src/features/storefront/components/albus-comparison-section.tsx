@@ -53,7 +53,7 @@ export function AlbusComparisonSection() {
                 <th className="w-[30%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-semibold text-[#382A22] bg-white border-r border-brand-border">
                   Features
                 </th>
-                <th className="w-[35%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-semibold text-brand-foreground bg-brand border-r border-brand-border">
+                <th className="w-[35%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-bold text-white bg-brand-gradient border-r border-brand-border shadow-xs">
                   Bagzillas
                 </th>
                 <th className="w-[35%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-semibold text-[#382A22] bg-white">

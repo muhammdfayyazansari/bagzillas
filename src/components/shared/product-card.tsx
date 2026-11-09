@@ -56,7 +56,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
         {/* Badges */}
         <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 flex flex-col gap-1.5">
           {product.isNew && (
-            <Badge className="bg-brand text-brand-foreground text-[9.5px] sm:text-xs px-2 py-0.5 font-bold shadow-xs">
+            <Badge className="bg-brand-gradient text-white text-[9.5px] sm:text-xs px-2 py-0.5 font-bold shadow-xs border-0">
               New
             </Badge>
           )}
@@ -121,7 +121,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
         )}
       >
         <Button
-          className="w-full shadow-lg gap-2 bg-stone-900 text-white py-5 hover:bg-brand rounded-full text-xs font-semibold tracking-wide transition-colors cursor-pointer"
+          className="w-full shadow-lg gap-2 bg-stone-900 text-white py-5 hover:bg-brand-gradient hover:border-transparent rounded-full text-xs font-semibold tracking-wide transition-all cursor-pointer"
           size="sm"
           onClick={handleAddToCart}
         >

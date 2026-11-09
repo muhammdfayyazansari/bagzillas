@@ -128,7 +128,7 @@ export function Footer() {
                 />
                 <button
                   type="submit"
-                  className="w-full px-4 py-2.5 bg-brand hover:bg-brand-hover text-brand-foreground rounded-lg text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
+                  className="w-full px-4 py-2.5 bg-brand-gradient hover:bg-brand-hover-gradient text-white rounded-lg text-xs sm:text-sm font-semibold transition-all shadow-md cursor-pointer"
                 >
                   Sign Up
                 </button>

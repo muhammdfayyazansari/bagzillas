@@ -486,7 +486,7 @@ export function Navbar() {
           <Link
             href="/"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isHomeActive
-              ? "bg-brand text-brand-foreground font-semibold shadow-xs"
+              ? "bg-brand-gradient text-white font-semibold shadow-xs"
               : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
               }`}
           >
@@ -498,7 +498,7 @@ export function Navbar() {
           <Link
             href="/products"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isAllProductsActive
-              ? "bg-brand text-brand-foreground font-semibold shadow-xs"
+              ? "bg-brand-gradient text-white font-semibold shadow-xs"
               : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
               }`}
           >
@@ -510,7 +510,7 @@ export function Navbar() {
           <Link
             href="/products?category=backpacks"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isBackpackActive
-              ? "bg-brand text-brand-foreground font-semibold shadow-xs"
+              ? "bg-brand-gradient text-white font-semibold shadow-xs"
               : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
               }`}
           >
@@ -522,7 +522,7 @@ export function Navbar() {
           <Link
             href="/products?category=travel-bags"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isTravelActive
-              ? "bg-brand text-brand-foreground font-semibold shadow-xs"
+              ? "bg-brand-gradient text-white font-semibold shadow-xs"
               : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
               }`}
           >
@@ -534,7 +534,7 @@ export function Navbar() {
           <Link
             href="/contact"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isContactActive
-              ? "bg-brand text-brand-foreground font-semibold shadow-xs"
+              ? "bg-brand-gradient text-white font-semibold shadow-xs"
               : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
               }`}
           >

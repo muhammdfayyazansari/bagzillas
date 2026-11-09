@@ -41,12 +41,22 @@
 
   /* Global Brand Theme Tokens (Single Source of Truth) */
   --color-brand: var(--brand);
+  --color-brand-start: var(--brand-start);
+  --color-brand-end: var(--brand-end);
   --color-brand-hover: var(--brand-hover);
   --color-brand-active: var(--brand-active);
   --color-brand-dark: var(--brand-dark);
   --color-brand-light: var(--brand-light);
   --color-brand-border: var(--brand-border);
+  --color-brand-border-strong: var(--brand-border-strong);
   --color-brand-foreground: var(--brand-foreground);
+  --color-brand-neutral-text: var(--brand-neutral-text);
+  --color-brand-section-bg: var(--brand-section-bg);
+
+  /* Background image gradient utilities for Tailwind v4 */
+  --background-image-brand-gradient: var(--brand-gradient);
+  --background-image-brand-hover-gradient: var(--brand-hover-gradient);
+  --background-image-brand-active-gradient: var(--brand-active-gradient);
 
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
@@ -107,16 +117,29 @@
   --bz-red: oklch(0.568 0.2002 26.41);
 
   /* =========================================================================
-     GLOBAL BRAND COLOR THEME CONFIGURATION
+     GLOBAL BRAND GRADIENT & COLOR THEME CONFIGURATION
      Change these values here in ONE place to change the color theme across the entire website!
      ========================================================================= */
-  --brand: #8B5E3C;             /* Main brand color (badges, active nav, primary CTAs, highlights) */
-  --brand-hover: #724b2f;       /* Hover state for buttons and interactive items */
-  --brand-active: #5c3b23;      /* Pressed/active state */
-  --brand-dark: #6F472D;        /* Deep brand accent for serif headings and titles */
-  --brand-light: #F3E8DF;       /* Subtle tinted surfaces and comparison tables */
-  --brand-border: #E7D8CD;      /* Tinted borders matching the brand palette */
-  --brand-foreground: #ffffff;  /* Text on top of brand backgrounds */
+  /* Gradient endpoints */
+  --brand-start: hsl(208, 54%, 58%);   /* #5996CD */
+  --brand-end:   hsl(208, 48%, 46%);   /* #3D79AF */
+
+  /* Primary solid fallback (icons, borders, links, focus rings) */
+  --brand: #3D79AF;
+  --brand-gradient: linear-gradient(90deg, hsl(208, 54%, 58%) 0%, hsl(208, 48%, 46%) 100%);
+  --brand-hover: #326A9C;
+  --brand-hover-gradient: linear-gradient(90deg, hsl(208, 54%, 52%) 0%, hsl(208, 48%, 40%) 100%);
+  --brand-active: #285981;
+  --brand-active-gradient: linear-gradient(90deg, hsl(208, 54%, 46%) 0%, hsl(208, 48%, 34%) 100%);
+
+  /* Neutrals & Roles */
+  --brand-dark: #111D2B;               /* Headings & titles (deep navy-black) */
+  --brand-light: #EAF2FA;              /* Light ice-blue surface tint */
+  --brand-border: #DCE5EE;             /* Dividers & soft borders */
+  --brand-border-strong: #2F4A63;      /* Crisp borders */
+  --brand-foreground: #ffffff;         /* Text on brand gradient/fill */
+  --brand-neutral-text: #5B6B7B;       /* Secondary copy */
+  --brand-section-bg: #F5F8FB;         /* Section background tint */
 }
 
 .dark {
@@ -153,13 +176,21 @@
   --sidebar-ring: oklch(0.556 0 0);
 
   /* Dark mode brand tokens */
-  --brand: #A77450;
-  --brand-hover: #8B5E3C;
-  --brand-active: #724b2f;
-  --brand-dark: #F3E8DF;
-  --brand-light: #2A1D15;
-  --brand-border: #4A3528;
+  --brand-start: hsl(208, 54%, 50%);
+  --brand-end:   hsl(208, 48%, 40%);
+  --brand: #5996CD;
+  --brand-gradient: linear-gradient(90deg, hsl(208, 54%, 50%) 0%, hsl(208, 48%, 40%) 100%);
+  --brand-hover: #3D79AF;
+  --brand-hover-gradient: linear-gradient(90deg, hsl(208, 54%, 46%) 0%, hsl(208, 48%, 36%) 100%);
+  --brand-active: #326A9C;
+  --brand-active-gradient: linear-gradient(90deg, hsl(208, 54%, 42%) 0%, hsl(208, 48%, 32%) 100%);
+  --brand-dark: #F5F8FB;
+  --brand-light: #162436;
+  --brand-border: #233952;
+  --brand-border-strong: #3D79AF;
   --brand-foreground: #ffffff;
+  --brand-neutral-text: #9FB2C4;
+  --brand-section-bg: #0D1622;
 }
 
 @layer base {
@@ -172,6 +203,33 @@
   html {
     @apply font-sans;
   }
+}
+
+/* =========================================================================
+   CUSTOM BUTTON & GRADIENT UTILITIES
+   ========================================================================= */
+.btn-primary {
+  background: var(--brand);
+  background: var(--brand-gradient);
+  color: var(--brand-foreground);
+  font-weight: 600;
+  border: none;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.btn-primary:hover {
+  background: var(--brand-hover-gradient);
+}
+.btn-primary:active {
+  background: var(--brand-active-gradient);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--brand);
+  color: var(--brand);
+}
+.btn-outline:hover {
+  background: var(--brand-light);
 }
 
 /* app/globals.css */

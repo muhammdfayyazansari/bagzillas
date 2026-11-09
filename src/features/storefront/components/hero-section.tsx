@@ -39,15 +39,15 @@ type HeroSlide = ImageSlide | VideoSlide;
 /* ---------- Slide Dataset ---------- */
 
 const SLIDES: HeroSlide[] = [
-  {
-    type: "video",
-    videoSrc: "/images/hero_video/1000295211.mp4",
-    poster: "/images/hero_video/poster.jpg",
-    title: "Engineered For Everyday Life",
-    buttonText: "Explore Collection",
-    buttonLink: "/products",
-    duration: 20000,
-  },
+  // {
+  //   type: "video",
+  //   videoSrc: "/images/hero_video/1000295211.mp4",
+  //   poster: "/images/hero_video/poster.jpg",
+  //   title: "Engineered For Everyday Life",
+  //   buttonText: "Explore Collection",
+  //   buttonLink: "/products",
+  //   duration: 20000,
+  // },
   {
     type: "image",
     image: "https://www.albus.pk/cdn/shop/files/desktop_size.png?v=1784564918&width=1672",
@@ -70,7 +70,7 @@ const SLIDES: HeroSlide[] = [
 
 /* ---------- Component ---------- */
 
-export function HeroSection({ data }: HeroSectionProps) {
+export function HeroSection({ data: _data }: HeroSectionProps) {
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
@@ -193,7 +193,7 @@ export function HeroSection({ data }: HeroSectionProps) {
             <Button
               size="lg"
               asChild
-              className="bg-brand hover:bg-brand-hover text-brand-foreground font-medium text-[11px] sm:text-xs md:text-sm px-5 sm:px-7 py-2 sm:py-2.5 md:py-5 rounded-lg shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+              className="bg-brand-gradient hover:bg-brand-hover-gradient text-white font-semibold text-[11px] sm:text-xs md:text-sm px-5 sm:px-7 py-2 sm:py-2.5 md:py-5 rounded-lg shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
             >
               <Link href={slide.buttonLink} className="flex items-center gap-1.5 sm:gap-2">
                 <span>{slide.buttonText}</span>
@@ -226,11 +226,10 @@ export function HeroSection({ data }: HeroSectionProps) {
             <button
               key={i}
               onClick={() => setCurrentSlide(i)}
-              className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                currentSlide === i
-                  ? "w-6 sm:w-8 bg-brand"
+              className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${currentSlide === i
+                  ? "w-6 sm:w-8 bg-brand-gradient"
                   : "w-1.5 sm:w-2.5 bg-white/50 hover:bg-white"
-              }`}
+                }`}
               aria-label={`Go to slide ${i + 1}`}
             />
           ))}

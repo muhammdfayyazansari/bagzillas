@@ -42,7 +42,7 @@ export function AlbusStorySection() {
                     Free Fanny Bag Included
                   </span>
                 </div>
-                <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-brand text-brand-foreground text-[10px] sm:text-xs font-bold shrink-0">
+                <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-brand-gradient text-white text-[10px] sm:text-xs font-bold shrink-0 shadow-xs">
                   Offer Active
                 </span>
               </div>
@@ -101,7 +101,7 @@ export function AlbusStorySection() {
               <Button
                 size="lg"
                 asChild
-                className="w-full sm:w-auto bg-brand hover:bg-brand-hover text-brand-foreground font-semibold rounded-full px-8 py-5 sm:py-6 text-xs sm:text-sm md:text-base shadow-md transition-colors"
+                className="w-full sm:w-auto bg-brand-gradient hover:bg-brand-hover-gradient text-white font-semibold rounded-full px-8 py-5 sm:py-6 text-xs sm:text-sm md:text-base shadow-md transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
               >
                 <Link href="/products" className="flex items-center justify-center">
                   Shop Carry Essentials
