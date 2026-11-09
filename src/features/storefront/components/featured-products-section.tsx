@@ -87,10 +87,10 @@ export function FeaturedProductsSection({ products }: FeaturedProductsSectionPro
         {/* SECTION HEADER */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-12 gap-4">
           <div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900 mb-1">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-brand-dark mb-1">
               Best Selling
             </h2>
-            <p className="text-stone-500 text-xs sm:text-sm">
+            <p className="text-brand-neutral-text text-xs sm:text-sm">
               Discover our most sought-after premium backpacks and everyday carry bags.
             </p>
           </div>

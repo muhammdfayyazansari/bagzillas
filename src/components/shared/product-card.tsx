@@ -61,7 +61,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
             </Badge>
           )}
           {product.compareAtPrice && product.compareAtPrice > product.price && (
-            <Badge variant="destructive" className="text-[9.5px] sm:text-xs px-2 py-0.5 font-bold shadow-xs">
+            <Badge className="bg-brand-accent text-white text-[9.5px] sm:text-xs px-2 py-0.5 font-bold shadow-xs border-0">
               Sale
             </Badge>
           )}
@@ -93,16 +93,16 @@ export function ProductCard({ product, className }: ProductCardProps) {
 
       {/* Info */}
       <div className="flex flex-col flex-1 px-1">
-        <div className="text-[10px] sm:text-xs text-stone-500 mb-0.5 uppercase tracking-wider font-semibold">
+        <div className="text-[10px] sm:text-xs text-brand-neutral-text mb-0.5 uppercase tracking-wider font-semibold">
           {product.category}
         </div>
         <Link href={`/products/${product.slug}`} className="block mb-1 sm:mb-1.5">
-          <h3 className="text-xs sm:text-sm md:text-base font-semibold text-stone-900 line-clamp-2 group-hover:text-brand transition-colors leading-snug">
+          <h3 className="text-xs sm:text-sm md:text-base font-semibold text-brand-dark line-clamp-2 group-hover:text-brand transition-colors leading-snug">
             {product.title}
           </h3>
         </Link>
         <div className="mt-auto flex items-center gap-1.5 sm:gap-2 flex-wrap">
-          <span className="text-xs sm:text-sm md:text-base font-extrabold text-stone-900">
+          <span className="text-xs sm:text-sm md:text-base font-extrabold text-brand-dark">
             Rs. {product.price.toLocaleString()}
           </span>
           {product.compareAtPrice && (

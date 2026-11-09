@@ -35,14 +35,14 @@ export function AlbusStorySection() {
               {/* FLOATING PROMO PILL */}
               <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-md shadow-lg border border-white/40 flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-brand block">
+                  <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-brand-accent block">
                     Limited Bundle
                   </span>
-                  <span className="text-xs sm:text-sm font-extrabold text-stone-900 block">
+                  <span className="text-xs sm:text-sm font-extrabold text-brand-dark block">
                     Free Fanny Bag Included
                   </span>
                 </div>
-                <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-brand-gradient text-white text-[10px] sm:text-xs font-bold shrink-0 shadow-xs">
+                <span className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-brand-accent text-white text-[10px] sm:text-xs font-bold shrink-0 shadow-xs">
                   Offer Active
                 </span>
               </div>
@@ -61,37 +61,37 @@ export function AlbusStorySection() {
               Carry Your Story
             </h2>
 
-            <p className="text-stone-700 text-sm sm:text-base lg:text-lg leading-relaxed mb-4 font-normal">
-              Inspired by modern individuals who move through life with confidence and style, <strong className="font-bold text-stone-900">Bagzillas</strong> creates premium leather bags that combine smart functionality with refined design.
+            <p className="text-brand-dark text-sm sm:text-base lg:text-lg leading-relaxed mb-4 font-normal">
+              Inspired by modern individuals who move through life with confidence and style, <strong className="font-bold text-brand-dark">Bagzillas</strong> creates premium leather bags that combine smart functionality with refined design.
             </p>
 
-            <p className="text-stone-700 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 font-normal">
+            <p className="text-brand-dark text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 font-normal">
               From workdays to weekend plans and every journey in between, each bag is made to keep you organized, comfortable and effortlessly stylish. With Bagzillas, carry more than your essentials—carry confidence wherever you go.
             </p>
 
             {/* FEATURE CHECKLIST */}
             <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
               <div className="flex items-start gap-2.5 sm:gap-3">
-                <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5 text-brand shrink-0 mt-0.5" />
+                <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5 text-brand-accent shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-xs sm:text-sm font-bold text-stone-900 block">Durable &amp; Weather-Resistant Build</span>
-                  <span className="text-[11px] sm:text-xs text-stone-500">High-density materials to withstand everyday wear across Pakistan.</span>
+                  <span className="text-xs sm:text-sm font-bold text-brand-dark block">Durable &amp; Weather-Resistant Build</span>
+                  <span className="text-[11px] sm:text-xs text-brand-neutral-text">High-density materials to withstand everyday wear across Pakistan.</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-2.5 sm:gap-3">
-                <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5 text-brand shrink-0 mt-0.5" />
+                <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5 text-brand-accent shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-xs sm:text-sm font-bold text-stone-900 block">Smart Isolated Compartments</span>
-                  <span className="text-[11px] sm:text-xs text-stone-500">Dedicated organization compartments for laptop, accessories, and everyday carry.</span>
+                  <span className="text-xs sm:text-sm font-bold text-brand-dark block">Smart Isolated Compartments</span>
+                  <span className="text-[11px] sm:text-xs text-brand-neutral-text">Dedicated organization compartments for laptop, accessories, and everyday carry.</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-2.5 sm:gap-3">
-                <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5 text-brand shrink-0 mt-0.5" />
+                <CheckCircle2 className="h-4 sm:h-5 w-4 sm:w-5 text-brand-accent shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-xs sm:text-sm font-bold text-stone-900 block">Ergonomic Comfort</span>
-                  <span className="text-[11px] sm:text-xs text-stone-500">Padded shoulder straps engineered for effortless all-day carry.</span>
+                  <span className="text-xs sm:text-sm font-bold text-brand-dark block">Ergonomic Comfort</span>
+                  <span className="text-[11px] sm:text-xs text-brand-neutral-text">Padded shoulder straps engineered for effortless all-day carry.</span>
                 </div>
               </div>
             </div>

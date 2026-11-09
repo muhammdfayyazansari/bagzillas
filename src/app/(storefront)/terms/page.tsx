@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  FileText,
-  ShieldCheck,
   Scale,
   ShoppingBag,
   CreditCard,
@@ -11,7 +9,6 @@ import {
   RotateCcw,
   Info,
   ShieldAlert,
-  AlertTriangle,
   RefreshCw,
   Landmark,
   Mail,
@@ -37,11 +34,11 @@ export default function TermsOfServicePage() {
       <SectionContainer className="max-w-4xl">
         {/* BREADCRUMB */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-stone-500">
-          <Link href="/" className="hover:text-stone-900 transition-colors">
+          <Link href="/" className="hover:text-brand-dark transition-colors">
             Home
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-stone-400" />
-          <span className="text-stone-900 font-medium">Terms of Service</span>
+          <span className="text-brand-dark font-medium">Terms of Service</span>
         </nav>
 
         {/* HERO / HEADER */}
@@ -54,12 +51,12 @@ export default function TermsOfServicePage() {
               Legal Terms &amp; Conditions
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-stone-900 tracking-tight font-serif mb-2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight font-serif mb-2">
               Terms of Service
             </h1>
 
             <p className="text-stone-600 text-base sm:text-lg font-medium mb-3">
-              Terms of Service for <span className="text-stone-900 font-bold">Bagzillas.com</span>
+              Terms of Service for <span className="text-brand-dark font-bold">Bagzillas.com</span>
             </p>
 
             <div className="flex flex-wrap items-center gap-3 text-xs text-stone-500 pt-2 border-t border-stone-100">
@@ -73,10 +70,10 @@ export default function TermsOfServicePage() {
         </div>
 
         {/* WELCOME / SUMMARY BANNER */}
-        <div className="bg-brand/5 border border-brand/20 rounded-2xl p-5 sm:p-6 mb-8 text-stone-800 text-sm sm:text-base leading-relaxed">
+        <div className="bg-brand/5 border border-brand/20 rounded-2xl p-5 sm:p-6 mb-8 text-brand-dark text-sm sm:text-base leading-relaxed">
           <p className="font-medium">
             Please read these Terms of Service carefully before accessing or using our website. By accessing or
-            using any part of <strong className="text-stone-900">Bagzillas.com</strong>, you agree to be bound by
+            using any part of <strong className="text-brand-dark">Bagzillas.com</strong>, you agree to be bound by
             these terms and conditions.
           </p>
         </div>
@@ -87,11 +84,11 @@ export default function TermsOfServicePage() {
           {/* SECTION 1: OVERVIEW */}
           <section id="overview" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 1
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Overview
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -102,7 +99,7 @@ export default function TermsOfServicePage() {
 
             <div className="pl-0 sm:pl-11">
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200/80 text-sm text-stone-700 leading-relaxed">
-                This website is operated by <strong className="text-stone-900">Bagzillas.com</strong>. Throughout
+                This website is operated by <strong className="text-brand-dark">Bagzillas.com</strong>. Throughout
                 the site, the terms “we”, “us” and “our” refer to Bagzillas.com. By visiting our site and/or
                 purchasing something from us, you agree to be bound by the following Terms of Service.
               </div>
@@ -114,11 +111,11 @@ export default function TermsOfServicePage() {
           {/* SECTION 2: ONLINE STORE TERMS */}
           <section id="online-store-terms" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 2
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Online Store Terms
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -151,11 +148,11 @@ export default function TermsOfServicePage() {
           {/* SECTION 3: PRODUCTS AND SERVICES */}
           <section id="products-and-services" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 3
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Products and Services
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -187,11 +184,11 @@ export default function TermsOfServicePage() {
           {/* SECTION 4: PRICING AND PAYMENTS */}
           <section id="pricing-and-payments" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 4
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Pricing and Payments
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -204,7 +201,7 @@ export default function TermsOfServicePage() {
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-2 text-sm text-stone-700">
                 <div className="flex items-center gap-2">
                   <CreditCard className="w-4 h-4 text-brand" />
-                  <span className="font-semibold text-stone-900">
+                  <span className="font-semibold text-brand-dark">
                     Prices are listed in PKR (Rs.) unless stated otherwise.
                   </span>
                 </div>
@@ -214,12 +211,12 @@ export default function TermsOfServicePage() {
               </div>
 
               <div className="bg-stone-50 rounded-2xl p-5 border border-stone-200/80">
-                <h3 className="text-sm font-bold text-stone-900 mb-2">We offer payment methods such as:</h3>
+                <h3 className="text-sm font-bold text-brand-dark mb-2">We offer payment methods such as:</h3>
                 <div className="flex flex-wrap gap-2 mb-3">
-                  <span className="px-3 py-1.5 bg-white border border-stone-200 rounded-lg text-xs font-semibold text-stone-900">
+                  <span className="px-3 py-1.5 bg-white border border-stone-200 rounded-lg text-xs font-semibold text-brand-dark">
                     Cash on Delivery (COD)
                   </span>
-                  <span className="px-3 py-1.5 bg-white border border-stone-200 rounded-lg text-xs font-semibold text-stone-900">
+                  <span className="px-3 py-1.5 bg-white border border-stone-200 rounded-lg text-xs font-semibold text-brand-dark">
                     Bank Transfer / Mobile Wallets
                   </span>
                 </div>
@@ -235,11 +232,11 @@ export default function TermsOfServicePage() {
           {/* SECTION 5: ORDER ACCEPTANCE & CANCELLATION */}
           <section id="order-acceptance" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 5
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Order Acceptance &amp; Cancellation
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -268,7 +265,7 @@ export default function TermsOfServicePage() {
               </ul>
               <div className="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/80 flex items-start gap-2.5">
                 <Info className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                <p className="text-xs sm:text-sm text-stone-800 font-medium">
+                <p className="text-xs sm:text-sm text-brand-dark font-medium">
                   Customers can cancel orders before dispatch only.
                 </p>
               </div>
@@ -280,11 +277,11 @@ export default function TermsOfServicePage() {
           {/* SECTION 6: SHIPPING & DELIVERY */}
           <section id="shipping-and-delivery" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 6
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Shipping &amp; Delivery
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -314,11 +311,11 @@ export default function TermsOfServicePage() {
           {/* SECTION 7: EXCHANGE POLICY */}
           <section id="exchange-policy" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 7
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Exchange Policy
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -331,7 +328,7 @@ export default function TermsOfServicePage() {
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 space-y-2 text-sm text-stone-700">
                 <div className="flex items-center gap-2">
                   <RotateCcw className="w-4 h-4 text-brand" />
-                  <span className="font-semibold text-stone-900">
+                  <span className="font-semibold text-brand-dark">
                     We follow a No Refund Policy.
                   </span>
                 </div>
@@ -350,11 +347,11 @@ export default function TermsOfServicePage() {
           {/* SECTION 8: ACCURACY OF INFORMATION */}
           <section id="accuracy-of-information" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 8
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Accuracy of Information
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -379,11 +376,11 @@ export default function TermsOfServicePage() {
           {/* SECTION 9: PROHIBITED USES */}
           <section id="prohibited-uses" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 9
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Prohibited Uses
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -420,11 +417,11 @@ export default function TermsOfServicePage() {
           {/* SECTION 10: LIMITATION OF LIABILITY */}
           <section id="limitation-of-liability" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 10
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Limitation of Liability
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -457,11 +454,11 @@ export default function TermsOfServicePage() {
           {/* SECTION 11: CHANGES TO TERMS */}
           <section id="changes-to-terms" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 11
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Changes to Terms
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -486,11 +483,11 @@ export default function TermsOfServicePage() {
           {/* SECTION 12: GOVERNING LAW */}
           <section id="governing-law" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 12
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Governing Law
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -504,7 +501,7 @@ export default function TermsOfServicePage() {
                 <Landmark className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <p>
                   These Terms shall be governed by and interpreted in accordance with the laws of{" "}
-                  <strong className="text-stone-900">Pakistan</strong>.
+                  <strong className="text-brand-dark">Pakistan</strong>.
                 </p>
               </div>
             </div>
@@ -515,11 +512,11 @@ export default function TermsOfServicePage() {
           {/* SECTION 13: CONTACT INFORMATION */}
           <section id="contact-information" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 13
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Contact Information
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -545,7 +542,7 @@ export default function TermsOfServicePage() {
                     <span className="text-xs uppercase tracking-wider text-stone-500 font-semibold block">
                       Email
                     </span>
-                    <span className="text-sm font-semibold text-stone-900 group-hover:text-brand transition-colors break-all">
+                    <span className="text-sm font-semibold text-brand-dark group-hover:text-brand transition-colors break-all">
                       mianfaizan3881@gmail.com
                     </span>
                   </div>
@@ -562,7 +559,7 @@ export default function TermsOfServicePage() {
                     <span className="text-xs uppercase tracking-wider text-stone-500 font-semibold block">
                       Phone / WhatsApp
                     </span>
-                    <span className="text-sm font-semibold text-stone-900 group-hover:text-brand transition-colors">
+                    <span className="text-sm font-semibold text-brand-dark group-hover:text-brand transition-colors">
                       +92 341 2345061
                     </span>
                   </div>

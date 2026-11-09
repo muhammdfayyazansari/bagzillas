@@ -113,7 +113,7 @@ export function Navbar() {
         <div className="bg-stone-900 text-stone-200 text-xs font-medium py-2 px-4 select-none overflow-hidden">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div className="hidden sm:flex items-center gap-2 text-[11px] text-stone-400">
-              <ShieldCheck className="h-3.5 w-3.5 text-amber-500" />
+              <ShieldCheck className="h-3.5 w-3.5 text-brand-accent" />
               <span>100% Guaranteed Authentic Materials</span>
             </div>
 
@@ -133,7 +133,7 @@ export function Navbar() {
             </div>
 
             <div className="hidden sm:flex items-center gap-2 text-[11px] text-stone-400">
-              <Truck className="h-3.5 w-3.5 text-amber-500" />
+              <Truck className="h-3.5 w-3.5 text-brand-accent" />
               <span>3–5 Days Nationwide Delivery</span>
             </div>
           </div>
@@ -215,7 +215,7 @@ export function Navbar() {
               trigger={
                 <button
                   type="button"
-                  className="relative inline-flex items-center justify-center p-2.5 rounded-full text-stone-900 hover:bg-stone-100 transition-colors cursor-pointer group"
+                  className="relative inline-flex items-center justify-center p-2.5 rounded-full text-brand-dark hover:bg-stone-100 transition-colors cursor-pointer group"
                   aria-label="Open shopping cart"
                 >
                   <ShoppingBag className="h-5 w-5 group-hover:scale-105 transition-transform" />
@@ -248,7 +248,7 @@ export function Navbar() {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     autoFocus
-                    className="w-full pl-12 pr-28 py-3.5 bg-white border border-stone-300 rounded-full text-stone-900 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent shadow-sm"
+                    className="w-full pl-12 pr-28 py-3.5 bg-white border border-stone-300 rounded-full text-brand-dark placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent shadow-sm"
                   />
                   <button
                     type="submit"
@@ -487,7 +487,7 @@ export function Navbar() {
             href="/"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isHomeActive
               ? "bg-brand-gradient text-white font-semibold shadow-xs"
-              : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
+              : "text-brand-neutral-text hover:text-brand-dark hover:bg-stone-100 font-medium"
               }`}
           >
             <Home className="h-4 w-4 mb-0.5" />
@@ -499,7 +499,7 @@ export function Navbar() {
             href="/products"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isAllProductsActive
               ? "bg-brand-gradient text-white font-semibold shadow-xs"
-              : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
+              : "text-brand-neutral-text hover:text-brand-dark hover:bg-stone-100 font-medium"
               }`}
           >
             <LayoutGrid className="h-4 w-4 mb-0.5" />
@@ -511,7 +511,7 @@ export function Navbar() {
             href="/products?category=backpacks"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isBackpackActive
               ? "bg-brand-gradient text-white font-semibold shadow-xs"
-              : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
+              : "text-brand-neutral-text hover:text-brand-dark hover:bg-stone-100 font-medium"
               }`}
           >
             <Backpack className="h-4 w-4 mb-0.5" />
@@ -523,7 +523,7 @@ export function Navbar() {
             href="/products?category=travel-bags"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isTravelActive
               ? "bg-brand-gradient text-white font-semibold shadow-xs"
-              : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
+              : "text-brand-neutral-text hover:text-brand-dark hover:bg-stone-100 font-medium"
               }`}
           >
             <Luggage className="h-4 w-4 mb-0.5" />
@@ -535,7 +535,7 @@ export function Navbar() {
             href="/contact"
             className={`flex flex-col items-center justify-center py-1.5 px-0.5 rounded-xl text-center transition-all ${isContactActive
               ? "bg-brand-gradient text-white font-semibold shadow-xs"
-              : "text-stone-600 hover:text-stone-900 hover:bg-stone-100 font-medium"
+              : "text-brand-neutral-text hover:text-brand-dark hover:bg-stone-100 font-medium"
               }`}
           >
             <Phone className="h-4 w-4 mb-0.5" />

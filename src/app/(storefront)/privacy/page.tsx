@@ -30,11 +30,11 @@ export default function PrivacyPolicyPage() {
       <SectionContainer className="max-w-4xl">
         {/* BREADCRUMB */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-stone-500">
-          <Link href="/" className="hover:text-stone-900 transition-colors">
+          <Link href="/" className="hover:text-brand-dark transition-colors">
             Home
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-stone-400" />
-          <span className="text-stone-900 font-medium">Privacy Policy</span>
+          <span className="text-brand-dark font-medium">Privacy Policy</span>
         </nav>
 
         {/* HERO / HEADER */}
@@ -47,12 +47,12 @@ export default function PrivacyPolicyPage() {
               Legal &amp; Transparency
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-stone-900 tracking-tight font-serif mb-2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight font-serif mb-2">
               Privacy Policy
             </h1>
 
             <p className="text-stone-600 text-base sm:text-lg font-medium mb-3">
-              Privacy Policy for <span className="text-stone-900 font-bold">Bagzillas.com</span>
+              Privacy Policy for <span className="text-brand-dark font-bold">Bagzillas.com</span>
             </p>
 
             <div className="flex flex-wrap items-center gap-3 text-xs text-stone-500 pt-2 border-t border-stone-100">
@@ -64,9 +64,9 @@ export default function PrivacyPolicyPage() {
         </div>
 
         {/* WELCOME / INTRO CALLOUT */}
-        <div className="bg-brand/5 border border-brand/20 rounded-2xl p-5 sm:p-6 mb-8 text-stone-800 text-sm sm:text-base leading-relaxed">
+        <div className="bg-brand/5 border border-brand/20 rounded-2xl p-5 sm:p-6 mb-8 text-brand-dark text-sm sm:text-base leading-relaxed">
           <p className="font-medium">
-            Welcome to <strong className="text-stone-900">Bagzillas.com</strong>. Your privacy is important to us.
+            Welcome to <strong className="text-brand-dark">Bagzillas.com</strong>. Your privacy is important to us.
             This Privacy Policy explains how we collect, use, and protect your personal information when you
             visit or make a purchase from our website.
           </p>
@@ -78,11 +78,11 @@ export default function PrivacyPolicyPage() {
           {/* SECTION 1 */}
           <section id="information-we-collect" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 1
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Information We Collect
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -94,7 +94,7 @@ export default function PrivacyPolicyPage() {
             <div className="space-y-5 pl-0 sm:pl-11">
               {/* 1.1 Personal Information */}
               <div className="bg-stone-50 rounded-2xl p-5 border border-stone-200/80">
-                <h3 className="text-base font-bold text-stone-900 mb-2 flex items-center gap-2">
+                <h3 className="text-base font-bold text-brand-dark mb-2 flex items-center gap-2">
                   <UserCheck className="w-4 h-4 text-brand" />
                   1.1 Personal Information
                 </h3>
@@ -127,7 +127,7 @@ export default function PrivacyPolicyPage() {
 
               {/* 1.2 Order Information */}
               <div className="bg-stone-50 rounded-2xl p-5 border border-stone-200/80">
-                <h3 className="text-base font-bold text-stone-900 mb-2 flex items-center gap-2">
+                <h3 className="text-base font-bold text-brand-dark mb-2 flex items-center gap-2">
                   <FileText className="w-4 h-4 text-brand" />
                   1.2 Order Information
                 </h3>
@@ -157,11 +157,11 @@ export default function PrivacyPolicyPage() {
           {/* SECTION 2 */}
           <section id="how-we-use-your-information" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 2
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   How We Use Your Information
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -206,11 +206,11 @@ export default function PrivacyPolicyPage() {
           {/* SECTION 3 */}
           <section id="sharing-your-information" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 3
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Sharing Your Information
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -257,11 +257,11 @@ export default function PrivacyPolicyPage() {
           {/* SECTION 4 */}
           <section id="data-retention" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 4
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Data Retention
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -296,11 +296,11 @@ export default function PrivacyPolicyPage() {
           {/* SECTION 5 */}
           <section id="data-security" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 5
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Data Security
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -325,11 +325,11 @@ export default function PrivacyPolicyPage() {
           {/* SECTION 6 */}
           <section id="your-rights" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 6
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Your Rights
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -365,11 +365,11 @@ export default function PrivacyPolicyPage() {
           {/* SECTION 7 */}
           <section id="changes-to-policy" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 7
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Changes to This Privacy Policy
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -394,11 +394,11 @@ export default function PrivacyPolicyPage() {
           {/* SECTION 8 */}
           <section id="contact-us" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 8
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Contact Us
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -424,7 +424,7 @@ export default function PrivacyPolicyPage() {
                     <span className="text-xs uppercase tracking-wider text-stone-500 font-semibold block">
                       Email
                     </span>
-                    <span className="text-sm font-semibold text-stone-900 group-hover:text-brand transition-colors break-all">
+                    <span className="text-sm font-semibold text-brand-dark group-hover:text-brand transition-colors break-all">
                       mianfaizan3881@gmail.com
                     </span>
                   </div>
@@ -441,7 +441,7 @@ export default function PrivacyPolicyPage() {
                     <span className="text-xs uppercase tracking-wider text-stone-500 font-semibold block">
                       Phone / WhatsApp
                     </span>
-                    <span className="text-sm font-semibold text-stone-900 group-hover:text-brand transition-colors">
+                    <span className="text-sm font-semibold text-brand-dark group-hover:text-brand transition-colors">
                       +92 341 2345061
                     </span>
                   </div>

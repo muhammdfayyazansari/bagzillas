@@ -1,4 +1,3 @@
-import { notFound } from "next/navigation";
 import { SectionContainer } from "@/components/layout/section-container";
 import { ProductImageGallery } from "@/features/storefront/components/product-image-gallery";
 import { ProductInfo } from "@/features/storefront/components/product-info";

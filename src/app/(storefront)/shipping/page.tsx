@@ -18,7 +18,6 @@ import {
   ChevronRight,
   ShieldCheck,
   CheckCircle2,
-  Package,
 } from "lucide-react";
 import { SectionContainer } from "@/components/layout/section-container";
 
@@ -36,11 +35,11 @@ export default function ShippingPolicyPage() {
       <SectionContainer className="max-w-4xl">
         {/* BREADCRUMB */}
         <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-stone-500">
-          <Link href="/" className="hover:text-stone-900 transition-colors">
+          <Link href="/" className="hover:text-brand-dark transition-colors">
             Home
           </Link>
           <ChevronRight className="w-3.5 h-3.5 text-stone-400" />
-          <span className="text-stone-900 font-medium">Shipping Policy</span>
+          <span className="text-brand-dark font-medium">Shipping Policy</span>
         </nav>
 
         {/* HERO / HEADER */}
@@ -53,12 +52,12 @@ export default function ShippingPolicyPage() {
               Nationwide Delivery &amp; Logistics
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-stone-900 tracking-tight font-serif mb-2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight font-serif mb-2">
               Shipping Policy
             </h1>
 
             <p className="text-stone-600 text-base sm:text-lg font-medium mb-3">
-              Shipping Policy for <span className="text-stone-900 font-bold">Bagzillas.com</span>
+              Shipping Policy for <span className="text-brand-dark font-bold">Bagzillas.com</span>
             </p>
 
             <div className="flex flex-wrap items-center gap-3 text-xs text-stone-500 pt-2 border-t border-stone-100">
@@ -72,9 +71,9 @@ export default function ShippingPolicyPage() {
         </div>
 
         {/* WELCOME / SUMMARY BANNER */}
-        <div className="bg-brand/5 border border-brand/20 rounded-2xl p-5 sm:p-6 mb-8 text-stone-800 text-sm sm:text-base leading-relaxed">
+        <div className="bg-brand/5 border border-brand/20 rounded-2xl p-5 sm:p-6 mb-8 text-brand-dark text-sm sm:text-base leading-relaxed">
           <p className="font-medium">
-            At <strong className="text-stone-900">Bagzillas.com</strong>, we are committed to delivering your
+            At <strong className="text-brand-dark">Bagzillas.com</strong>, we are committed to delivering your
             orders safely, quickly, and transparently anywhere across Pakistan. Please review our shipping policy
             below for comprehensive details on dispatch timelines, courier tracking, and delivery expectations.
           </p>
@@ -87,7 +86,7 @@ export default function ShippingPolicyPage() {
               01
             </div>
             <div>
-              <h3 className="text-xs font-bold uppercase tracking-wider text-stone-900 mb-0.5">Order Confirmation</h3>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-brand-dark mb-0.5">Order Confirmation</h3>
               <p className="text-xs text-stone-500">COD orders confirmed via call or WhatsApp message before dispatch</p>
             </div>
           </div>
@@ -96,7 +95,7 @@ export default function ShippingPolicyPage() {
               02
             </div>
             <div>
-              <h3 className="text-xs font-bold uppercase tracking-wider text-stone-900 mb-0.5">Tracking Sent</h3>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-brand-dark mb-0.5">Tracking Sent</h3>
               <p className="text-xs text-stone-500">Courier tracking ID provided via SMS or WhatsApp upon dispatch</p>
             </div>
           </div>
@@ -105,7 +104,7 @@ export default function ShippingPolicyPage() {
               03
             </div>
             <div>
-              <h3 className="text-xs font-bold uppercase tracking-wider text-stone-900 mb-0.5">Doorstep Delivery</h3>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-brand-dark mb-0.5">Doorstep Delivery</h3>
               <p className="text-xs text-stone-500">Delivered within 3–5 business days across all cities in Pakistan</p>
             </div>
           </div>
@@ -117,11 +116,11 @@ export default function ShippingPolicyPage() {
           {/* SECTION 1: ORDER PROCESSING */}
           <section id="order-processing" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 1
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Order Processing
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -135,7 +134,7 @@ export default function ShippingPolicyPage() {
                 <Clock className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <p className="text-stone-700 text-sm">
                   All orders are processed within{" "}
-                  <strong className="text-stone-900 font-semibold underline decoration-brand decoration-2">
+                  <strong className="text-brand-dark font-semibold underline decoration-brand decoration-2">
                     3 to 5 business days
                   </strong>{" "}
                   after confirmation.
@@ -163,11 +162,11 @@ export default function ShippingPolicyPage() {
           {/* SECTION 2: DELIVERY TIME */}
           <section id="delivery-time" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 2
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Delivery Time
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -180,7 +179,7 @@ export default function ShippingPolicyPage() {
               <div className="p-4 rounded-xl bg-emerald-50/60 border border-emerald-200 flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-stone-900 text-sm block">Nationwide Delivery (Pakistan)</span>
+                  <span className="font-bold text-brand-dark text-sm block">Nationwide Delivery (Pakistan)</span>
                   <span className="text-sm text-stone-700 font-medium">
                     3–5 business days
                   </span>
@@ -198,11 +197,11 @@ export default function ShippingPolicyPage() {
           {/* SECTION 3: SHIPPING CHARGES */}
           <section id="shipping-charges" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 3
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Shipping Charges
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -228,11 +227,11 @@ export default function ShippingPolicyPage() {
           {/* SECTION 4: ORDER TRACKING */}
           <section id="order-tracking" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 4
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Order Tracking
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -261,11 +260,11 @@ export default function ShippingPolicyPage() {
           {/* SECTION 5: DELIVERY ATTEMPTS */}
           <section id="delivery-attempts" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 5
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Delivery Attempts
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -275,8 +274,8 @@ export default function ShippingPolicyPage() {
             </div>
 
             <div className="pl-0 sm:pl-11">
-              <div className="p-4 rounded-xl bg-amber-50/60 border border-amber-200/80 space-y-2 text-sm text-stone-800">
-                <p className="font-semibold text-stone-900">
+              <div className="p-4 rounded-xl bg-amber-50/60 border border-amber-200/80 space-y-2 text-sm text-brand-dark">
+                <p className="font-semibold text-brand-dark">
                   Please ensure your contact number and address are correct when placing your order.
                 </p>
                 <p className="text-stone-700">
@@ -291,11 +290,11 @@ export default function ShippingPolicyPage() {
           {/* SECTION 6: DELAYS IN SHIPPING */}
           <section id="delays-in-shipping" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 6
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Delays in Shipping
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -337,11 +336,11 @@ export default function ShippingPolicyPage() {
           {/* SECTION 7: INCORRECT ADDRESS */}
           <section id="incorrect-address" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 7
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Incorrect Address
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -367,11 +366,11 @@ export default function ShippingPolicyPage() {
           {/* SECTION 8: DAMAGED OR MISSING ITEMS */}
           <section id="damaged-or-missing-items" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 8
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Damaged or Missing Items
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -382,15 +381,15 @@ export default function ShippingPolicyPage() {
 
             <div className="pl-0 sm:pl-11">
               <div className="p-5 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-3">
-                <p className="text-sm font-semibold text-stone-900">
+                <p className="text-sm font-semibold text-brand-dark">
                   If your order arrives damaged or incomplete:
                 </p>
-                <ul className="space-y-2 text-sm text-stone-800">
+                <ul className="space-y-2 text-sm text-brand-dark">
                   <li className="flex items-center gap-2.5">
                     <Clock className="w-4 h-4 text-amber-600 shrink-0" />
                     <span>
                       Contact us within{" "}
-                      <strong className="text-stone-900 underline decoration-amber-500">
+                      <strong className="text-brand-dark underline decoration-amber-500">
                         24–48 hours
                       </strong>
                     </span>
@@ -413,11 +412,11 @@ export default function ShippingPolicyPage() {
           {/* SECTION 9: INTERNATIONAL SHIPPING */}
           <section id="international-shipping" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 9
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   International Shipping
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -430,7 +429,7 @@ export default function ShippingPolicyPage() {
               <div className="p-4 rounded-xl bg-stone-50 border border-stone-200 flex items-start gap-3">
                 <Globe2 className="w-5 h-5 text-brand shrink-0 mt-0.5" />
                 <div className="text-sm text-stone-700 space-y-1">
-                  <p className="font-semibold text-stone-900">
+                  <p className="font-semibold text-brand-dark">
                     Currently, we only deliver within Pakistan.
                   </p>
                   <p className="text-stone-600">
@@ -446,11 +445,11 @@ export default function ShippingPolicyPage() {
           {/* SECTION 10: CONTACT US */}
           <section id="contact-us" className="scroll-mt-24">
             <div className="flex items-start gap-3 mb-4">
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-stone-900 font-bold text-sm shrink-0">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-stone-100 text-brand-dark font-bold text-sm shrink-0">
                 10
               </span>
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-stone-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-bold text-brand-dark tracking-tight">
                   Contact Us
                 </h2>
                 <p className="text-stone-500 text-xs sm:text-sm mt-0.5">
@@ -476,7 +475,7 @@ export default function ShippingPolicyPage() {
                     <span className="text-xs uppercase tracking-wider text-stone-500 font-semibold block">
                       Email
                     </span>
-                    <span className="text-sm font-semibold text-stone-900 group-hover:text-brand transition-colors break-all">
+                    <span className="text-sm font-semibold text-brand-dark group-hover:text-brand transition-colors break-all">
                       mianfaizan3881@gmail.com
                     </span>
                   </div>
@@ -493,7 +492,7 @@ export default function ShippingPolicyPage() {
                     <span className="text-xs uppercase tracking-wider text-stone-500 font-semibold block">
                       Phone / WhatsApp
                     </span>
-                    <span className="text-sm font-semibold text-stone-900 group-hover:text-brand transition-colors">
+                    <span className="text-sm font-semibold text-brand-dark group-hover:text-brand transition-colors">
                       03432878749
                     </span>
                   </div>

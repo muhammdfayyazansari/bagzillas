@@ -65,15 +65,15 @@ interface TestimonialsSectionProps {
   data?: TestimonialsSectionContent;
 }
 
-export function TestimonialsSection({ data }: TestimonialsSectionProps) {
+export function TestimonialsSection(_props: TestimonialsSectionProps = {}) {
   return (
     <section className="py-12 sm:py-16 md:py-20 bg-stone-50 border-b border-stone-200">
       <SectionContainer>
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900 mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-brand-dark mb-2">
             What Our Customers Say
           </h2>
-          <p className="text-stone-500 text-xs sm:text-sm md:text-base">
+          <p className="text-brand-neutral-text text-xs sm:text-sm md:text-base">
             Honest feedback from people who carry Bagzillas everyday.
           </p>
         </div>
@@ -101,17 +101,17 @@ export function TestimonialsSection({ data }: TestimonialsSectionProps) {
 
                 {/* USER NAME & VERIFIED BADGE */}
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="font-bold text-stone-900 text-sm">
+                  <span className="font-bold text-brand-dark text-sm">
                     {review.name}
                   </span>
-                  <span className="inline-flex items-center gap-1 text-[11px] text-stone-500 italic">
-                    <Check className="h-3 w-3 text-stone-400 stroke-[3]" />
+                  <span className="inline-flex items-center gap-1 text-[11px] text-brand-neutral-text italic">
+                    <Check className="h-3 w-3 text-brand-neutral-text/60 stroke-[3]" />
                     Verified Buyer
                   </span>
                 </div>
 
                 {/* QUOTE */}
-                <p className="text-stone-700 text-xs sm:text-sm leading-relaxed mb-5">
+                <p className="text-brand-dark text-xs sm:text-sm leading-relaxed mb-5">
                   {review.comment}
                 </p>
               </div>
@@ -131,7 +131,7 @@ export function TestimonialsSection({ data }: TestimonialsSectionProps) {
                 <div className="flex-1 min-w-0">
                   <Link
                     href={`/products/${review.productSlug}`}
-                    className="text-xs font-semibold text-stone-900 hover:text-brand line-clamp-1 block transition-colors"
+                    className="text-xs font-semibold text-brand-dark hover:text-brand line-clamp-1 block transition-colors"
                   >
                     {review.productName}
                   </Link>

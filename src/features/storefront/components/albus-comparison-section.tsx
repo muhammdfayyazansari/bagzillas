@@ -40,23 +40,23 @@ export function AlbusComparisonSection() {
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark leading-none mb-2">
             Why Bagzillas?
           </h2>
-          <p className="font-sans text-xs sm:text-sm md:text-base text-[#5E5149]">
+          <p className="font-sans text-xs sm:text-sm md:text-base text-brand-neutral-text">
             See how Bagzillas compares to ordinary bags.
           </p>
         </div>
 
         {/* COMPARISON TABLE */}
-        <div className="max-w-4xl mx-auto overflow-hidden rounded-xl sm:rounded-2xl bg-white border border-brand-border shadow-[0_10px_30px_rgba(111,71,45,0.12)]">
+        <div className="max-w-4xl mx-auto overflow-hidden rounded-xl sm:rounded-2xl bg-white border border-brand-border shadow-[0_10px_30px_rgba(36,61,76,0.08)]">
           <table className="w-full border-collapse table-fixed text-center font-sans">
             <thead>
               <tr className="border-b border-brand-border">
-                <th className="w-[30%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-semibold text-[#382A22] bg-white border-r border-brand-border">
+                <th className="w-[30%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-semibold text-brand-dark bg-white border-r border-brand-border">
                   Features
                 </th>
                 <th className="w-[35%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-bold text-white bg-brand-gradient border-r border-brand-border shadow-xs">
                   Bagzillas
                 </th>
-                <th className="w-[35%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-semibold text-[#382A22] bg-white">
+                <th className="w-[35%] py-3.5 sm:py-4 px-2 sm:px-4 text-[11px] sm:text-sm font-semibold text-brand-dark bg-white">
                   Ordinary Bags
                 </th>
               </tr>
@@ -67,13 +67,13 @@ export function AlbusComparisonSection() {
                   key={row.feature}
                   className={idx !== COMPARISON_ROWS.length - 1 ? "border-b border-brand-border" : ""}
                 >
-                  <td className="py-3 sm:py-4 px-2 sm:px-4 text-[10.5px] sm:text-sm font-medium text-[#382A22] bg-white border-r border-brand-border">
+                  <td className="py-3 sm:py-4 px-2 sm:px-4 text-[10.5px] sm:text-sm font-medium text-brand-dark bg-white border-r border-brand-border">
                     {row.feature}
                   </td>
                   <td className="py-3 sm:py-4 px-2 sm:px-4 text-[10.5px] sm:text-sm font-semibold text-brand-dark bg-brand-light border-r border-brand-border">
                     {row.bagzillas}
                   </td>
-                  <td className="py-3 sm:py-4 px-2 sm:px-4 text-[10.5px] sm:text-sm text-[#736357] bg-white">
+                  <td className="py-3 sm:py-4 px-2 sm:px-4 text-[10.5px] sm:text-sm text-brand-neutral-text bg-white">
                     {row.ordinary}
                   </td>
                 </tr>

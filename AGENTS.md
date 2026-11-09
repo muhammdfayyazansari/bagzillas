@@ -567,6 +567,24 @@ This file must always stay updated so future AI/dev agents can continue seamless
     - `--brand-border: #DCE5EE` and `--brand-border-strong: #2F4A63`
   - Added utility classes `bg-brand-gradient`, `hover:bg-brand-hover-gradient`, `.btn-primary`, and `.btn-outline`.
   - Applied gradient styling to primary interactive elements across the storefront: Hero "Shop Now" button, Hero slide indicator, Brand Message tagline badge, scrolling announcement ticker, Story "Carry Essentials" CTA, Story bundle pill, comparison table header, product card badges/quick-add, newsletter button, contact form button, and mobile nav active tab.
+- Step 19 Text Color (#243D4C) & Contrast Accent (#77AC28) Integration
+  - Set primary site-wide text color and headings to `#243D4C` (`--foreground: #243D4C;`, `--brand-dark: #243D4C;`).
+  - Set secondary text copy to `#3B586B` (`--brand-neutral-text`).
+  - Added contrast accent tokens in `src/app/globals.css`:
+    - `--brand-accent: #77AC28;`
+    - `--brand-accent-hover: #639220;`
+    - `--brand-accent-light: #F0F7E6;`
+    - `--brand-accent-foreground: #ffffff;`
+    - Mapped to Tailwind v4 `@theme inline` (`text-brand-accent`, `bg-brand-accent`, etc.).
+  - Applied `#77AC28` across key high-contrast elements:
+    - Story section feature checklist checkmarks (`CheckCircle2`).
+    - Promo bundle "Limited Bundle" label and "Offer Active" badge.
+    - Product card "Sale" discount badge.
+    - Navbar top ticker authenticity (`ShieldCheck`) and shipping (`Truck`) guarantee icons.
+- Step 20 Site-Wide Text Color (#243D4C) Architecture
+  - Overrode base typography in `src/app/globals.css` ensuring `body`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6` automatically inherit `#243D4C` (`color: var(--brand-dark);`).
+  - Mapped stone colors in `@theme inline` (`--color-stone-900: var(--brand-dark);`, `--color-stone-800: var(--brand-dark);`, `--color-stone-700: var(--brand-dark);`).
+  - Refactored storefront components (`featured-products-section.tsx`, `product-card.tsx`, `albus-story-section.tsx`, `albus-comparison-section.tsx`, `testimonials-section.tsx`, `trust-section.tsx`, `albus-faq-section.tsx`, `navbar.tsx`, and all policy pages) to use `text-brand-dark` (`#243D4C`) and `text-brand-neutral-text` (`#3B586B`).
 
 ### Pending
 

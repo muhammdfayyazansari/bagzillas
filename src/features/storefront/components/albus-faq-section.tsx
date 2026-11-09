@@ -37,10 +37,10 @@ export function AlbusFaqSection() {
         <div className="max-w-3xl mx-auto">
           {/* HEADER MATCHING ALBUS EXACTLY */}
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-stone-900 mb-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-brand-dark mb-2">
               Frequently asked questions
             </h2>
-            <p className="text-stone-500 text-xs sm:text-sm md:text-base">
+            <p className="text-brand-neutral-text text-xs sm:text-sm md:text-base">
               Find answers to common questions about our products and services.
             </p>
           </div>
@@ -60,7 +60,7 @@ export function AlbusFaqSection() {
                     className="w-full py-4 px-4 sm:py-5 sm:px-6 flex items-center justify-between text-left gap-4 cursor-pointer select-none"
                     aria-expanded={isOpen}
                   >
-                    <span className="text-sm sm:text-base font-semibold text-stone-900 leading-snug">
+                    <span className="text-sm sm:text-base font-semibold text-brand-dark leading-snug">
                       {faq.question}
                     </span>
                     <ChevronDown
@@ -78,7 +78,7 @@ export function AlbusFaqSection() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2, ease: "easeInOut" }}
                       >
-                        <div className="px-4 pb-4 sm:px-6 sm:pb-5 pt-0 text-xs sm:text-sm text-stone-600 leading-relaxed border-t border-stone-100">
+                        <div className="px-4 pb-4 sm:px-6 sm:pb-5 pt-0 text-xs sm:text-sm text-brand-dark leading-relaxed border-t border-stone-100">
                           {faq.answer}
                         </div>
                       </motion.div>

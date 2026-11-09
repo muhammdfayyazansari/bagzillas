@@ -52,6 +52,16 @@
   --color-brand-foreground: var(--brand-foreground);
   --color-brand-neutral-text: var(--brand-neutral-text);
   --color-brand-section-bg: var(--brand-section-bg);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-accent-hover: var(--brand-accent-hover);
+  --color-brand-accent-light: var(--brand-accent-light);
+  --color-brand-accent-foreground: var(--brand-accent-foreground);
+
+  /* Unified Typography Palette overrides (#243D4C) */
+  --color-stone-900: var(--brand-dark);
+  --color-stone-800: var(--brand-dark);
+  --color-stone-700: var(--brand-dark);
+  --color-stone-600: var(--brand-neutral-text);
 
   /* Background image gradient utilities for Tailwind v4 */
   --background-image-brand-gradient: var(--brand-gradient);
@@ -82,7 +92,7 @@
 
 :root {
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: #243D4C;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -133,18 +143,24 @@
   --brand-active-gradient: linear-gradient(90deg, hsl(208, 54%, 46%) 0%, hsl(208, 48%, 34%) 100%);
 
   /* Neutrals & Roles */
-  --brand-dark: #111D2B;               /* Headings & titles (deep navy-black) */
+  --brand-dark: #243D4C;               /* Headings & titles (deep slate-teal) */
   --brand-light: #EAF2FA;              /* Light ice-blue surface tint */
   --brand-border: #DCE5EE;             /* Dividers & soft borders */
   --brand-border-strong: #2F4A63;      /* Crisp borders */
   --brand-foreground: #ffffff;         /* Text on brand gradient/fill */
-  --brand-neutral-text: #5B6B7B;       /* Secondary copy */
+  --brand-neutral-text: #3B586B;       /* Secondary copy (refined slate-teal) */
   --brand-section-bg: #F5F8FB;         /* Section background tint */
+
+  /* Contrast Accent (#77AC28) */
+  --brand-accent: #77AC28;             /* Vibrant contrast green */
+  --brand-accent-hover: #639220;       /* Darker hover state */
+  --brand-accent-light: #F0F7E6;       /* Soft mint background tint */
+  --brand-accent-foreground: #ffffff;  /* Text on top of accent fill */
 }
 
 .dark {
   --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
+  --foreground: #E2ECF2;
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
@@ -184,13 +200,17 @@
   --brand-hover-gradient: linear-gradient(90deg, hsl(208, 54%, 46%) 0%, hsl(208, 48%, 36%) 100%);
   --brand-active: #326A9C;
   --brand-active-gradient: linear-gradient(90deg, hsl(208, 54%, 42%) 0%, hsl(208, 48%, 32%) 100%);
-  --brand-dark: #F5F8FB;
+  --brand-dark: #E2ECF2;
   --brand-light: #162436;
   --brand-border: #233952;
   --brand-border-strong: #3D79AF;
   --brand-foreground: #ffffff;
-  --brand-neutral-text: #9FB2C4;
+  --brand-neutral-text: #96B1C2;
   --brand-section-bg: #0D1622;
+  --brand-accent: #8CCE31;
+  --brand-accent-hover: #77AC28;
+  --brand-accent-light: #1A2E0C;
+  --brand-accent-foreground: #0E1B07;
 }
 
 @layer base {
@@ -199,6 +219,10 @@
   }
   body {
     @apply bg-background text-foreground;
+    color: var(--brand-dark);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--brand-dark);
   }
   html {
     @apply font-sans;
